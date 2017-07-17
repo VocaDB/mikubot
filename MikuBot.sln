@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MikuBot", "MikuBot\MikuBot.csproj", "{AF76E17E-0302-4F8B-B251-44EAF3D1942B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotCore", "BotCore\BotCore.csproj", "{3C82A4CF-9979-440C-A03E-EE3BB2B0BFBC}"
@@ -10,8 +12,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VocaDBConnector", "VocaVoterConnector\VocaDBConnector.csproj", "{12D6A8AC-FE9B-4391-B60B-4730039FB7E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbPlugins", "DbPlugins\DbPlugins.csproj", "{0A56310E-81C4-45E8-9217-55468FB6DD4F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MikuBotGui", "MikuBotGui\MikuBotGui.csproj", "{773ABB53-C3B4-4F2C-BBD7-CB770DAD6417}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminModules", "HelpPrinter\AdminModules.csproj", "{D3C90CC8-8431-4F38-A192-E7DF1D132C82}"
 EndProject
@@ -77,16 +77,6 @@ Global
 		{0A56310E-81C4-45E8-9217-55468FB6DD4F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{0A56310E-81C4-45E8-9217-55468FB6DD4F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0A56310E-81C4-45E8-9217-55468FB6DD4F}.Release|x86.ActiveCfg = Release|Any CPU
-		{773ABB53-C3B4-4F2C-BBD7-CB770DAD6417}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{773ABB53-C3B4-4F2C-BBD7-CB770DAD6417}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{773ABB53-C3B4-4F2C-BBD7-CB770DAD6417}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{773ABB53-C3B4-4F2C-BBD7-CB770DAD6417}.Debug|x86.ActiveCfg = Debug|x86
-		{773ABB53-C3B4-4F2C-BBD7-CB770DAD6417}.Debug|x86.Build.0 = Debug|x86
-		{773ABB53-C3B4-4F2C-BBD7-CB770DAD6417}.Release|Any CPU.ActiveCfg = Release|x86
-		{773ABB53-C3B4-4F2C-BBD7-CB770DAD6417}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{773ABB53-C3B4-4F2C-BBD7-CB770DAD6417}.Release|Mixed Platforms.Build.0 = Release|x86
-		{773ABB53-C3B4-4F2C-BBD7-CB770DAD6417}.Release|x86.ActiveCfg = Release|x86
-		{773ABB53-C3B4-4F2C-BBD7-CB770DAD6417}.Release|x86.Build.0 = Release|x86
 		{D3C90CC8-8431-4F38-A192-E7DF1D132C82}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{D3C90CC8-8431-4F38-A192-E7DF1D132C82}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{D3C90CC8-8431-4F38-A192-E7DF1D132C82}.Debug|Mixed Platforms.Build.0 = Debug|x86
