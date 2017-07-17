@@ -1,0 +1,17 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")" type="text/javascript"></script>
+	@Styles.Render("~/Content/bootstrap")
+	@Scripts.Render("~/bundles/bootstrap")
+</head>
+
+<body>
+	<div class="container-fluid">
+	    @RenderBody()
+	</div>
+</body>
+</html>

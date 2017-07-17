@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{12D6A8AC-FE9B-4391-B60B-4730039FB7E8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MikuBot.VocaDBConnector</RootNamespace>
+    <AssemblyName>MikuBot.VocaDBConnector</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NicoApiClient">
+      <HintPath>..\Libs\NicoApiClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Albumdetails.cs" />
+    <Compile Include="AlbumSearch.cs" />
+    <Compile Include="AlbumSearchAdvanced.cs" />
+    <Compile Include="Artistdetails.cs" />
+    <Compile Include="ArtistSearch.cs" />
+    <Compile Include="Helpers\EntryFormattingHelper.cs" />
+    <Compile Include="Helpers\PluginHelper.cs" />
+    <Compile Include="Helpers\SearchHelper.cs" />
+    <Compile Include="Helpers\VideoService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PV.cs" />
+    <Compile Include="Service References\VocaDbServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Sing.cs" />
+    <Compile Include="PVVocaDBAdvertiser.cs" />
+    <Compile Include="SongSearch.cs" />
+    <Compile Include="SongDetails.cs" />
+    <Compile Include="TagDetails.cs" />
+    <Compile Include="VocaDbAuth.cs" />
+    <Compile Include="VocaDBConfig.cs" />
+    <Compile Include="VocaDbParser.cs" />
+    <Compile Include="VocaDbSearch.cs" />
+    <Compile Include="VocaTubeParser.cs" />
+    <Compile Include="VocaVoterConnectorFile.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BotCore\BotCore.csproj">
+      <Project>{3C82A4CF-9979-440C-A03E-EE3BB2B0BFBC}</Project>
+      <Name>BotCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Service References\VocaDbServices\MikuBot.VocaDBConnector.VocaDbServices.AlbumContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VocaDbServices\MikuBot.VocaDBConnector.VocaDbServices.AlbumDetailsContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VocaDbServices\MikuBot.VocaDBConnector.VocaDbServices.ArtistDetailsContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VocaDbServices\MikuBot.VocaDBConnector.VocaDbServices.ArtistForApiContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VocaDbServices\MikuBot.VocaDBConnector.VocaDbServices.LyricsForSongContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VocaDbServices\MikuBot.VocaDBConnector.VocaDbServices.NewSongCheckResultContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VocaDbServices\MikuBot.VocaDBConnector.VocaDbServices.PartialFindResultOfAlbumContractZKwwigZK.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VocaDbServices\MikuBot.VocaDBConnector.VocaDbServices.PartialFindResultOfArtistContractZKwwigZK.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VocaDbServices\MikuBot.VocaDBConnector.VocaDbServices.PartialFindResultOfEntryForApiContractZKwwigZK.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VocaDbServices\MikuBot.VocaDBConnector.VocaDbServices.PartialFindResultOfSongWithAlbumAndPVsContractoTF1Br6_P.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VocaDbServices\MikuBot.VocaDBConnector.VocaDbServices.SongDetailsContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VocaDbServices\MikuBot.VocaDBConnector.VocaDbServices.SongListContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VocaDbServices\MikuBot.VocaDBConnector.VocaDbServices.SongWithAlbumContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VocaDbServices\MikuBot.VocaDBConnector.VocaDbServices.TagContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VocaDbServices\MikuBot.VocaDBConnector.VocaDbServices.UserContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\VocaDbServices\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VocaDbServices\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VocaDbServices\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VocaDbServices\QueryService.wsdl" />
+    <None Include="Service References\VocaDbServices\QueryService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VocaDbServices\QueryService1.wsdl" />
+    <None Include="Service References\VocaDbServices\QueryService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VocaDbServices\QueryService10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VocaDbServices\QueryService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VocaDbServices\QueryService12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VocaDbServices\QueryService13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VocaDbServices\QueryService14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VocaDbServices\QueryService15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VocaDbServices\QueryService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VocaDbServices\QueryService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VocaDbServices\QueryService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VocaDbServices\QueryService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VocaDbServices\QueryService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VocaDbServices\QueryService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VocaDbServices\QueryService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VocaDbServices\QueryService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VocaDbServices\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VocaDbServices\QueryService.disco" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy MikuBot.VocaDBConnector.dll ..\..\..\MikuBot\bin\debug\</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3C82A4CF-9979-440C-A03E-EE3BB2B0BFBC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MikuBot</RootNamespace>
+    <AssemblyName>MikuBot.BotCore</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\Libs\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BotCommand.cs" />
+    <Compile Include="BotHelper.cs" />
+    <Compile Include="BotUserLevel.cs" />
+    <Compile Include="CaseInsensitiveStringComparer.cs" />
+    <Compile Include="ChannelEventArgs.cs" />
+    <Compile Include="ChannelStatus.cs" />
+    <Compile Include="CmdReader.cs" />
+    <Compile Include="Commands\InviteCommand.cs" />
+    <Compile Include="Commands\IrcCommandEventArgs.cs" />
+    <Compile Include="Commands\JoinCommand.cs" />
+    <Compile Include="Commands\KickCommand.cs" />
+    <Compile Include="Commands\KillMessage.cs" />
+    <Compile Include="Commands\MsgCommand.cs" />
+    <Compile Include="Commands\NickMessage.cs" />
+    <Compile Include="Commands\NumericReply.cs" />
+    <Compile Include="Commands\Numeric\WhoReply.cs" />
+    <Compile Include="Commands\PartMessage.cs" />
+    <Compile Include="Commands\PingCommand.cs" />
+    <Compile Include="Commands\QuitMessage.cs" />
+    <Compile Include="Helpers\StringExtensions.cs" />
+    <Compile Include="Helpers\TaskHelper.cs" />
+    <Compile Include="Helpers\ParseHelper.cs" />
+    <Compile Include="Hostmask.cs" />
+    <Compile Include="HostmaskHostnameEqualityComparer.cs" />
+    <Compile Include="IChannelManager.cs" />
+    <Compile Include="IConfig.cs" />
+    <Compile Include="IIgnoredNickList.cs" />
+    <Compile Include="LinkParsing\RegexLinkMatcher.cs" />
+    <Compile Include="Modules\IModuleManager.cs" />
+    <Compile Include="INickManager.cs" />
+    <Compile Include="IrcName.cs" />
+    <Compile Include="IReadOnlyUserCollection.cs" />
+    <Compile Include="LogReaders\IIrcLogReader.cs" />
+    <Compile Include="LogReaders\IrcLogLine.cs" />
+    <Compile Include="logReceiver.cs" />
+    <Compile Include="EnumVal.cs" />
+    <Compile Include="Formatting.cs" />
+    <Compile Include="Helpers\HtmlUtils.cs" />
+    <Compile Include="CooldownTimer.cs" />
+    <Compile Include="Security\IAuthenticator.cs" />
+    <Compile Include="IBotContext.cs" />
+    <Compile Include="IReceiver.cs" />
+    <Compile Include="Modules\GenericModuleBase.cs" />
+    <Compile Include="Modules\IGenericModule.cs" />
+    <Compile Include="Modules\IModule.cs" />
+    <Compile Include="Commands\IrcCommand.cs" />
+    <Compile Include="IrcWriter.cs" />
+    <Compile Include="Modules\IModuleFile.cs" />
+    <Compile Include="Modules\InitialModuleStatus.cs" />
+    <Compile Include="Modules\ModuleBase.cs" />
+    <Compile Include="Modules\IMsgCommandModule.cs" />
+    <Compile Include="Modules\ModuleFileBase.cs" />
+    <Compile Include="Modules\MsgCommandModuleBase.cs" />
+    <Compile Include="ParamCollection.cs" />
+    <Compile Include="ParamIs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Receiver.cs" />
+    <Compile Include="ReplyCode.cs" />
+    <Compile Include="Security\AuthKey.cs" />
+    <Compile Include="UserCollection.cs" />
+    <Compile Include="UserData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Temp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,77 @@
+﻿@using MikuBot.DbModel.DataContracts
+@using MikuBot.Site.Helpers
+@model MikuBot.Site.Models.Channel.ChannelLinks
+
+@{
+	ViewBag.Title = "MikuBot links for " + Model.Channel;	
+}
+
+@helper Pager() {
+	
+	<ul class="pager">
+		@if (Model.Page > 0) {
+		<li>@Html.ActionLink("Previous page", "Links", new { id = Model.Channel, nick = Model.Nick, page = Model.Page })</li>
+		} else {
+		<li class="disabled"><a href="#">Previous page</a></li>	
+		}
+		<li>@Html.ActionLink("Next page", "Links", new { id = Model.Channel, nick = Model.Nick, page = Model.Page + 2 })</li>
+	</ul>	
+
+}
+
+<div class="row-fluid">
+	
+<div class="span12">
+	
+	<div class="navbar">
+		<div class="navbar-inner">
+			<span class="brand">MikuBot links for #@Model.Channel - Page @(Model.Page + 1)</span>
+			<form class="navbar-form form-inline pull-right">
+				<input type="text" maxlength="100" class="input-large" placeholder="Filter by user" value="@Model.Nick" name="Nick" />
+				<button type="submit" class="btn btn-primary">Apply</button>
+				<a class="btn" href="@Url.Action("Links", new { channel = Model.Channel })">Clear</a>
+			</form>
+		</div>
+	</div>
+
+@Pager()
+	
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Timestamp</th>
+			<th>Nick</th>
+			<th>Preview</th>
+			<th>Line</th>
+		</tr>
+	</thead>
+	<tbody>
+	@foreach (var record in Model.Links) {
+		<tr>
+			<td title="UTC">@record.Date.ToUniversalTime()</td>
+			<td>
+				@Html.ActionLink(record.Nick.Name, "Links", new { nick = record.Nick.Name })
+			</td>
+			<td class="linkPreview">
+				<a href="@record.Url">
+					@{ var imageUrl = LinkRecordHelper.GetImageUrl(Url, record); }
+					@if (!string.IsNullOrEmpty(imageUrl)) {
+						<img style="max-height: 250px; max-width: 250px" src="@imageUrl" alt="pic" /><br />
+					}
+				</a>				
+			</td>
+			<td class="linkUrl">
+				@LinkRecordHelper.GetParsedHtmlString(record.Description)				
+			</td>
+		</tr>
+	}	
+	</tbody>
+</table>
+
+<br />
+
+@Pager()
+	
+</div>
+	
+</div>

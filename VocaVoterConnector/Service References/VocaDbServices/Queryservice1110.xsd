@@ -1,0 +1,1076 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://vocaloid.eu/schemas/VocaDb" elementFormDefault="qualified" targetNamespace="http://vocaloid.eu/schemas/VocaDb" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:39390/Services/Queryservice.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Service" />
+  <xs:import schemaLocation="http://localhost:39390/Services/Queryservice.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Albums" />
+  <xs:import schemaLocation="http://localhost:39390/Services/Queryservice.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" />
+  <xs:import schemaLocation="http://localhost:39390/Services/Queryservice.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" />
+  <xs:import schemaLocation="http://localhost:39390/Services/Queryservice.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.PVs" />
+  <xs:import schemaLocation="http://localhost:39390/Services/Queryservice.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Songs" />
+  <xs:import schemaLocation="http://localhost:39390/Services/Queryservice.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Songs" />
+  <xs:import schemaLocation="http://localhost:39390/Services/Queryservice.svc?xsd=xsd9" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:39390/Services/Queryservice.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" />
+  <xs:import schemaLocation="http://localhost:39390/Services/Queryservice.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users" />
+  <xs:import schemaLocation="http://localhost:39390/Services/Queryservice.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Artists" />
+  <xs:import schemaLocation="http://localhost:39390/Services/Queryservice.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts" />
+  <xs:element name="FindAlbums">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="maxResults" type="xs:int" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/VocaDb.Model.Service" minOccurs="0" name="nameMatchMode" type="q1:NameMatchMode" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/VocaDb.Model.Service" minOccurs="0" name="sort" type="q2:AlbumSortRule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindAlbumsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FindAlbumsResult" nillable="true" type="tns:PartialFindResultOfAlbumContractZKwwigZK" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="PartialFindResultOfAlbumContractZKwwigZK">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PartialFindResultOf{0}{#}" Namespace="http://vocaloid.eu/schemas/VocaDb" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="AlbumContract" Namespace="http://vocaloid.eu/schemas/VocaDb" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FoundExactMatch" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfAlbumContract" />
+      <xs:element minOccurs="0" name="Term" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PartialFindResultOfAlbumContractZKwwigZK" nillable="true" type="tns:PartialFindResultOfAlbumContractZKwwigZK" />
+  <xs:complexType name="ArrayOfAlbumContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlbumContract" nillable="true" type="tns:AlbumContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlbumContract" nillable="true" type="tns:ArrayOfAlbumContract" />
+  <xs:complexType name="AlbumContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalNames" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArtistString" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CoverPictureMime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Albums" minOccurs="0" name="DiscType" type="q3:DiscType" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RatingAverage" type="xs:double" />
+      <xs:element minOccurs="0" name="RatingCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ReleaseDate" nillable="true" type="tns:OptionalDateTimeContract" />
+      <xs:element minOccurs="0" name="ReleaseEvent" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="Status" type="q4:EntryStatus" />
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlbumContract" nillable="true" type="tns:AlbumContract" />
+  <xs:complexType name="OptionalDateTimeContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Day" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Formatted" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsEmpty" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Month" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Year" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OptionalDateTimeContract" nillable="true" type="tns:OptionalDateTimeContract" />
+  <xs:element name="FindAlbumsAdvanced">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="maxResults" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindAlbumsAdvancedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FindAlbumsAdvancedResult" nillable="true" type="tns:PartialFindResultOfAlbumContractZKwwigZK" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindAll">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="maxResults" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FindAllResult" nillable="true" type="tns:AllEntriesSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="AllEntriesSearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Albums" nillable="true" type="tns:PartialFindResultOfAlbumContractZKwwigZK" />
+      <xs:element minOccurs="0" name="Artists" nillable="true" type="tns:PartialFindResultOfArtistContractZKwwigZK" />
+      <xs:element minOccurs="0" name="Query" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Songs" nillable="true" type="tns:PartialFindResultOfSongWithAlbumContractZKwwigZK" />
+      <xs:element minOccurs="0" name="Tags" nillable="true" type="tns:PartialFindResultOfTagContractZKwwigZK" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AllEntriesSearchResult" nillable="true" type="tns:AllEntriesSearchResult" />
+  <xs:complexType name="PartialFindResultOfArtistContractZKwwigZK">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PartialFindResultOf{0}{#}" Namespace="http://vocaloid.eu/schemas/VocaDb" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArtistContract" Namespace="http://vocaloid.eu/schemas/VocaDb" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FoundExactMatch" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfArtistContract" />
+      <xs:element minOccurs="0" name="Term" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PartialFindResultOfArtistContractZKwwigZK" nillable="true" type="tns:PartialFindResultOfArtistContractZKwwigZK" />
+  <xs:complexType name="ArrayOfArtistContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArtistContract" nillable="true" type="tns:ArtistContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArtistContract" nillable="true" type="tns:ArrayOfArtistContract" />
+  <xs:complexType name="ArtistContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalNames" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="ArtistType" type="q5:ArtistType" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PictureMime" nillable="true" type="xs:string" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="Status" type="q6:EntryStatus" />
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArtistContract" nillable="true" type="tns:ArtistContract" />
+  <xs:complexType name="PartialFindResultOfSongWithAlbumContractZKwwigZK">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PartialFindResultOf{0}{#}" Namespace="http://vocaloid.eu/schemas/VocaDb" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="SongWithAlbumContract" Namespace="http://vocaloid.eu/schemas/VocaDb" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FoundExactMatch" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfSongWithAlbumContract" />
+      <xs:element minOccurs="0" name="Term" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PartialFindResultOfSongWithAlbumContractZKwwigZK" nillable="true" type="tns:PartialFindResultOfSongWithAlbumContractZKwwigZK" />
+  <xs:complexType name="ArrayOfSongWithAlbumContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SongWithAlbumContract" nillable="true" type="tns:SongWithAlbumContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSongWithAlbumContract" nillable="true" type="tns:ArrayOfSongWithAlbumContract" />
+  <xs:complexType name="SongWithAlbumContract">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SongContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Album" nillable="true" type="tns:AlbumContract" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SongWithAlbumContract" nillable="true" type="tns:SongWithAlbumContract" />
+  <xs:complexType name="SongContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalNames" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArtistString" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FavoritedTimes" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LengthSeconds" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NicoId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.PVs" minOccurs="0" name="PVServices" type="q7:PVServices" />
+      <xs:element minOccurs="0" name="RatingScore" type="xs:int" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Songs" minOccurs="0" name="SongType" type="q8:SongType" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="Status" type="q9:EntryStatus" />
+      <xs:element minOccurs="0" name="ThumbUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SongContract" nillable="true" type="tns:SongContract" />
+  <xs:complexType name="PartialFindResultOfTagContractZKwwigZK">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PartialFindResultOf{0}{#}" Namespace="http://vocaloid.eu/schemas/VocaDb" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TagContract" Namespace="http://vocaloid.eu/schemas/VocaDb" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FoundExactMatch" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfTagContract" />
+      <xs:element minOccurs="0" name="Term" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PartialFindResultOfTagContractZKwwigZK" nillable="true" type="tns:PartialFindResultOfTagContractZKwwigZK" />
+  <xs:complexType name="ArrayOfTagContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TagContract" nillable="true" type="tns:TagContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTagContract" nillable="true" type="tns:ArrayOfTagContract" />
+  <xs:complexType name="TagContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AliasedTo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Parent" nillable="true" type="xs:string" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="Status" type="q10:EntryStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TagContract" nillable="true" type="tns:TagContract" />
+  <xs:element name="FindArtists">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="maxResults" type="xs:int" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/VocaDb.Model.Service" minOccurs="0" name="nameMatchMode" type="q11:NameMatchMode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindArtistsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FindArtistsResult" nillable="true" type="tns:PartialFindResultOfArtistContractZKwwigZK" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindSongs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="maxResults" type="xs:int" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/VocaDb.Model.Service" minOccurs="0" name="nameMatchMode" type="q12:NameMatchMode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindSongsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FindSongsResult" nillable="true" type="tns:PartialFindResultOfSongWithAlbumAndPVsContractoTF1Br6_P" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="PartialFindResultOfSongWithAlbumAndPVsContractoTF1Br6_P">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PartialFindResultOf{0}{#}" Namespace="http://vocaloid.eu/schemas/VocaDb" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="SongWithAlbumAndPVsContract" Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Songs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FoundExactMatch" type="xs:boolean" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Songs" minOccurs="0" name="Items" nillable="true" type="q13:ArrayOfSongWithAlbumAndPVsContract" />
+      <xs:element minOccurs="0" name="Term" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PartialFindResultOfSongWithAlbumAndPVsContractoTF1Br6_P" nillable="true" type="tns:PartialFindResultOfSongWithAlbumAndPVsContractoTF1Br6_P" />
+  <xs:complexType name="ArrayOfPVContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PVContract" nillable="true" type="tns:PVContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPVContract" nillable="true" type="tns:ArrayOfPVContract" />
+  <xs:complexType name="PVContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Length" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PVId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.PVs" minOccurs="0" name="PVType" type="q14:PVType" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.PVs" minOccurs="0" name="Service" type="q15:PVService" />
+      <xs:element minOccurs="0" name="ThumbUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PVContract" nillable="true" type="tns:PVContract" />
+  <xs:element name="FindTags">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="maxResults" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindTagsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FindTagsResult" nillable="true" type="q16:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlbumDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/VocaDb.Model.Service" minOccurs="0" name="sort" type="q17:AlbumSortRule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlbumDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAlbumDetailsResult" nillable="true" type="tns:AlbumContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlbumById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlbumByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAlbumByIdResult" nillable="true" type="tns:AlbumDetailsContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="AlbumDetailsContract">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AlbumContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AlbumForUser" nillable="true" type="tns:AlbumForUserContract" />
+          <xs:element minOccurs="0" name="ArtistLinks" nillable="true" type="tns:ArrayOfArtistForAlbumContract" />
+          <xs:element minOccurs="0" name="CommentCount" type="xs:int" />
+          <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="Description" nillable="true" type="q18:EnglishTranslatedString" />
+          <xs:element minOccurs="0" name="Hits" type="xs:int" />
+          <xs:element minOccurs="0" name="LatestComments" nillable="true" type="tns:ArrayOfCommentContract" />
+          <xs:element minOccurs="0" name="MergedTo" nillable="true" type="tns:AlbumContract" />
+          <xs:element minOccurs="0" name="OriginalRelease" nillable="true" type="tns:AlbumReleaseContract" />
+          <xs:element minOccurs="0" name="OwnedCount" type="xs:int" />
+          <xs:element minOccurs="0" name="PVs" nillable="true" type="tns:ArrayOfPVContract" />
+          <xs:element minOccurs="0" name="Pictures" nillable="true" type="tns:ArrayOfEntryPictureFileContract" />
+          <xs:element minOccurs="0" name="Songs" nillable="true" type="tns:ArrayOfSongInAlbumContract" />
+          <xs:element minOccurs="0" name="Tags" nillable="true" type="tns:ArrayOfTagUsageContract" />
+          <xs:element minOccurs="0" name="WebLinks" nillable="true" type="tns:ArrayOfWebLinkContract" />
+          <xs:element minOccurs="0" name="WishlistCount" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AlbumDetailsContract" nillable="true" type="tns:AlbumDetailsContract" />
+  <xs:complexType name="AlbumForUserContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Album" nillable="true" type="tns:AlbumContract" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users" minOccurs="0" name="MediaType" type="q19:MediaType" />
+      <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users" minOccurs="0" name="PurchaseStatus" type="q20:PurchaseStatus" />
+      <xs:element minOccurs="0" name="Rating" type="xs:int" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:UserContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlbumForUserContract" nillable="true" type="tns:AlbumForUserContract" />
+  <xs:complexType name="UserContract">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:UserWithEmailContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AnonymousActivity" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Culture" nillable="true" type="xs:string" />
+          <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="DefaultLanguageSelection" type="q21:ContentLanguagePreference" />
+          <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users" minOccurs="0" name="EmailOptions" type="q22:UserEmailOptions" />
+          <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users" minOccurs="0" name="GroupId" type="q23:UserGroupId" />
+          <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string" />
+          <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.PVs" minOccurs="0" name="PreferredVideoService" type="q24:PVService" />
+          <xs:element minOccurs="0" name="PublicAlbumCollection" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserContract" nillable="true" type="tns:UserContract" />
+  <xs:complexType name="UserWithEmailContract">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:UserBaseContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserWithEmailContract" nillable="true" type="tns:UserWithEmailContract" />
+  <xs:complexType name="UserBaseContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserBaseContract" nillable="true" type="tns:UserBaseContract" />
+  <xs:complexType name="ArrayOfArtistForAlbumContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArtistForAlbumContract" nillable="true" type="tns:ArtistForAlbumContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArtistForAlbumContract" nillable="true" type="tns:ArrayOfArtistForAlbumContract" />
+  <xs:complexType name="ArtistForAlbumContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Artist" nillable="true" type="tns:ArtistContract" />
+      <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="Categories" type="q25:ArtistCategories" />
+      <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="EffectiveRoles" type="q26:ArtistRoles" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsSupport" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="Roles" type="q27:ArtistRoles" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArtistForAlbumContract" nillable="true" type="tns:ArtistForAlbumContract" />
+  <xs:complexType name="ArrayOfCommentContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CommentContract" nillable="true" type="tns:CommentContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCommentContract" nillable="true" type="tns:ArrayOfCommentContract" />
+  <xs:complexType name="CommentContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Author" nillable="true" type="tns:UserWithEmailContract" />
+      <xs:element minOccurs="0" name="AuthorName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommentContract" nillable="true" type="tns:CommentContract" />
+  <xs:complexType name="AlbumReleaseContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CatNum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EventName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReleaseDate" nillable="true" type="tns:OptionalDateTimeContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlbumReleaseContract" nillable="true" type="tns:AlbumReleaseContract" />
+  <xs:complexType name="ArrayOfEntryPictureFileContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EntryPictureFileContract" nillable="true" type="tns:EntryPictureFileContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEntryPictureFileContract" nillable="true" type="tns:ArrayOfEntryPictureFileContract" />
+  <xs:complexType name="EntryPictureFileContract">
+    <xs:sequence>
+      <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="EntryType" type="q28:EntryType" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Mime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginalFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerEntryId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EntryPictureFileContract" nillable="true" type="tns:EntryPictureFileContract" />
+  <xs:complexType name="ArrayOfSongInAlbumContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SongInAlbumContract" nillable="true" type="tns:SongInAlbumContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSongInAlbumContract" nillable="true" type="tns:ArrayOfSongInAlbumContract" />
+  <xs:complexType name="SongInAlbumContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiscNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Song" nillable="true" type="tns:SongContract" />
+      <xs:element minOccurs="0" name="TrackNumber" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SongInAlbumContract" nillable="true" type="tns:SongInAlbumContract" />
+  <xs:complexType name="ArrayOfTagUsageContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TagUsageContract" nillable="true" type="tns:TagUsageContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTagUsageContract" nillable="true" type="tns:ArrayOfTagUsageContract" />
+  <xs:complexType name="TagUsageContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="TagName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TagUsageContract" nillable="true" type="tns:TagUsageContract" />
+  <xs:complexType name="ArrayOfWebLinkContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebLinkContract" nillable="true" type="tns:WebLinkContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebLinkContract" nillable="true" type="tns:ArrayOfWebLinkContract" />
+  <xs:complexType name="WebLinkContract">
+    <xs:sequence>
+      <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="Category" type="q29:WebLinkCategory" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DescriptionOrUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WebLinkContract" nillable="true" type="tns:WebLinkContract" />
+  <xs:element name="GetArtistDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetArtistDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetArtistDetailsResult" nillable="true" type="tns:ArtistDetailsContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArtistDetailsContract">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ArtistContract">
+        <xs:sequence>
+          <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Artists" minOccurs="0" name="AdvancedStats" nillable="true" type="q30:AdvancedArtistStatsContract" />
+          <xs:element minOccurs="0" name="AllNames" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BaseVoicebank" nillable="true" type="tns:ArtistContract" />
+          <xs:element minOccurs="0" name="ChildVoicebanks" nillable="true" type="tns:ArrayOfArtistContract" />
+          <xs:element minOccurs="0" name="CommentCount" type="xs:int" />
+          <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+          <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="Description" nillable="true" type="q31:EnglishTranslatedString" />
+          <xs:element minOccurs="0" name="Draft" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EmailNotifications" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Groups" nillable="true" type="tns:ArrayOfGroupForArtistContract" />
+          <xs:element minOccurs="0" name="IsAdded" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LatestAlbums" nillable="true" type="tns:ArrayOfAlbumContract" />
+          <xs:element minOccurs="0" name="LatestComments" nillable="true" type="tns:ArrayOfCommentContract" />
+          <xs:element minOccurs="0" name="LatestSongs" nillable="true" type="tns:ArrayOfSongContract" />
+          <xs:element minOccurs="0" name="Members" nillable="true" type="tns:ArrayOfGroupForArtistContract" />
+          <xs:element minOccurs="0" name="MergedTo" nillable="true" type="tns:ArtistContract" />
+          <xs:element minOccurs="0" name="OwnerUsers" nillable="true" type="tns:ArrayOfUserContract" />
+          <xs:element minOccurs="0" name="PersonalStats" nillable="true" type="tns:PersonalArtistStatsContract" />
+          <xs:element minOccurs="0" name="Pictures" nillable="true" type="tns:ArrayOfEntryPictureFileContract" />
+          <xs:element minOccurs="0" name="SharedStats" nillable="true" type="tns:SharedArtistStatsContract" />
+          <xs:element minOccurs="0" name="SiteNotifications" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Tags" nillable="true" type="tns:ArrayOfTagUsageContract" />
+          <xs:element minOccurs="0" name="TopAlbums" nillable="true" type="tns:ArrayOfAlbumContract" />
+          <xs:element minOccurs="0" name="TopSongs" nillable="true" type="tns:ArrayOfSongContract" />
+          <xs:element minOccurs="0" name="TranslatedName" nillable="true" type="tns:TranslatedStringContract" />
+          <xs:element minOccurs="0" name="WebLinks" nillable="true" type="tns:ArrayOfWebLinkContract" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ArtistDetailsContract" nillable="true" type="tns:ArtistDetailsContract" />
+  <xs:complexType name="ArrayOfGroupForArtistContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GroupForArtistContract" nillable="true" type="tns:GroupForArtistContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGroupForArtistContract" nillable="true" type="tns:ArrayOfGroupForArtistContract" />
+  <xs:complexType name="GroupForArtistContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Group" nillable="true" type="tns:ArtistContract" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Member" nillable="true" type="tns:ArtistContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GroupForArtistContract" nillable="true" type="tns:GroupForArtistContract" />
+  <xs:complexType name="ArrayOfSongContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SongContract" nillable="true" type="tns:SongContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSongContract" nillable="true" type="tns:ArrayOfSongContract" />
+  <xs:complexType name="ArrayOfUserContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserContract" nillable="true" type="tns:UserContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserContract" nillable="true" type="tns:ArrayOfUserContract" />
+  <xs:complexType name="PersonalArtistStatsContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SongRatingCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersonalArtistStatsContract" nillable="true" type="tns:PersonalArtistStatsContract" />
+  <xs:complexType name="SharedArtistStatsContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlbumCount" type="xs:int" />
+      <xs:element minOccurs="0" name="AlbumRatingAverage" type="xs:double" />
+      <xs:element minOccurs="0" name="FollowerCount" type="xs:int" />
+      <xs:element minOccurs="0" name="RatedAlbumCount" type="xs:int" />
+      <xs:element minOccurs="0" name="RatedSongCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SongCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SharedArtistStatsContract" nillable="true" type="tns:SharedArtistStatsContract" />
+  <xs:complexType name="TranslatedStringContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Default" nillable="true" type="xs:string" />
+      <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="DefaultLanguage" type="q32:ContentLanguageSelection" />
+      <xs:element minOccurs="0" name="English" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Japanese" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Romaji" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TranslatedStringContract" nillable="true" type="tns:TranslatedStringContract" />
+  <xs:element name="GetArtistById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetArtistByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetArtistByIdResult" nillable="true" type="tns:ArtistDetailsContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetArtistsWithYoutubeChannels">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="languagePreference" type="q33:ContentLanguagePreference" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetArtistsWithYoutubeChannelsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetArtistsWithYoutubeChannelsResult" nillable="true" type="tns:ArrayOfArtistForApiContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfArtistForApiContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArtistForApiContract" nillable="true" type="tns:ArtistForApiContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArtistForApiContract" nillable="true" type="tns:ArrayOfArtistForApiContract" />
+  <xs:complexType name="ArtistForApiContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalNames" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="ArtistType" type="q34:ArtistType" />
+      <xs:element minOccurs="0" name="BaseVoicebank" nillable="true" type="tns:ArtistContract" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DefaultName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="DefaultNameLanguage" type="q35:ContentLanguageSelection" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Groups" nillable="true" type="tns:ArrayOfArtistContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LocalizedName" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="MainPicture" nillable="true" type="tns:EntryThumbForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Members" nillable="true" type="tns:ArrayOfArtistContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="MergedTo" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Names" nillable="true" type="tns:ArrayOfLocalizedStringContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="PictureMime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Relations" nillable="true" type="tns:ArtistRelationsForApi">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="Status" type="q36:EntryStatus" />
+      <xs:element minOccurs="0" name="Tags" nillable="true" type="tns:ArrayOfTagUsageForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+      <xs:element minOccurs="0" name="WebLinks" nillable="true" type="tns:ArrayOfArchivedWebLinkContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArtistForApiContract" nillable="true" type="tns:ArtistForApiContract" />
+  <xs:complexType name="EntryThumbForApiContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UrlSmallThumb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UrlThumb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UrlTinyThumb" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EntryThumbForApiContract" nillable="true" type="tns:EntryThumbForApiContract" />
+  <xs:complexType name="ArrayOfLocalizedStringContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LocalizedStringContract" nillable="true" type="tns:LocalizedStringContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLocalizedStringContract" nillable="true" type="tns:ArrayOfLocalizedStringContract" />
+  <xs:complexType name="LocalizedStringContract">
+    <xs:sequence>
+      <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="Language" type="q37:ContentLanguageSelection" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LocalizedStringContract" nillable="true" type="tns:LocalizedStringContract" />
+  <xs:complexType name="ArtistRelationsForApi">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LatestAlbums" nillable="true" type="tns:ArrayOfAlbumContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="LatestSongs" nillable="true" type="tns:ArrayOfSongContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="PopularAlbums" nillable="true" type="tns:ArrayOfAlbumContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="PopularSongs" nillable="true" type="tns:ArrayOfSongContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArtistRelationsForApi" nillable="true" type="tns:ArtistRelationsForApi" />
+  <xs:complexType name="ArrayOfTagUsageForApiContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TagUsageForApiContract" nillable="true" type="tns:TagUsageForApiContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTagUsageForApiContract" nillable="true" type="tns:ArrayOfTagUsageForApiContract" />
+  <xs:complexType name="TagUsageForApiContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TagUsageForApiContract" nillable="true" type="tns:TagUsageForApiContract" />
+  <xs:complexType name="ArrayOfArchivedWebLinkContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArchivedWebLinkContract" nillable="true" type="tns:ArchivedWebLinkContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArchivedWebLinkContract" nillable="true" type="tns:ArrayOfArchivedWebLinkContract" />
+  <xs:complexType name="ArchivedWebLinkContract">
+    <xs:sequence>
+      <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="Category" type="q38:WebLinkCategory" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArchivedWebLinkContract" nillable="true" type="tns:ArchivedWebLinkContract" />
+  <xs:element name="GetSongById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSongByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSongByIdResult" nillable="true" type="tns:SongDetailsContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="SongDetailsContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalNames" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Albums" nillable="true" type="tns:ArrayOfAlbumContract" />
+      <xs:element minOccurs="0" name="AlternateVersions" nillable="true" type="tns:ArrayOfSongContract" />
+      <xs:element minOccurs="0" name="ArtistString" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Artists" nillable="true" type="tns:ArrayOfArtistForSongContract" />
+      <xs:element minOccurs="0" name="CommentCount" type="xs:int" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Hits" type="xs:int" />
+      <xs:element minOccurs="0" name="LatestComments" nillable="true" type="tns:ArrayOfCommentContract" />
+      <xs:element minOccurs="0" name="LikeCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ListCount" type="xs:int" />
+      <xs:element minOccurs="0" name="LyricsFromParents" nillable="true" type="tns:ArrayOfLyricsForSongContract" />
+      <xs:element minOccurs="0" name="MergedTo" nillable="true" type="tns:SongContract" />
+      <xs:element minOccurs="0" name="NextSong" nillable="true" type="tns:SongInAlbumContract" />
+      <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="Notes" nillable="true" type="q39:EnglishTranslatedString" />
+      <xs:element minOccurs="0" name="OriginalVersion" nillable="true" type="tns:SongContract" />
+      <xs:element minOccurs="0" name="Pools" nillable="true" type="tns:ArrayOfSongListBaseContract" />
+      <xs:element minOccurs="0" name="PreviousSong" nillable="true" type="tns:SongInAlbumContract" />
+      <xs:element minOccurs="0" name="Song" nillable="true" type="tns:SongContract" />
+      <xs:element minOccurs="0" name="Tags" nillable="true" type="tns:ArrayOfTagUsageContract" />
+      <xs:element minOccurs="0" name="TranslatedName" nillable="true" type="tns:TranslatedStringContract" />
+      <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Songs" minOccurs="0" name="UserRating" type="q40:SongVoteRating" />
+      <xs:element minOccurs="0" name="WebLinks" nillable="true" type="tns:ArrayOfWebLinkContract" />
+      <xs:element minOccurs="0" name="pvs" nillable="true" type="tns:ArrayOfPVContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SongDetailsContract" nillable="true" type="tns:SongDetailsContract" />
+  <xs:complexType name="ArrayOfArtistForSongContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArtistForSongContract" nillable="true" type="tns:ArtistForSongContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArtistForSongContract" nillable="true" type="tns:ArrayOfArtistForSongContract" />
+  <xs:complexType name="ArtistForSongContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Artist" nillable="true" type="tns:ArtistContract" />
+      <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="Categories" type="q41:ArtistCategories" />
+      <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="EffectiveRoles" type="q42:ArtistRoles" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsSupport" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="Roles" type="q43:ArtistRoles" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArtistForSongContract" nillable="true" type="tns:ArtistForSongContract" />
+  <xs:complexType name="ArrayOfLyricsForSongContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LyricsForSongContract" nillable="true" type="tns:LyricsForSongContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLyricsForSongContract" nillable="true" type="tns:ArrayOfLyricsForSongContract" />
+  <xs:complexType name="LyricsForSongContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="Language" type="q44:ContentLanguageSelection" />
+      <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LyricsForSongContract" nillable="true" type="tns:LyricsForSongContract" />
+  <xs:complexType name="ArrayOfSongListBaseContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SongListBaseContract" nillable="true" type="tns:SongListBaseContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSongListBaseContract" nillable="true" type="tns:ArrayOfSongListBaseContract" />
+  <xs:complexType name="SongListBaseContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SongListBaseContract" nillable="true" type="tns:SongListBaseContract" />
+  <xs:element name="GetSongDetailsByNameArtistAndAlbum">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="artist" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="album" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSongDetailsByNameArtistAndAlbumResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSongDetailsByNameArtistAndAlbumResult" nillable="true" type="tns:SongDetailsContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSongDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="language" nillable="true" type="q45:ContentLanguagePreference" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSongDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSongDetailsResult" nillable="true" type="tns:SongDetailsContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSongListById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSongListByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSongListByIdResult" nillable="true" type="tns:SongListContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="SongListContract">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SongListBaseContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Author" nillable="true" type="tns:UserWithEmailContract" />
+          <xs:element minOccurs="0" name="CanEdit" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Songs" minOccurs="0" name="FeaturedCategory" type="q46:SongListFeaturedCategory" />
+          <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts" minOccurs="0" name="Thumb" nillable="true" type="q47:EntryThumbContract" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SongListContract" nillable="true" type="tns:SongListContract" />
+  <xs:element name="GetTagByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTagByNameResult" nillable="true" type="tns:TagContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserInfoResult" nillable="true" type="tns:UserContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlbumByLinkUrl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="url" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlbumByLinkUrlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAlbumByLinkUrlResult" nillable="true" type="tns:AlbumContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRandomSongLyrics">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="query" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRandomSongLyricsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetRandomSongLyricsResult" nillable="true" type="tns:LyricsForSongContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSongWithPV">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.PVs" minOccurs="0" name="service" type="q48:PVService" />
+        <xs:element minOccurs="0" name="pvId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSongWithPVResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSongWithPVResult" nillable="true" type="tns:SongWithAlbumContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="accessKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserResult" nillable="true" type="tns:UserContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

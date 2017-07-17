@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2104ab8e-3914-4bf8-9591-a39ad8ed359c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:39390/Services/QueryService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="QueryService.xsd" MetadataType="Schema" ID="90eb3077-d73b-4319-a50f-26079626ff77" SourceId="1" SourceUrl="http://localhost:39390/Services/QueryService.svc?xsd=xsd6" />
+    <MetadataFile FileName="QueryService1.xsd" MetadataType="Schema" ID="6359fec2-9fd9-4f67-b0a3-432646342fd4" SourceId="1" SourceUrl="http://localhost:39390/Services/QueryService.svc?xsd=xsd11" />
+    <MetadataFile FileName="QueryService14.xsd" MetadataType="Schema" ID="4089b31e-fe8f-4aad-bb5e-a406635eaa5b" SourceId="1" SourceUrl="http://localhost:39390/Services/QueryService.svc?xsd=xsd14" />
+    <MetadataFile FileName="QueryService2.xsd" MetadataType="Schema" ID="88d85005-de81-45a1-a6ad-82a5a105ddc4" SourceId="1" SourceUrl="http://localhost:39390/Services/QueryService.svc?xsd=xsd10" />
+    <MetadataFile FileName="QueryService.wsdl" MetadataType="Wsdl" ID="b4727c2a-2d91-4a8e-9d43-49f4e8b849df" SourceId="1" SourceUrl="http://localhost:39390/Services/QueryService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="QueryService3.xsd" MetadataType="Schema" ID="28bad72f-72d0-4ead-bd7a-13ab6f4c4a79" SourceId="1" SourceUrl="http://localhost:39390/Services/QueryService.svc?xsd=xsd13" />
+    <MetadataFile FileName="QueryService4.xsd" MetadataType="Schema" ID="8bb50b9c-85b2-4143-9ef8-952fed47dfbd" SourceId="1" SourceUrl="http://localhost:39390/Services/QueryService.svc?xsd=xsd7" />
+    <MetadataFile FileName="QueryService15.xsd" MetadataType="Schema" ID="9078556d-67a9-49cf-bbdf-04ff2aed05e9" SourceId="1" SourceUrl="http://localhost:39390/Services/QueryService.svc?xsd=xsd15" />
+    <MetadataFile FileName="QueryService5.xsd" MetadataType="Schema" ID="312b456d-981b-44e5-b502-9526929e519d" SourceId="1" SourceUrl="http://localhost:39390/Services/QueryService.svc?xsd=xsd9" />
+    <MetadataFile FileName="QueryService6.xsd" MetadataType="Schema" ID="1821e328-e772-4d23-bbf4-a684dea3eeff" SourceId="1" SourceUrl="http://localhost:39390/Services/QueryService.svc?xsd=xsd8" />
+    <MetadataFile FileName="QueryService7.xsd" MetadataType="Schema" ID="31ce5484-b264-4e8a-941a-0002d64cfc49" SourceId="1" SourceUrl="http://localhost:39390/Services/QueryService.svc?xsd=xsd12" />
+    <MetadataFile FileName="QueryService1.wsdl" MetadataType="Wsdl" ID="7af50f09-8891-4e3f-9c37-b6724fbb3f52" SourceId="1" SourceUrl="http://localhost:39390/Services/QueryService.svc?wsdl" />
+    <MetadataFile FileName="QueryService8.xsd" MetadataType="Schema" ID="c06c0d86-b259-4311-8783-f09c729ef946" SourceId="1" SourceUrl="http://localhost:39390/Services/QueryService.svc?xsd=xsd1" />
+    <MetadataFile FileName="QueryService9.xsd" MetadataType="Schema" ID="1aaa435a-df88-4160-abc3-c8c8ca4708df" SourceId="1" SourceUrl="http://localhost:39390/Services/QueryService.svc?xsd=xsd0" />
+    <MetadataFile FileName="QueryService10.xsd" MetadataType="Schema" ID="cecfaadd-42ca-4435-9f0b-f8c1bd6bd305" SourceId="1" SourceUrl="http://localhost:39390/Services/QueryService.svc?xsd=xsd3" />
+    <MetadataFile FileName="QueryService11.xsd" MetadataType="Schema" ID="b1157a27-d3b4-40e8-88f2-396260927e6b" SourceId="1" SourceUrl="http://localhost:39390/Services/QueryService.svc?xsd=xsd2" />
+    <MetadataFile FileName="QueryService12.xsd" MetadataType="Schema" ID="5c8e0024-4d03-4197-b35f-586de295f440" SourceId="1" SourceUrl="http://localhost:39390/Services/QueryService.svc?xsd=xsd5" />
+    <MetadataFile FileName="QueryService13.xsd" MetadataType="Schema" ID="fe59b93a-689c-48de-a915-1ec17144fc5f" SourceId="1" SourceUrl="http://localhost:39390/Services/QueryService.svc?xsd=xsd4" />
+    <MetadataFile FileName="QueryService.disco" MetadataType="Disco" ID="67b6c1c5-2cde-4305-8d9d-817b090a50c4" SourceId="1" SourceUrl="http://localhost:39390/Services/QueryService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

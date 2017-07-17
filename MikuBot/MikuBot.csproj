@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AF76E17E-0302-4F8B-B251-44EAF3D1942B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MikuBot</RootNamespace>
+    <AssemblyName>MikuBot</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authenticator.cs" />
+    <Compile Include="Bot.cs" />
+    <Compile Include="ChannelManager.cs" />
+    <Compile Include="IgnoredNickList.cs" />
+    <Compile Include="Modules\Authenticate.cs" />
+    <Compile Include="Modules\BuiltinModule.cs" />
+    <Compile Include="Modules\Disable.cs" />
+    <Compile Include="Modules\Enable.cs" />
+    <Compile Include="Modules\IBuiltinModule.cs" />
+    <Compile Include="Modules\Ignore.cs" />
+    <Compile Include="Modules\ModuleManager.cs" />
+    <Compile Include="Modules\Quit.cs" />
+    <Compile Include="Modules\Reload.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Modules\SendRaw.cs" />
+    <Compile Include="Modules\Unignore.cs" />
+    <Compile Include="NickManager.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AdminService.cs" />
+    <Compile Include="Services\MikuBotServiceHost.cs" />
+    <Compile Include="UserManager.cs" />
+    <Compile Include="WinService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinServiceInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App.default.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Help\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BotCore\BotCore.csproj">
+      <Project>{3C82A4CF-9979-440C-A03E-EE3BB2B0BFBC}</Project>
+      <Name>BotCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DbPlugins\DbPlugins.csproj">
+      <Project>{0a56310e-81c4-45e8-9217-55468fb6dd4f}</Project>
+      <Name>DbPlugins</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtraPlugins\ExtraPlugins.csproj">
+      <Project>{327B6B70-DD11-4054-AA14-4377439E6531}</Project>
+      <Name>ExtraPlugins</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MikuBotDbModel\MikuBotDbModel.csproj">
+      <Project>{e91b4f9e-d4f5-48cd-bec7-00081e42e03d}</Project>
+      <Name>MikuBotDbModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
