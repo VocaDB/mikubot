@@ -26,3 +26,5 @@ MikuBotSite/connections.config
 MikuBotSite/appsettings.config
 *.user
 MikuBotSite/.vs/
+/.vs/MikuBot/v15/sqlite3/storage.ide
+/MikuBotSite/UpgradeLog.htm

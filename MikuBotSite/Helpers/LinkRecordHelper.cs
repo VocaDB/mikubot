@@ -11,13 +11,15 @@ namespace MikuBot.Site.Helpers {
 
 	public static class LinkRecordHelper {
 
-		static readonly string[] pictureExt = new[] { ".jpg", ".jpeg", ".png", ".gif" };	
+		private static readonly string[] pictureExt = { ".jpg", ".jpeg", ".png", ".gif" };	
 		private static readonly Regex tinypicRegex = new Regex(@"http://\w+\.tinypic\.com/\w+\.\w+");
 
 		public static string GetImageUrl(UrlHelper urlHelper, LinkRecordContract record) {
 
-			if (IsPictureUrl(record.Url))
-				return record.Url;
+			var pictureUrl = TrimPictureUrl(record.Url);
+
+			if (IsPictureUrl(pictureUrl))
+				return pictureUrl;
 
 			//return DanbooruHelper.GetDanbooruImageUrlFromLink(record.Url);
 
@@ -64,8 +66,25 @@ namespace MikuBot.Site.Helpers {
 
 		}
 
+		private static string TrimPictureUrl(string url) {
+
+			if (string.IsNullOrEmpty(url))
+				return url;
+
+			// Trim :large from end for Twitter
+			if (url.EndsWith(":large")) {
+				return url.Substring(0, url.Length - 6);
+			}
+
+			return url;
+
+		}
+
 		public static bool IsPictureUrl(string url) {
 
+			if (string.IsNullOrEmpty(url))
+				return false;
+	
 			if (pictureExt.Any(e => e.Equals(Path.GetExtension(url), StringComparison.InvariantCultureIgnoreCase)))
 				return true;
 
