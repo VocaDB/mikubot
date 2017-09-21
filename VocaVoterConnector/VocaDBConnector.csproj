@@ -176,6 +176,12 @@
     <None Include="Service References\VocaDbServices\QueryService15.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\VocaDbServices\QueryService16.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VocaDbServices\QueryService161.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\VocaDbServices\QueryService2.xsd">
       <SubType>Designer</SubType>
     </None>

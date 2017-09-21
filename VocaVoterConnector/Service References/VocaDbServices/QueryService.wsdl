@@ -6,18 +6,20 @@
       <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Service" />
       <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Albums" />
-      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" />
-      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" />
-      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" />
-      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.PVs" />
-      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Songs" />
-      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.ExtLinks" />
-      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd10" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Songs" />
-      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users" />
-      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts" />
-      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Users" />
-      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Artists" />
+      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" />
+      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" />
+      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.ReleaseEvents" />
+      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" />
+      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.ExtLinks" />
+      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Songs" />
+      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.PVs" />
+      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd11" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Songs" />
+      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users" />
+      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts" />
+      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Users" />
+      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Artists" />
+      <xsd:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Tags" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="QueryService_FindAlbums_InputMessage">

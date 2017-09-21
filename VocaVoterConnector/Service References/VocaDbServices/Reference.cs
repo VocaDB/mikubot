@@ -515,16 +515,34 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AdditionalNamesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.ArtistForEventContract[] ArtistsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.EventCategory CategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> DateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> EndDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.EntryThumbForApiContract MainPictureField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.LocalizedStringContract[] NamesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private MikuBot.VocaDBConnector.VocaDbServices.ReleaseEventSeriesContract SeriesField;
@@ -539,7 +557,22 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         private string SeriesSuffixField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.SongListBaseContract SongListField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.EntryStatus StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UrlSlugField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VenueNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int VersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.WebLinkForApiContract[] WebLinksField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -548,6 +581,45 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string AdditionalNames {
+            get {
+                return this.AdditionalNamesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AdditionalNamesField, value) != true)) {
+                    this.AdditionalNamesField = value;
+                    this.RaisePropertyChanged("AdditionalNames");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public MikuBot.VocaDBConnector.VocaDbServices.ArtistForEventContract[] Artists {
+            get {
+                return this.ArtistsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ArtistsField, value) != true)) {
+                    this.ArtistsField = value;
+                    this.RaisePropertyChanged("Artists");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.EventCategory Category {
+            get {
+                return this.CategoryField;
+            }
+            set {
+                if ((this.CategoryField.Equals(value) != true)) {
+                    this.CategoryField = value;
+                    this.RaisePropertyChanged("Category");
+                }
             }
         }
         
@@ -578,6 +650,19 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> EndDate {
+            get {
+                return this.EndDateField;
+            }
+            set {
+                if ((this.EndDateField.Equals(value) != true)) {
+                    this.EndDateField = value;
+                    this.RaisePropertyChanged("EndDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Id {
             get {
                 return this.IdField;
@@ -586,6 +671,19 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
                 if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public MikuBot.VocaDBConnector.VocaDbServices.EntryThumbForApiContract MainPicture {
+            get {
+                return this.MainPictureField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MainPictureField, value) != true)) {
+                    this.MainPictureField = value;
+                    this.RaisePropertyChanged("MainPicture");
                 }
             }
         }
@@ -599,6 +697,19 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
                 if ((object.ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public MikuBot.VocaDBConnector.VocaDbServices.LocalizedStringContract[] Names {
+            get {
+                return this.NamesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NamesField, value) != true)) {
+                    this.NamesField = value;
+                    this.RaisePropertyChanged("Names");
                 }
             }
         }
@@ -656,6 +767,32 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.SongListBaseContract SongList {
+            get {
+                return this.SongListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SongListField, value) != true)) {
+                    this.SongListField = value;
+                    this.RaisePropertyChanged("SongList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.EntryStatus Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string UrlSlug {
             get {
                 return this.UrlSlugField;
@@ -664,6 +801,45 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
                 if ((object.ReferenceEquals(this.UrlSlugField, value) != true)) {
                     this.UrlSlugField = value;
                     this.RaisePropertyChanged("UrlSlug");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VenueName {
+            get {
+                return this.VenueNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VenueNameField, value) != true)) {
+                    this.VenueNameField = value;
+                    this.RaisePropertyChanged("VenueName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Version {
+            get {
+                return this.VersionField;
+            }
+            set {
+                if ((this.VersionField.Equals(value) != true)) {
+                    this.VersionField = value;
+                    this.RaisePropertyChanged("Version");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.WebLinkForApiContract[] WebLinks {
+            get {
+                return this.WebLinksField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.WebLinksField, value) != true)) {
+                    this.WebLinksField = value;
+                    this.RaisePropertyChanged("WebLinks");
                 }
             }
         }
@@ -716,6 +892,12 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private MikuBot.VocaDBConnector.VocaDbServices.PVContract[] PVsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.ArtistForApiContract PersonalDescriptionAuthorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PersonalDescriptionTextField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private MikuBot.VocaDBConnector.VocaDbServices.EntryPictureFileContract[] PicturesField;
@@ -879,6 +1061,32 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.ArtistForApiContract PersonalDescriptionAuthor {
+            get {
+                return this.PersonalDescriptionAuthorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PersonalDescriptionAuthorField, value) != true)) {
+                    this.PersonalDescriptionAuthorField = value;
+                    this.RaisePropertyChanged("PersonalDescriptionAuthor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PersonalDescriptionText {
+            get {
+                return this.PersonalDescriptionTextField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PersonalDescriptionTextField, value) != true)) {
+                    this.PersonalDescriptionTextField = value;
+                    this.RaisePropertyChanged("PersonalDescriptionText");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public MikuBot.VocaDBConnector.VocaDbServices.EntryPictureFileContract[] Pictures {
             get {
                 return this.PicturesField;
@@ -1005,1819 +1213,6 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ReleaseEventSeriesContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class ReleaseEventSeriesContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PictureMimeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int VersionField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PictureMime {
-            get {
-                return this.PictureMimeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PictureMimeField, value) != true)) {
-                    this.PictureMimeField = value;
-                    this.RaisePropertyChanged("PictureMime");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Version {
-            get {
-                return this.VersionField;
-            }
-            set {
-                if ((this.VersionField.Equals(value) != true)) {
-                    this.VersionField = value;
-                    this.RaisePropertyChanged("Version");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AlbumForUserContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class AlbumForUserContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.AlbumContract AlbumField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.MediaType MediaTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.PurchaseStatus PurchaseStatusField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int RatingField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.UserContract UserField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.AlbumContract Album {
-            get {
-                return this.AlbumField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AlbumField, value) != true)) {
-                    this.AlbumField = value;
-                    this.RaisePropertyChanged("Album");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.MediaType MediaType {
-            get {
-                return this.MediaTypeField;
-            }
-            set {
-                if ((this.MediaTypeField.Equals(value) != true)) {
-                    this.MediaTypeField = value;
-                    this.RaisePropertyChanged("MediaType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.PurchaseStatus PurchaseStatus {
-            get {
-                return this.PurchaseStatusField;
-            }
-            set {
-                if ((this.PurchaseStatusField.Equals(value) != true)) {
-                    this.PurchaseStatusField = value;
-                    this.RaisePropertyChanged("PurchaseStatus");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Rating {
-            get {
-                return this.RatingField;
-            }
-            set {
-                if ((this.RatingField.Equals(value) != true)) {
-                    this.RatingField = value;
-                    this.RaisePropertyChanged("Rating");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.UserContract User {
-            get {
-                return this.UserField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserField, value) != true)) {
-                    this.UserField = value;
-                    this.RaisePropertyChanged("User");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EnglishTranslatedString", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization")]
-    [System.SerializableAttribute()]
-    public partial class EnglishTranslatedString : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EnglishField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string OriginalField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string English {
-            get {
-                return this.EnglishField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EnglishField, value) != true)) {
-                    this.EnglishField = value;
-                    this.RaisePropertyChanged("English");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Original {
-            get {
-                return this.OriginalField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OriginalField, value) != true)) {
-                    this.OriginalField = value;
-                    this.RaisePropertyChanged("Original");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AlbumReleaseContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class AlbumReleaseContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CatNumField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.OptionalDateTimeContract ReleaseDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.ReleaseEventForApiContract ReleaseEventField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CatNum {
-            get {
-                return this.CatNumField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CatNumField, value) != true)) {
-                    this.CatNumField = value;
-                    this.RaisePropertyChanged("CatNum");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.OptionalDateTimeContract ReleaseDate {
-            get {
-                return this.ReleaseDateField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ReleaseDateField, value) != true)) {
-                    this.ReleaseDateField = value;
-                    this.RaisePropertyChanged("ReleaseDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.ReleaseEventForApiContract ReleaseEvent {
-            get {
-                return this.ReleaseEventField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ReleaseEventField, value) != true)) {
-                    this.ReleaseEventField = value;
-                    this.RaisePropertyChanged("ReleaseEvent");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ArtistForAlbumContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class ArtistForAlbumContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.ArtistContract ArtistField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.ArtistCategories CategoriesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.ArtistRoles EffectiveRolesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool IsSupportField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.ArtistRoles RolesField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.ArtistContract Artist {
-            get {
-                return this.ArtistField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ArtistField, value) != true)) {
-                    this.ArtistField = value;
-                    this.RaisePropertyChanged("Artist");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.ArtistCategories Categories {
-            get {
-                return this.CategoriesField;
-            }
-            set {
-                if ((this.CategoriesField.Equals(value) != true)) {
-                    this.CategoriesField = value;
-                    this.RaisePropertyChanged("Categories");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.ArtistRoles EffectiveRoles {
-            get {
-                return this.EffectiveRolesField;
-            }
-            set {
-                if ((this.EffectiveRolesField.Equals(value) != true)) {
-                    this.EffectiveRolesField = value;
-                    this.RaisePropertyChanged("EffectiveRoles");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsSupport {
-            get {
-                return this.IsSupportField;
-            }
-            set {
-                if ((this.IsSupportField.Equals(value) != true)) {
-                    this.IsSupportField = value;
-                    this.RaisePropertyChanged("IsSupport");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.ArtistRoles Roles {
-            get {
-                return this.RolesField;
-            }
-            set {
-                if ((this.RolesField.Equals(value) != true)) {
-                    this.RolesField = value;
-                    this.RaisePropertyChanged("Roles");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AlbumDiscPropertiesContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class AlbumDiscPropertiesContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int DiscNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.DiscMediaType MediaTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int DiscNumber {
-            get {
-                return this.DiscNumberField;
-            }
-            set {
-                if ((this.DiscNumberField.Equals(value) != true)) {
-                    this.DiscNumberField = value;
-                    this.RaisePropertyChanged("DiscNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.DiscMediaType MediaType {
-            get {
-                return this.MediaTypeField;
-            }
-            set {
-                if ((this.MediaTypeField.Equals(value) != true)) {
-                    this.MediaTypeField = value;
-                    this.RaisePropertyChanged("MediaType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CommentForApiContract", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts")]
-    [System.SerializableAttribute()]
-    public partial class CommentForApiContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.UserForApiContract AuthorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AuthorNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime CreatedField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MessageField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.UserForApiContract Author {
-            get {
-                return this.AuthorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AuthorField, value) != true)) {
-                    this.AuthorField = value;
-                    this.RaisePropertyChanged("Author");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AuthorName {
-            get {
-                return this.AuthorNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AuthorNameField, value) != true)) {
-                    this.AuthorNameField = value;
-                    this.RaisePropertyChanged("AuthorName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime Created {
-            get {
-                return this.CreatedField;
-            }
-            set {
-                if ((this.CreatedField.Equals(value) != true)) {
-                    this.CreatedField = value;
-                    this.RaisePropertyChanged("Created");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Message {
-            get {
-                return this.MessageField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
-                    this.MessageField = value;
-                    this.RaisePropertyChanged("Message");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PVContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class PVContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AuthorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int LengthField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PVIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.PVType PVTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> PublishDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.PVService ServiceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ThumbUrlField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UrlField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Author {
-            get {
-                return this.AuthorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AuthorField, value) != true)) {
-                    this.AuthorField = value;
-                    this.RaisePropertyChanged("Author");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Length {
-            get {
-                return this.LengthField;
-            }
-            set {
-                if ((this.LengthField.Equals(value) != true)) {
-                    this.LengthField = value;
-                    this.RaisePropertyChanged("Length");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PVId {
-            get {
-                return this.PVIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PVIdField, value) != true)) {
-                    this.PVIdField = value;
-                    this.RaisePropertyChanged("PVId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.PVType PVType {
-            get {
-                return this.PVTypeField;
-            }
-            set {
-                if ((this.PVTypeField.Equals(value) != true)) {
-                    this.PVTypeField = value;
-                    this.RaisePropertyChanged("PVType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> PublishDate {
-            get {
-                return this.PublishDateField;
-            }
-            set {
-                if ((this.PublishDateField.Equals(value) != true)) {
-                    this.PublishDateField = value;
-                    this.RaisePropertyChanged("PublishDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.PVService Service {
-            get {
-                return this.ServiceField;
-            }
-            set {
-                if ((this.ServiceField.Equals(value) != true)) {
-                    this.ServiceField = value;
-                    this.RaisePropertyChanged("Service");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ThumbUrl {
-            get {
-                return this.ThumbUrlField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ThumbUrlField, value) != true)) {
-                    this.ThumbUrlField = value;
-                    this.RaisePropertyChanged("ThumbUrl");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Url {
-            get {
-                return this.UrlField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UrlField, value) != true)) {
-                    this.UrlField = value;
-                    this.RaisePropertyChanged("Url");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntryPictureFileContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class EntryPictureFileContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.EntryType EntryTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MimeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string OriginalFileNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int OwnerEntryIdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.EntryType EntryType {
-            get {
-                return this.EntryTypeField;
-            }
-            set {
-                if ((this.EntryTypeField.Equals(value) != true)) {
-                    this.EntryTypeField = value;
-                    this.RaisePropertyChanged("EntryType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Mime {
-            get {
-                return this.MimeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MimeField, value) != true)) {
-                    this.MimeField = value;
-                    this.RaisePropertyChanged("Mime");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OriginalFileName {
-            get {
-                return this.OriginalFileNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OriginalFileNameField, value) != true)) {
-                    this.OriginalFileNameField = value;
-                    this.RaisePropertyChanged("OriginalFileName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int OwnerEntryId {
-            get {
-                return this.OwnerEntryIdField;
-            }
-            set {
-                if ((this.OwnerEntryIdField.Equals(value) != true)) {
-                    this.OwnerEntryIdField = value;
-                    this.RaisePropertyChanged("OwnerEntryId");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SongInAlbumContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class SongInAlbumContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int DiscNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.SongContract SongField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int TrackNumberField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int DiscNumber {
-            get {
-                return this.DiscNumberField;
-            }
-            set {
-                if ((this.DiscNumberField.Equals(value) != true)) {
-                    this.DiscNumberField = value;
-                    this.RaisePropertyChanged("DiscNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.SongContract Song {
-            get {
-                return this.SongField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SongField, value) != true)) {
-                    this.SongField = value;
-                    this.RaisePropertyChanged("Song");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TrackNumber {
-            get {
-                return this.TrackNumberField;
-            }
-            set {
-                if ((this.TrackNumberField.Equals(value) != true)) {
-                    this.TrackNumberField = value;
-                    this.RaisePropertyChanged("TrackNumber");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TagUsageForApiContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class TagUsageForApiContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.TagBaseContract TagField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Count {
-            get {
-                return this.CountField;
-            }
-            set {
-                if ((this.CountField.Equals(value) != true)) {
-                    this.CountField = value;
-                    this.RaisePropertyChanged("Count");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.TagBaseContract Tag {
-            get {
-                return this.TagField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TagField, value) != true)) {
-                    this.TagField = value;
-                    this.RaisePropertyChanged("Tag");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="WebLinkContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class WebLinkContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.WebLinkCategory CategoryField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionOrUrlField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UrlField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.WebLinkCategory Category {
-            get {
-                return this.CategoryField;
-            }
-            set {
-                if ((this.CategoryField.Equals(value) != true)) {
-                    this.CategoryField = value;
-                    this.RaisePropertyChanged("Category");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DescriptionOrUrl {
-            get {
-                return this.DescriptionOrUrlField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionOrUrlField, value) != true)) {
-                    this.DescriptionOrUrlField = value;
-                    this.RaisePropertyChanged("DescriptionOrUrl");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Url {
-            get {
-                return this.UrlField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UrlField, value) != true)) {
-                    this.UrlField = value;
-                    this.RaisePropertyChanged("Url");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class UserContract : MikuBot.VocaDBConnector.VocaDbServices.UserWithEmailContract {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool ActiveField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool AnonymousActivityField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime CreateDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CultureField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.ContentLanguagePreference DefaultLanguageSelectionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.UserEmailOptions EmailOptionsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.UserGroupId GroupIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LanguageField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.PVService PreferredVideoServiceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool PublicAlbumCollectionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool VerifiedArtistField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Active {
-            get {
-                return this.ActiveField;
-            }
-            set {
-                if ((this.ActiveField.Equals(value) != true)) {
-                    this.ActiveField = value;
-                    this.RaisePropertyChanged("Active");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool AnonymousActivity {
-            get {
-                return this.AnonymousActivityField;
-            }
-            set {
-                if ((this.AnonymousActivityField.Equals(value) != true)) {
-                    this.AnonymousActivityField = value;
-                    this.RaisePropertyChanged("AnonymousActivity");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CreateDate {
-            get {
-                return this.CreateDateField;
-            }
-            set {
-                if ((this.CreateDateField.Equals(value) != true)) {
-                    this.CreateDateField = value;
-                    this.RaisePropertyChanged("CreateDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Culture {
-            get {
-                return this.CultureField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CultureField, value) != true)) {
-                    this.CultureField = value;
-                    this.RaisePropertyChanged("Culture");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.ContentLanguagePreference DefaultLanguageSelection {
-            get {
-                return this.DefaultLanguageSelectionField;
-            }
-            set {
-                if ((this.DefaultLanguageSelectionField.Equals(value) != true)) {
-                    this.DefaultLanguageSelectionField = value;
-                    this.RaisePropertyChanged("DefaultLanguageSelection");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.UserEmailOptions EmailOptions {
-            get {
-                return this.EmailOptionsField;
-            }
-            set {
-                if ((this.EmailOptionsField.Equals(value) != true)) {
-                    this.EmailOptionsField = value;
-                    this.RaisePropertyChanged("EmailOptions");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.UserGroupId GroupId {
-            get {
-                return this.GroupIdField;
-            }
-            set {
-                if ((this.GroupIdField.Equals(value) != true)) {
-                    this.GroupIdField = value;
-                    this.RaisePropertyChanged("GroupId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Language {
-            get {
-                return this.LanguageField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LanguageField, value) != true)) {
-                    this.LanguageField = value;
-                    this.RaisePropertyChanged("Language");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.PVService PreferredVideoService {
-            get {
-                return this.PreferredVideoServiceField;
-            }
-            set {
-                if ((this.PreferredVideoServiceField.Equals(value) != true)) {
-                    this.PreferredVideoServiceField = value;
-                    this.RaisePropertyChanged("PreferredVideoService");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool PublicAlbumCollection {
-            get {
-                return this.PublicAlbumCollectionField;
-            }
-            set {
-                if ((this.PublicAlbumCollectionField.Equals(value) != true)) {
-                    this.PublicAlbumCollectionField = value;
-                    this.RaisePropertyChanged("PublicAlbumCollection");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool VerifiedArtist {
-            get {
-                return this.VerifiedArtistField;
-            }
-            set {
-                if ((this.VerifiedArtistField.Equals(value) != true)) {
-                    this.VerifiedArtistField = value;
-                    this.RaisePropertyChanged("VerifiedArtist");
-                }
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MediaType", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users")]
-    public enum MediaType : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        PhysicalDisc = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DigitalDownload = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Other = 4,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PurchaseStatus", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users")]
-    public enum PurchaseStatus : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Nothing = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Wishlisted = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Ordered = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Owned = 4,
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserBaseContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.UserForApiContract))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.UserWithEmailContract))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.UserContract))]
-    public partial class UserBaseContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserForApiContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class UserForApiContract : MikuBot.VocaDBConnector.VocaDbServices.UserBaseContract {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool ActiveField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.UserGroupId GroupIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.UserKnownLanguageContract[] KnownLanguagesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.EntryThumbForApiContract MainPictureField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime MemberSinceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.OldUsernameContract[] OldUsernamesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool VerifiedArtistField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Active {
-            get {
-                return this.ActiveField;
-            }
-            set {
-                if ((this.ActiveField.Equals(value) != true)) {
-                    this.ActiveField = value;
-                    this.RaisePropertyChanged("Active");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.UserGroupId GroupId {
-            get {
-                return this.GroupIdField;
-            }
-            set {
-                if ((this.GroupIdField.Equals(value) != true)) {
-                    this.GroupIdField = value;
-                    this.RaisePropertyChanged("GroupId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public MikuBot.VocaDBConnector.VocaDbServices.UserKnownLanguageContract[] KnownLanguages {
-            get {
-                return this.KnownLanguagesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.KnownLanguagesField, value) != true)) {
-                    this.KnownLanguagesField = value;
-                    this.RaisePropertyChanged("KnownLanguages");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public MikuBot.VocaDBConnector.VocaDbServices.EntryThumbForApiContract MainPicture {
-            get {
-                return this.MainPictureField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MainPictureField, value) != true)) {
-                    this.MainPictureField = value;
-                    this.RaisePropertyChanged("MainPicture");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime MemberSince {
-            get {
-                return this.MemberSinceField;
-            }
-            set {
-                if ((this.MemberSinceField.Equals(value) != true)) {
-                    this.MemberSinceField = value;
-                    this.RaisePropertyChanged("MemberSince");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public MikuBot.VocaDBConnector.VocaDbServices.OldUsernameContract[] OldUsernames {
-            get {
-                return this.OldUsernamesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OldUsernamesField, value) != true)) {
-                    this.OldUsernamesField = value;
-                    this.RaisePropertyChanged("OldUsernames");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool VerifiedArtist {
-            get {
-                return this.VerifiedArtistField;
-            }
-            set {
-                if ((this.VerifiedArtistField.Equals(value) != true)) {
-                    this.VerifiedArtistField = value;
-                    this.RaisePropertyChanged("VerifiedArtist");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserWithEmailContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.UserContract))]
-    public partial class UserWithEmailContract : MikuBot.VocaDBConnector.VocaDbServices.UserBaseContract {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EmailField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Email {
-            get {
-                return this.EmailField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
-                    this.EmailField = value;
-                    this.RaisePropertyChanged("Email");
-                }
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ContentLanguagePreference", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization")]
-    public enum ContentLanguagePreference : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Default = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Japanese = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Romaji = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        English = 4,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.FlagsAttribute()]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserEmailOptions", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users")]
-    public enum UserEmailOptions : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        NoEmail = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        PrivateMessagesFromAdmins = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        PrivateMessagesFromAll = 2,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserGroupId", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users")]
-    public enum UserGroupId : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Nothing = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Limited = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Regular = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Trusted = 3,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Moderator = 4,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Admin = 5,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PVService", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.PVs")]
-    public enum PVService : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        NicoNicoDouga = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Youtube = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SoundCloud = 4,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Vimeo = 8,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Piapro = 16,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Bilibili = 32,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        File = 64,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        LocalFile = 128,
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntryThumbForApiContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
     [System.SerializableAttribute()]
     public partial class EntryThumbForApiContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -2895,18 +1290,45 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserKnownLanguageContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ReleaseEventSeriesContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
     [System.SerializableAttribute()]
-    public partial class UserKnownLanguageContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class ReleaseEventSeriesContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CultureCodeField;
+        private string AdditionalNamesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.UserLanguageProficiency ProficiencyField;
+        private MikuBot.VocaDBConnector.VocaDbServices.EventCategory CategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool DeletedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PictureMimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.EntryStatus StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UrlSlugField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int VersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.WebLinkContract[] WebLinksField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -2919,27 +1341,144 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CultureCode {
+        public string AdditionalNames {
             get {
-                return this.CultureCodeField;
+                return this.AdditionalNamesField;
             }
             set {
-                if ((object.ReferenceEquals(this.CultureCodeField, value) != true)) {
-                    this.CultureCodeField = value;
-                    this.RaisePropertyChanged("CultureCode");
+                if ((object.ReferenceEquals(this.AdditionalNamesField, value) != true)) {
+                    this.AdditionalNamesField = value;
+                    this.RaisePropertyChanged("AdditionalNames");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.UserLanguageProficiency Proficiency {
+        public MikuBot.VocaDBConnector.VocaDbServices.EventCategory Category {
             get {
-                return this.ProficiencyField;
+                return this.CategoryField;
             }
             set {
-                if ((this.ProficiencyField.Equals(value) != true)) {
-                    this.ProficiencyField = value;
-                    this.RaisePropertyChanged("Proficiency");
+                if ((this.CategoryField.Equals(value) != true)) {
+                    this.CategoryField = value;
+                    this.RaisePropertyChanged("Category");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Deleted {
+            get {
+                return this.DeletedField;
+            }
+            set {
+                if ((this.DeletedField.Equals(value) != true)) {
+                    this.DeletedField = value;
+                    this.RaisePropertyChanged("Deleted");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PictureMime {
+            get {
+                return this.PictureMimeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PictureMimeField, value) != true)) {
+                    this.PictureMimeField = value;
+                    this.RaisePropertyChanged("PictureMime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.EntryStatus Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UrlSlug {
+            get {
+                return this.UrlSlugField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UrlSlugField, value) != true)) {
+                    this.UrlSlugField = value;
+                    this.RaisePropertyChanged("UrlSlug");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Version {
+            get {
+                return this.VersionField;
+            }
+            set {
+                if ((this.VersionField.Equals(value) != true)) {
+                    this.VersionField = value;
+                    this.RaisePropertyChanged("Version");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.WebLinkContract[] WebLinks {
+            get {
+                return this.WebLinksField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.WebLinksField, value) != true)) {
+                    this.WebLinksField = value;
+                    this.RaisePropertyChanged("WebLinks");
                 }
             }
         }
@@ -2956,18 +1495,22 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OldUsernameContract", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Users")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SongListBaseContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
     [System.SerializableAttribute()]
-    public partial class OldUsernameContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.SongListContract))]
+    public partial class SongListBaseContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime DateField;
+        private MikuBot.VocaDBConnector.VocaDbServices.SongListFeaturedCategory FeaturedCategoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string OldNameField;
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -2980,27 +1523,149 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime Date {
+        public MikuBot.VocaDBConnector.VocaDbServices.SongListFeaturedCategory FeaturedCategory {
             get {
-                return this.DateField;
+                return this.FeaturedCategoryField;
             }
             set {
-                if ((this.DateField.Equals(value) != true)) {
-                    this.DateField = value;
-                    this.RaisePropertyChanged("Date");
+                if ((this.FeaturedCategoryField.Equals(value) != true)) {
+                    this.FeaturedCategoryField = value;
+                    this.RaisePropertyChanged("FeaturedCategory");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OldName {
+        public int Id {
             get {
-                return this.OldNameField;
+                return this.IdField;
             }
             set {
-                if ((object.ReferenceEquals(this.OldNameField, value) != true)) {
-                    this.OldNameField = value;
-                    this.RaisePropertyChanged("OldName");
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ArtistForEventContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class ArtistForEventContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.ArtistContract ArtistField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.ArtistEventRoles EffectiveRolesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.ArtistEventRoles RolesField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.ArtistContract Artist {
+            get {
+                return this.ArtistField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ArtistField, value) != true)) {
+                    this.ArtistField = value;
+                    this.RaisePropertyChanged("Artist");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.ArtistEventRoles EffectiveRoles {
+            get {
+                return this.EffectiveRolesField;
+            }
+            set {
+                if ((this.EffectiveRolesField.Equals(value) != true)) {
+                    this.EffectiveRolesField = value;
+                    this.RaisePropertyChanged("EffectiveRoles");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.ArtistEventRoles Roles {
+            get {
+                return this.RolesField;
+            }
+            set {
+                if ((this.RolesField.Equals(value) != true)) {
+                    this.RolesField = value;
+                    this.RaisePropertyChanged("Roles");
                 }
             }
         }
@@ -3016,23 +1681,186 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserLanguageProficiency", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users")]
-    public enum UserLanguageProficiency : int {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EventCategory", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.ReleaseEvents")]
+    public enum EventCategory : int {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Nothing = 0,
+        Unspecified = 0,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Basics = 1,
+        AlbumRelease = 1,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Intermediate = 2,
+        Anniversary = 2,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Advanced = 3,
+        Club = 4,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Native = 4,
+        Concert = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Contest = 16,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Convention = 32,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Other = 64,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LocalizedStringContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class LocalizedStringContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.ContentLanguageSelection LanguageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.ContentLanguageSelection Language {
+            get {
+                return this.LanguageField;
+            }
+            set {
+                if ((this.LanguageField.Equals(value) != true)) {
+                    this.LanguageField = value;
+                    this.RaisePropertyChanged("Language");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ValueField, value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="WebLinkForApiContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class WebLinkForApiContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.WebLinkCategory CategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UrlField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.WebLinkCategory Category {
+            get {
+                return this.CategoryField;
+            }
+            set {
+                if ((this.CategoryField.Equals(value) != true)) {
+                    this.CategoryField = value;
+                    this.RaisePropertyChanged("Category");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Url {
+            get {
+                return this.UrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UrlField, value) != true)) {
+                    this.UrlField = value;
+                    this.RaisePropertyChanged("Url");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3211,89 +2039,41 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ArtistCategories", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists")]
-    public enum ArtistCategories : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Nothing = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Vocalist = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Producer = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Animator = 4,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Label = 8,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Circle = 16,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Other = 32,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Band = 64,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.FlagsAttribute()]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ArtistRoles", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists")]
-    public enum ArtistRoles : int {
+    [System.Runtime.Serialization.DataContractAttribute(Name="ArtistEventRoles", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.ReleaseEvents")]
+    public enum ArtistEventRoles : int {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Default = 0,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Animator = 1,
+        Dancer = 1,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Arranger = 2,
+        DJ = 2,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Composer = 4,
+        Instrumentalist = 4,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Distributor = 8,
+        Organizer = 8,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Illustrator = 16,
+        Promoter = 16,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Instrumentalist = 32,
+        VJ = 32,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Lyricist = 64,
+        Vocalist = 64,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Mastering = 128,
+        VoiceManipulator = 128,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Publisher = 256,
+        OtherPerformer = 256,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Vocalist = 512,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        VoiceManipulator = 1024,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Other = 2048,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Mixer = 4096,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Chorus = 8192,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Encoder = 16384,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        VocalDataProvider = 32768,
+        Other = 512,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3349,6 +2129,9 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private MikuBot.VocaDBConnector.VocaDbServices.CommentForApiContract[] LatestCommentsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.ReleaseEventForApiContract[] LatestEventsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private MikuBot.VocaDBConnector.VocaDbServices.SongForApiContract[] LatestSongsField;
@@ -3602,6 +2385,19 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
                 if ((object.ReferenceEquals(this.LatestCommentsField, value) != true)) {
                     this.LatestCommentsField = value;
                     this.RaisePropertyChanged("LatestComments");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.ReleaseEventForApiContract[] LatestEvents {
+            get {
+                return this.LatestEventsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LatestEventsField, value) != true)) {
+                    this.LatestEventsField = value;
+                    this.RaisePropertyChanged("LatestEvents");
                 }
             }
         }
@@ -3915,6 +2711,67 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EnglishTranslatedString", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization")]
+    [System.SerializableAttribute()]
+    public partial class EnglishTranslatedString : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EnglishField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OriginalField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string English {
+            get {
+                return this.EnglishField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EnglishField, value) != true)) {
+                    this.EnglishField = value;
+                    this.RaisePropertyChanged("English");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Original {
+            get {
+                return this.OriginalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OriginalField, value) != true)) {
+                    this.OriginalField = value;
+                    this.RaisePropertyChanged("Original");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PersonalArtistStatsContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
     [System.SerializableAttribute()]
     public partial class PersonalArtistStatsContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -3974,6 +2831,9 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         private double AlbumRatingAverageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EventCountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int FollowerCountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -4017,6 +2877,19 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
                 if ((this.AlbumRatingAverageField.Equals(value) != true)) {
                     this.AlbumRatingAverageField = value;
                     this.RaisePropertyChanged("AlbumRatingAverage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int EventCount {
+            get {
+                return this.EventCountField;
+            }
+            set {
+                if ((this.EventCountField.Equals(value) != true)) {
+                    this.EventCountField = value;
+                    this.RaisePropertyChanged("EventCount");
                 }
             }
         }
@@ -4178,6 +3051,131 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
                 if ((object.ReferenceEquals(this.RomajiField, value) != true)) {
                     this.RomajiField = value;
                     this.RaisePropertyChanged("Romaji");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CommentForApiContract", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts")]
+    [System.SerializableAttribute()]
+    public partial class CommentForApiContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.UserForApiContract AuthorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AuthorNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreatedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.EntryRefContract EntryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.UserForApiContract Author {
+            get {
+                return this.AuthorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AuthorField, value) != true)) {
+                    this.AuthorField = value;
+                    this.RaisePropertyChanged("Author");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AuthorName {
+            get {
+                return this.AuthorNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AuthorNameField, value) != true)) {
+                    this.AuthorNameField = value;
+                    this.RaisePropertyChanged("AuthorName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Created {
+            get {
+                return this.CreatedField;
+            }
+            set {
+                if ((this.CreatedField.Equals(value) != true)) {
+                    this.CreatedField = value;
+                    this.RaisePropertyChanged("Created");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public MikuBot.VocaDBConnector.VocaDbServices.EntryRefContract Entry {
+            get {
+                return this.EntryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EntryField, value) != true)) {
+                    this.EntryField = value;
+                    this.RaisePropertyChanged("Entry");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
                 }
             }
         }
@@ -4655,6 +3653,500 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class UserContract : MikuBot.VocaDBConnector.VocaDbServices.UserWithEmailContract {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ActiveField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool AnonymousActivityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreateDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CultureField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.ContentLanguagePreference DefaultLanguageSelectionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.UserEmailOptions EmailOptionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.UserGroupId GroupIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LanguageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.PVService PreferredVideoServiceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool PublicAlbumCollectionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool VerifiedArtistField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Active {
+            get {
+                return this.ActiveField;
+            }
+            set {
+                if ((this.ActiveField.Equals(value) != true)) {
+                    this.ActiveField = value;
+                    this.RaisePropertyChanged("Active");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool AnonymousActivity {
+            get {
+                return this.AnonymousActivityField;
+            }
+            set {
+                if ((this.AnonymousActivityField.Equals(value) != true)) {
+                    this.AnonymousActivityField = value;
+                    this.RaisePropertyChanged("AnonymousActivity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreateDate {
+            get {
+                return this.CreateDateField;
+            }
+            set {
+                if ((this.CreateDateField.Equals(value) != true)) {
+                    this.CreateDateField = value;
+                    this.RaisePropertyChanged("CreateDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Culture {
+            get {
+                return this.CultureField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CultureField, value) != true)) {
+                    this.CultureField = value;
+                    this.RaisePropertyChanged("Culture");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.ContentLanguagePreference DefaultLanguageSelection {
+            get {
+                return this.DefaultLanguageSelectionField;
+            }
+            set {
+                if ((this.DefaultLanguageSelectionField.Equals(value) != true)) {
+                    this.DefaultLanguageSelectionField = value;
+                    this.RaisePropertyChanged("DefaultLanguageSelection");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.UserEmailOptions EmailOptions {
+            get {
+                return this.EmailOptionsField;
+            }
+            set {
+                if ((this.EmailOptionsField.Equals(value) != true)) {
+                    this.EmailOptionsField = value;
+                    this.RaisePropertyChanged("EmailOptions");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.UserGroupId GroupId {
+            get {
+                return this.GroupIdField;
+            }
+            set {
+                if ((this.GroupIdField.Equals(value) != true)) {
+                    this.GroupIdField = value;
+                    this.RaisePropertyChanged("GroupId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Language {
+            get {
+                return this.LanguageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LanguageField, value) != true)) {
+                    this.LanguageField = value;
+                    this.RaisePropertyChanged("Language");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.PVService PreferredVideoService {
+            get {
+                return this.PreferredVideoServiceField;
+            }
+            set {
+                if ((this.PreferredVideoServiceField.Equals(value) != true)) {
+                    this.PreferredVideoServiceField = value;
+                    this.RaisePropertyChanged("PreferredVideoService");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool PublicAlbumCollection {
+            get {
+                return this.PublicAlbumCollectionField;
+            }
+            set {
+                if ((this.PublicAlbumCollectionField.Equals(value) != true)) {
+                    this.PublicAlbumCollectionField = value;
+                    this.RaisePropertyChanged("PublicAlbumCollection");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool VerifiedArtist {
+            get {
+                return this.VerifiedArtistField;
+            }
+            set {
+                if ((this.VerifiedArtistField.Equals(value) != true)) {
+                    this.VerifiedArtistField = value;
+                    this.RaisePropertyChanged("VerifiedArtist");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntryPictureFileContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class EntryPictureFileContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.EntryType EntryTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OriginalFileNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int OwnerEntryIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ThumbUrlField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.EntryType EntryType {
+            get {
+                return this.EntryTypeField;
+            }
+            set {
+                if ((this.EntryTypeField.Equals(value) != true)) {
+                    this.EntryTypeField = value;
+                    this.RaisePropertyChanged("EntryType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Mime {
+            get {
+                return this.MimeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MimeField, value) != true)) {
+                    this.MimeField = value;
+                    this.RaisePropertyChanged("Mime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OriginalFileName {
+            get {
+                return this.OriginalFileNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OriginalFileNameField, value) != true)) {
+                    this.OriginalFileNameField = value;
+                    this.RaisePropertyChanged("OriginalFileName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int OwnerEntryId {
+            get {
+                return this.OwnerEntryIdField;
+            }
+            set {
+                if ((this.OwnerEntryIdField.Equals(value) != true)) {
+                    this.OwnerEntryIdField = value;
+                    this.RaisePropertyChanged("OwnerEntryId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ThumbUrl {
+            get {
+                return this.ThumbUrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ThumbUrlField, value) != true)) {
+                    this.ThumbUrlField = value;
+                    this.RaisePropertyChanged("ThumbUrl");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TagUsageForApiContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class TagUsageForApiContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.TagBaseContract TagField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Count {
+            get {
+                return this.CountField;
+            }
+            set {
+                if ((this.CountField.Equals(value) != true)) {
+                    this.CountField = value;
+                    this.RaisePropertyChanged("Count");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.TagBaseContract Tag {
+            get {
+                return this.TagField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TagField, value) != true)) {
+                    this.TagField = value;
+                    this.RaisePropertyChanged("Tag");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="WebLinkContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class WebLinkContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.WebLinkCategory CategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionOrUrlField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UrlField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.WebLinkCategory Category {
+            get {
+                return this.CategoryField;
+            }
+            set {
+                if ((this.CategoryField.Equals(value) != true)) {
+                    this.CategoryField = value;
+                    this.RaisePropertyChanged("Category");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DescriptionOrUrl {
+            get {
+                return this.DescriptionOrUrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionOrUrlField, value) != true)) {
+                    this.DescriptionOrUrlField = value;
+                    this.RaisePropertyChanged("DescriptionOrUrl");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Url {
+            get {
+                return this.UrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UrlField, value) != true)) {
+                    this.UrlField = value;
+                    this.RaisePropertyChanged("Url");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TopStatContractOfArtistContractZKwwigZK", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Artists")]
     [System.SerializableAttribute()]
     public partial class TopStatContractOfArtistContractZKwwigZK : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -4700,6 +4192,667 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
                 if ((object.ReferenceEquals(this.DataField, value) != true)) {
                     this.DataField = value;
                     this.RaisePropertyChanged("Data");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserForApiContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class UserForApiContract : MikuBot.VocaDBConnector.VocaDbServices.UserBaseContract {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ActiveField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.UserGroupId GroupIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.UserKnownLanguageContract[] KnownLanguagesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.EntryThumbForApiContract MainPictureField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime MemberSinceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.OldUsernameContract[] OldUsernamesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool VerifiedArtistField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Active {
+            get {
+                return this.ActiveField;
+            }
+            set {
+                if ((this.ActiveField.Equals(value) != true)) {
+                    this.ActiveField = value;
+                    this.RaisePropertyChanged("Active");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.UserGroupId GroupId {
+            get {
+                return this.GroupIdField;
+            }
+            set {
+                if ((this.GroupIdField.Equals(value) != true)) {
+                    this.GroupIdField = value;
+                    this.RaisePropertyChanged("GroupId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public MikuBot.VocaDBConnector.VocaDbServices.UserKnownLanguageContract[] KnownLanguages {
+            get {
+                return this.KnownLanguagesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.KnownLanguagesField, value) != true)) {
+                    this.KnownLanguagesField = value;
+                    this.RaisePropertyChanged("KnownLanguages");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public MikuBot.VocaDBConnector.VocaDbServices.EntryThumbForApiContract MainPicture {
+            get {
+                return this.MainPictureField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MainPictureField, value) != true)) {
+                    this.MainPictureField = value;
+                    this.RaisePropertyChanged("MainPicture");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime MemberSince {
+            get {
+                return this.MemberSinceField;
+            }
+            set {
+                if ((this.MemberSinceField.Equals(value) != true)) {
+                    this.MemberSinceField = value;
+                    this.RaisePropertyChanged("MemberSince");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public MikuBot.VocaDBConnector.VocaDbServices.OldUsernameContract[] OldUsernames {
+            get {
+                return this.OldUsernamesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OldUsernamesField, value) != true)) {
+                    this.OldUsernamesField = value;
+                    this.RaisePropertyChanged("OldUsernames");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool VerifiedArtist {
+            get {
+                return this.VerifiedArtistField;
+            }
+            set {
+                if ((this.VerifiedArtistField.Equals(value) != true)) {
+                    this.VerifiedArtistField = value;
+                    this.RaisePropertyChanged("VerifiedArtist");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntryRefContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.EntryRefWithNameContract))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.EntryRefWithCommonPropertiesContract))]
+    public partial class EntryRefContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.EntryType EntryTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.EntryType EntryType {
+            get {
+                return this.EntryTypeField;
+            }
+            set {
+                if ((this.EntryTypeField.Equals(value) != true)) {
+                    this.EntryTypeField = value;
+                    this.RaisePropertyChanged("EntryType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserBaseContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.UserWithEmailContract))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.UserContract))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.UserForApiContract))]
+    public partial class UserBaseContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserWithEmailContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.UserContract))]
+    public partial class UserWithEmailContract : MikuBot.VocaDBConnector.VocaDbServices.UserBaseContract {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserGroupId", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users")]
+    public enum UserGroupId : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Nothing = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Limited = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Regular = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Trusted = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Moderator = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Admin = 5,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserKnownLanguageContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class UserKnownLanguageContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CultureCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.UserLanguageProficiency ProficiencyField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CultureCode {
+            get {
+                return this.CultureCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CultureCodeField, value) != true)) {
+                    this.CultureCodeField = value;
+                    this.RaisePropertyChanged("CultureCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.UserLanguageProficiency Proficiency {
+            get {
+                return this.ProficiencyField;
+            }
+            set {
+                if ((this.ProficiencyField.Equals(value) != true)) {
+                    this.ProficiencyField = value;
+                    this.RaisePropertyChanged("Proficiency");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OldUsernameContract", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Users")]
+    [System.SerializableAttribute()]
+    public partial class OldUsernameContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OldNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Date {
+            get {
+                return this.DateField;
+            }
+            set {
+                if ((this.DateField.Equals(value) != true)) {
+                    this.DateField = value;
+                    this.RaisePropertyChanged("Date");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OldName {
+            get {
+                return this.OldNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OldNameField, value) != true)) {
+                    this.OldNameField = value;
+                    this.RaisePropertyChanged("OldName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ContentLanguagePreference", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization")]
+    public enum ContentLanguagePreference : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Default = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Japanese = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Romaji = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        English = 4,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserEmailOptions", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users")]
+    public enum UserEmailOptions : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NoEmail = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PrivateMessagesFromAdmins = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PrivateMessagesFromAll = 2,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PVService", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.PVs")]
+    public enum PVService : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NicoNicoDouga = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Youtube = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SoundCloud = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Vimeo = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Piapro = 16,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Bilibili = 32,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        File = 64,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LocalFile = 128,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Creofuga = 256,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserLanguageProficiency", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users")]
+    public enum UserLanguageProficiency : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Nothing = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Basics = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Intermediate = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Advanced = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Native = 4,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntryRefWithNameContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.EntryRefWithCommonPropertiesContract))]
+    public partial class EntryRefWithNameContract : MikuBot.VocaDBConnector.VocaDbServices.EntryRefContract {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.EntryNameContract NameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.EntryNameContract Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntryRefWithCommonPropertiesContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class EntryRefWithCommonPropertiesContract : MikuBot.VocaDBConnector.VocaDbServices.EntryRefWithNameContract {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ArtistStringField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EntryTypeNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ArtistString {
+            get {
+                return this.ArtistStringField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ArtistStringField, value) != true)) {
+                    this.ArtistStringField = value;
+                    this.RaisePropertyChanged("ArtistString");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EntryTypeName {
+            get {
+                return this.EntryTypeNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EntryTypeNameField, value) != true)) {
+                    this.EntryTypeNameField = value;
+                    this.RaisePropertyChanged("EntryTypeName");
+                }
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntryType", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain")]
+    public enum EntryType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Undefined = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Album = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Artist = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DiscussionTopic = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PV = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ReleaseEvent = 16,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ReleaseEventSeries = 32,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Song = 64,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SongList = 128,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Tag = 256,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        User = 512,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntryNameContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class EntryNameContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AdditionalNamesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DisplayNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AdditionalNames {
+            get {
+                return this.AdditionalNamesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AdditionalNamesField, value) != true)) {
+                    this.AdditionalNamesField = value;
+                    this.RaisePropertyChanged("AdditionalNames");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DisplayName {
+            get {
+                return this.DisplayNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DisplayNameField, value) != true)) {
+                    this.DisplayNameField = value;
+                    this.RaisePropertyChanged("DisplayName");
                 }
             }
         }
@@ -4997,67 +5150,6 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="LocalizedStringContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class LocalizedStringContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.ContentLanguageSelection LanguageField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ValueField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.ContentLanguageSelection Language {
-            get {
-                return this.LanguageField;
-            }
-            set {
-                if ((this.LanguageField.Equals(value) != true)) {
-                    this.LanguageField = value;
-                    this.RaisePropertyChanged("Language");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Value {
-            get {
-                return this.ValueField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ValueField, value) != true)) {
-                    this.ValueField = value;
-                    this.RaisePropertyChanged("Value");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="PVServices", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.PVs")]
@@ -5089,6 +5181,246 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LocalFile = 128,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Creofuga = 256,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PVContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class PVContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AuthorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> CreatedByField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool DisabledField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.PVExtendedMetadata ExtendedMetadataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LengthField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PVIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.PVType PVTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> PublishDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.PVService ServiceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ThumbUrlField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UrlField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Author {
+            get {
+                return this.AuthorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AuthorField, value) != true)) {
+                    this.AuthorField = value;
+                    this.RaisePropertyChanged("Author");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((this.CreatedByField.Equals(value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Disabled {
+            get {
+                return this.DisabledField;
+            }
+            set {
+                if ((this.DisabledField.Equals(value) != true)) {
+                    this.DisabledField = value;
+                    this.RaisePropertyChanged("Disabled");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.PVExtendedMetadata ExtendedMetadata {
+            get {
+                return this.ExtendedMetadataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ExtendedMetadataField, value) != true)) {
+                    this.ExtendedMetadataField = value;
+                    this.RaisePropertyChanged("ExtendedMetadata");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Length {
+            get {
+                return this.LengthField;
+            }
+            set {
+                if ((this.LengthField.Equals(value) != true)) {
+                    this.LengthField = value;
+                    this.RaisePropertyChanged("Length");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PVId {
+            get {
+                return this.PVIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PVIdField, value) != true)) {
+                    this.PVIdField = value;
+                    this.RaisePropertyChanged("PVId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.PVType PVType {
+            get {
+                return this.PVTypeField;
+            }
+            set {
+                if ((this.PVTypeField.Equals(value) != true)) {
+                    this.PVTypeField = value;
+                    this.RaisePropertyChanged("PVType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> PublishDate {
+            get {
+                return this.PublishDateField;
+            }
+            set {
+                if ((this.PublishDateField.Equals(value) != true)) {
+                    this.PublishDateField = value;
+                    this.RaisePropertyChanged("PublishDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.PVService Service {
+            get {
+                return this.ServiceField;
+            }
+            set {
+                if ((this.ServiceField.Equals(value) != true)) {
+                    this.ServiceField = value;
+                    this.RaisePropertyChanged("Service");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ThumbUrl {
+            get {
+                return this.ThumbUrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ThumbUrlField, value) != true)) {
+                    this.ThumbUrlField = value;
+                    this.RaisePropertyChanged("ThumbUrl");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Url {
+            get {
+                return this.UrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UrlField, value) != true)) {
+                    this.UrlField = value;
+                    this.RaisePropertyChanged("Url");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5129,97 +5461,91 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         Other = 512,
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="WebLinkForApiContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class WebLinkForApiContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ArtistCategories", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists")]
+    public enum ArtistCategories : int {
         
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Nothing = 0,
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.WebLinkCategory CategoryField;
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Vocalist = 1,
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Producer = 2,
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Animator = 4,
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UrlField;
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Label = 8,
         
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Circle = 16,
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.WebLinkCategory Category {
-            get {
-                return this.CategoryField;
-            }
-            set {
-                if ((this.CategoryField.Equals(value) != true)) {
-                    this.CategoryField = value;
-                    this.RaisePropertyChanged("Category");
-                }
-            }
-        }
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Other = 32,
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Band = 64,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ArtistRoles", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists")]
+    public enum ArtistRoles : int {
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Default = 0,
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Url {
-            get {
-                return this.UrlField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UrlField, value) != true)) {
-                    this.UrlField = value;
-                    this.RaisePropertyChanged("Url");
-                }
-            }
-        }
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Animator = 1,
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Arranger = 2,
         
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Composer = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Distributor = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Illustrator = 16,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Instrumentalist = 32,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Lyricist = 64,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Mastering = 128,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Publisher = 256,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Vocalist = 512,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        VoiceManipulator = 1024,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Other = 2048,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Mixer = 4096,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Chorus = 8192,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Encoder = 16384,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        VocalDataProvider = 32768,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5234,6 +5560,51 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Translation = 2,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PVExtendedMetadata", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class PVExtendedMetadata : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string JsonField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Json {
+            get {
+                return this.JsonField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.JsonField, value) != true)) {
+                    this.JsonField = value;
+                    this.RaisePropertyChanged("Json");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5369,6 +5740,9 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         private MikuBot.VocaDBConnector.VocaDbServices.EntryStatus StatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.TagTargetTypes TargetsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int VersionField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -5450,6 +5824,19 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.TagTargetTypes Targets {
+            get {
+                return this.TargetsField;
+            }
+            set {
+                if ((this.TargetsField.Equals(value) != true)) {
+                    this.TargetsField = value;
+                    this.RaisePropertyChanged("Targets");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Version {
             get {
                 return this.VersionField;
@@ -5461,6 +5848,39 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
                 }
             }
         }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TagTargetTypes", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Tags")]
+    public enum TagTargetTypes : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Nothing = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Album = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Artist = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Song = 64,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AlbumArtist = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AlbumSong = 65,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ArtistSong = 66,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Event = 16,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        All = 1073741823,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5480,159 +5900,58 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         Other = 3,
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntryType", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain")]
-    public enum EntryType : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Undefined = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Album = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Artist = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DiscussionTopic = 4,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        PV = 8,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ReleaseEvent = 16,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ReleaseEventSeries = 32,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Song = 64,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SongList = 128,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Tag = 256,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        User = 512,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DiscMediaType", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Albums")]
-    public enum DiscMediaType : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Audio = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Video = 1,
-    }
-    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SongContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SongListContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.SongWithAlbumContract))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.SongWithAlbumAndPVsContract))]
-    public partial class SongContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+    public partial class SongListContract : MikuBot.VocaDBConnector.VocaDbServices.SongListBaseContract {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AdditionalNamesField;
+        private MikuBot.VocaDBConnector.VocaDbServices.UserWithEmailContract AuthorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ArtistStringField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime CreateDateField;
+        private bool CanEditField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool DeletedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int FavoritedTimesField;
+        private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int LengthSecondsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NicoIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.PVServices PVServicesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> PublishDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int RatingScoreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.SongType SongTypeField;
+        private System.Nullable<System.DateTime> EventDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private MikuBot.VocaDBConnector.VocaDbServices.EntryStatus StatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ThumbUrlField;
+        private MikuBot.VocaDBConnector.VocaDbServices.EntryThumbContract ThumbField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int VersionField;
         
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AdditionalNames {
+        public MikuBot.VocaDBConnector.VocaDbServices.UserWithEmailContract Author {
             get {
-                return this.AdditionalNamesField;
+                return this.AuthorField;
             }
             set {
-                if ((object.ReferenceEquals(this.AdditionalNamesField, value) != true)) {
-                    this.AdditionalNamesField = value;
-                    this.RaisePropertyChanged("AdditionalNames");
+                if ((object.ReferenceEquals(this.AuthorField, value) != true)) {
+                    this.AuthorField = value;
+                    this.RaisePropertyChanged("Author");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ArtistString {
+        public bool CanEdit {
             get {
-                return this.ArtistStringField;
+                return this.CanEditField;
             }
             set {
-                if ((object.ReferenceEquals(this.ArtistStringField, value) != true)) {
-                    this.ArtistStringField = value;
-                    this.RaisePropertyChanged("ArtistString");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CreateDate {
-            get {
-                return this.CreateDateField;
-            }
-            set {
-                if ((this.CreateDateField.Equals(value) != true)) {
-                    this.CreateDateField = value;
-                    this.RaisePropertyChanged("CreateDate");
+                if ((this.CanEditField.Equals(value) != true)) {
+                    this.CanEditField = value;
+                    this.RaisePropertyChanged("CanEdit");
                 }
             }
         }
@@ -5651,478 +5970,6 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int FavoritedTimes {
-            get {
-                return this.FavoritedTimesField;
-            }
-            set {
-                if ((this.FavoritedTimesField.Equals(value) != true)) {
-                    this.FavoritedTimesField = value;
-                    this.RaisePropertyChanged("FavoritedTimes");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int LengthSeconds {
-            get {
-                return this.LengthSecondsField;
-            }
-            set {
-                if ((this.LengthSecondsField.Equals(value) != true)) {
-                    this.LengthSecondsField = value;
-                    this.RaisePropertyChanged("LengthSeconds");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NicoId {
-            get {
-                return this.NicoIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NicoIdField, value) != true)) {
-                    this.NicoIdField = value;
-                    this.RaisePropertyChanged("NicoId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.PVServices PVServices {
-            get {
-                return this.PVServicesField;
-            }
-            set {
-                if ((this.PVServicesField.Equals(value) != true)) {
-                    this.PVServicesField = value;
-                    this.RaisePropertyChanged("PVServices");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> PublishDate {
-            get {
-                return this.PublishDateField;
-            }
-            set {
-                if ((this.PublishDateField.Equals(value) != true)) {
-                    this.PublishDateField = value;
-                    this.RaisePropertyChanged("PublishDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int RatingScore {
-            get {
-                return this.RatingScoreField;
-            }
-            set {
-                if ((this.RatingScoreField.Equals(value) != true)) {
-                    this.RatingScoreField = value;
-                    this.RaisePropertyChanged("RatingScore");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.SongType SongType {
-            get {
-                return this.SongTypeField;
-            }
-            set {
-                if ((this.SongTypeField.Equals(value) != true)) {
-                    this.SongTypeField = value;
-                    this.RaisePropertyChanged("SongType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.EntryStatus Status {
-            get {
-                return this.StatusField;
-            }
-            set {
-                if ((this.StatusField.Equals(value) != true)) {
-                    this.StatusField = value;
-                    this.RaisePropertyChanged("Status");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ThumbUrl {
-            get {
-                return this.ThumbUrlField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ThumbUrlField, value) != true)) {
-                    this.ThumbUrlField = value;
-                    this.RaisePropertyChanged("ThumbUrl");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Version {
-            get {
-                return this.VersionField;
-            }
-            set {
-                if ((this.VersionField.Equals(value) != true)) {
-                    this.VersionField = value;
-                    this.RaisePropertyChanged("Version");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SongWithAlbumContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.SongWithAlbumAndPVsContract))]
-    public partial class SongWithAlbumContract : MikuBot.VocaDBConnector.VocaDbServices.SongContract {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.AlbumContract AlbumField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.AlbumContract Album {
-            get {
-                return this.AlbumField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AlbumField, value) != true)) {
-                    this.AlbumField = value;
-                    this.RaisePropertyChanged("Album");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SongWithAlbumAndPVsContract", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Songs")]
-    [System.SerializableAttribute()]
-    public partial class SongWithAlbumAndPVsContract : MikuBot.VocaDBConnector.VocaDbServices.SongWithAlbumContract {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.PVContract[] PVsField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.PVContract[] PVs {
-            get {
-                return this.PVsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PVsField, value) != true)) {
-                    this.PVsField = value;
-                    this.RaisePropertyChanged("PVs");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PartialFindResultOfEntryForApiContractZKwwigZK", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class PartialFindResultOfEntryForApiContractZKwwigZK : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.EntryForApiContract[] ItemsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TermField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int TotalCountField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.EntryForApiContract[] Items {
-            get {
-                return this.ItemsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ItemsField, value) != true)) {
-                    this.ItemsField = value;
-                    this.RaisePropertyChanged("Items");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Term {
-            get {
-                return this.TermField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TermField, value) != true)) {
-                    this.TermField = value;
-                    this.RaisePropertyChanged("Term");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TotalCount {
-            get {
-                return this.TotalCountField;
-            }
-            set {
-                if ((this.TotalCountField.Equals(value) != true)) {
-                    this.TotalCountField = value;
-                    this.RaisePropertyChanged("TotalCount");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntryForApiContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class EntryForApiContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> ActivityDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AdditionalNamesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ArtistStringField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<MikuBot.VocaDBConnector.VocaDbServices.ArtistType> ArtistTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime CreateDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DefaultNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.ContentLanguageSelection DefaultNameLanguageField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<MikuBot.VocaDBConnector.VocaDbServices.DiscType> DiscTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.EntryType EntryTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.EntryThumbForApiContract MainPictureField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.LocalizedStringContract[] NamesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.PVContract[] PVsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ReleaseEventSeriesNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<MikuBot.VocaDBConnector.VocaDbServices.SongListFeaturedCategory> SongListFeaturedCategoryField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<MikuBot.VocaDBConnector.VocaDbServices.SongType> SongTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.EntryStatus StatusField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TagCategoryNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.TagUsageForApiContract[] TagsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UrlSlugField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int VersionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.ArchivedWebLinkContract[] WebLinksField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public System.Nullable<System.DateTime> ActivityDate {
-            get {
-                return this.ActivityDateField;
-            }
-            set {
-                if ((this.ActivityDateField.Equals(value) != true)) {
-                    this.ActivityDateField = value;
-                    this.RaisePropertyChanged("ActivityDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string AdditionalNames {
-            get {
-                return this.AdditionalNamesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AdditionalNamesField, value) != true)) {
-                    this.AdditionalNamesField = value;
-                    this.RaisePropertyChanged("AdditionalNames");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string ArtistString {
-            get {
-                return this.ArtistStringField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ArtistStringField, value) != true)) {
-                    this.ArtistStringField = value;
-                    this.RaisePropertyChanged("ArtistString");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public System.Nullable<MikuBot.VocaDBConnector.VocaDbServices.ArtistType> ArtistType {
-            get {
-                return this.ArtistTypeField;
-            }
-            set {
-                if ((this.ArtistTypeField.Equals(value) != true)) {
-                    this.ArtistTypeField = value;
-                    this.RaisePropertyChanged("ArtistType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CreateDate {
-            get {
-                return this.CreateDateField;
-            }
-            set {
-                if ((this.CreateDateField.Equals(value) != true)) {
-                    this.CreateDateField = value;
-                    this.RaisePropertyChanged("CreateDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DefaultName {
-            get {
-                return this.DefaultNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DefaultNameField, value) != true)) {
-                    this.DefaultNameField = value;
-                    this.RaisePropertyChanged("DefaultName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.ContentLanguageSelection DefaultNameLanguage {
-            get {
-                return this.DefaultNameLanguageField;
-            }
-            set {
-                if ((this.DefaultNameLanguageField.Equals(value) != true)) {
-                    this.DefaultNameLanguageField = value;
-                    this.RaisePropertyChanged("DefaultNameLanguage");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public string Description {
             get {
                 return this.DescriptionField;
@@ -6135,132 +5982,15 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public System.Nullable<MikuBot.VocaDBConnector.VocaDbServices.DiscType> DiscType {
-            get {
-                return this.DiscTypeField;
-            }
-            set {
-                if ((this.DiscTypeField.Equals(value) != true)) {
-                    this.DiscTypeField = value;
-                    this.RaisePropertyChanged("DiscType");
-                }
-            }
-        }
-        
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.EntryType EntryType {
+        public System.Nullable<System.DateTime> EventDate {
             get {
-                return this.EntryTypeField;
+                return this.EventDateField;
             }
             set {
-                if ((this.EntryTypeField.Equals(value) != true)) {
-                    this.EntryTypeField = value;
-                    this.RaisePropertyChanged("EntryType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public MikuBot.VocaDBConnector.VocaDbServices.EntryThumbForApiContract MainPicture {
-            get {
-                return this.MainPictureField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MainPictureField, value) != true)) {
-                    this.MainPictureField = value;
-                    this.RaisePropertyChanged("MainPicture");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public MikuBot.VocaDBConnector.VocaDbServices.LocalizedStringContract[] Names {
-            get {
-                return this.NamesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NamesField, value) != true)) {
-                    this.NamesField = value;
-                    this.RaisePropertyChanged("Names");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public MikuBot.VocaDBConnector.VocaDbServices.PVContract[] PVs {
-            get {
-                return this.PVsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PVsField, value) != true)) {
-                    this.PVsField = value;
-                    this.RaisePropertyChanged("PVs");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string ReleaseEventSeriesName {
-            get {
-                return this.ReleaseEventSeriesNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ReleaseEventSeriesNameField, value) != true)) {
-                    this.ReleaseEventSeriesNameField = value;
-                    this.RaisePropertyChanged("ReleaseEventSeriesName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public System.Nullable<MikuBot.VocaDBConnector.VocaDbServices.SongListFeaturedCategory> SongListFeaturedCategory {
-            get {
-                return this.SongListFeaturedCategoryField;
-            }
-            set {
-                if ((this.SongListFeaturedCategoryField.Equals(value) != true)) {
-                    this.SongListFeaturedCategoryField = value;
-                    this.RaisePropertyChanged("SongListFeaturedCategory");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public System.Nullable<MikuBot.VocaDBConnector.VocaDbServices.SongType> SongType {
-            get {
-                return this.SongTypeField;
-            }
-            set {
-                if ((this.SongTypeField.Equals(value) != true)) {
-                    this.SongTypeField = value;
-                    this.RaisePropertyChanged("SongType");
+                if ((this.EventDateField.Equals(value) != true)) {
+                    this.EventDateField = value;
+                    this.RaisePropertyChanged("EventDate");
                 }
             }
         }
@@ -6278,41 +6008,15 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string TagCategoryName {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.EntryThumbContract Thumb {
             get {
-                return this.TagCategoryNameField;
+                return this.ThumbField;
             }
             set {
-                if ((object.ReferenceEquals(this.TagCategoryNameField, value) != true)) {
-                    this.TagCategoryNameField = value;
-                    this.RaisePropertyChanged("TagCategoryName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public MikuBot.VocaDBConnector.VocaDbServices.TagUsageForApiContract[] Tags {
-            get {
-                return this.TagsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TagsField, value) != true)) {
-                    this.TagsField = value;
-                    this.RaisePropertyChanged("Tags");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string UrlSlug {
-            get {
-                return this.UrlSlugField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UrlSlugField, value) != true)) {
-                    this.UrlSlugField = value;
-                    this.RaisePropertyChanged("UrlSlug");
+                if ((object.ReferenceEquals(this.ThumbField, value) != true)) {
+                    this.ThumbField = value;
+                    this.RaisePropertyChanged("Thumb");
                 }
             }
         }
@@ -6327,28 +6031,6 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
                     this.VersionField = value;
                     this.RaisePropertyChanged("Version");
                 }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public MikuBot.VocaDBConnector.VocaDbServices.ArchivedWebLinkContract[] WebLinks {
-            get {
-                return this.WebLinksField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.WebLinksField, value) != true)) {
-                    this.WebLinksField = value;
-                    this.RaisePropertyChanged("WebLinks");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
     }
@@ -6375,385 +6057,9 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ArchivedWebLinkContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntryThumbContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
     [System.SerializableAttribute()]
-    public partial class ArchivedWebLinkContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.WebLinkCategory CategoryField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UrlField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.WebLinkCategory Category {
-            get {
-                return this.CategoryField;
-            }
-            set {
-                if ((this.CategoryField.Equals(value) != true)) {
-                    this.CategoryField = value;
-                    this.RaisePropertyChanged("Category");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Url {
-            get {
-                return this.UrlField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UrlField, value) != true)) {
-                    this.UrlField = value;
-                    this.RaisePropertyChanged("Url");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PartialFindResultOfArtistContractZKwwigZK", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class PartialFindResultOfArtistContractZKwwigZK : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.ArtistContract[] ItemsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TermField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int TotalCountField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.ArtistContract[] Items {
-            get {
-                return this.ItemsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ItemsField, value) != true)) {
-                    this.ItemsField = value;
-                    this.RaisePropertyChanged("Items");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Term {
-            get {
-                return this.TermField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TermField, value) != true)) {
-                    this.TermField = value;
-                    this.RaisePropertyChanged("Term");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TotalCount {
-            get {
-                return this.TotalCountField;
-            }
-            set {
-                if ((this.TotalCountField.Equals(value) != true)) {
-                    this.TotalCountField = value;
-                    this.RaisePropertyChanged("TotalCount");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="NewSongCheckResultContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class NewSongCheckResultContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.ArtistContract[] ArtistsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.DuplicateEntryResultContractOfSongMatchPropertyoTF1Br6_P[] MatchesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.SongType SongTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TitleField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.ContentLanguageSelection TitleLanguageField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.ArtistContract[] Artists {
-            get {
-                return this.ArtistsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ArtistsField, value) != true)) {
-                    this.ArtistsField = value;
-                    this.RaisePropertyChanged("Artists");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.DuplicateEntryResultContractOfSongMatchPropertyoTF1Br6_P[] Matches {
-            get {
-                return this.MatchesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MatchesField, value) != true)) {
-                    this.MatchesField = value;
-                    this.RaisePropertyChanged("Matches");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.SongType SongType {
-            get {
-                return this.SongTypeField;
-            }
-            set {
-                if ((this.SongTypeField.Equals(value) != true)) {
-                    this.SongTypeField = value;
-                    this.RaisePropertyChanged("SongType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Title {
-            get {
-                return this.TitleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
-                    this.TitleField = value;
-                    this.RaisePropertyChanged("Title");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.ContentLanguageSelection TitleLanguage {
-            get {
-                return this.TitleLanguageField;
-            }
-            set {
-                if ((this.TitleLanguageField.Equals(value) != true)) {
-                    this.TitleLanguageField = value;
-                    this.RaisePropertyChanged("TitleLanguage");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DuplicateEntryResultContractOfSongMatchPropertyoTF1Br6_P", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class DuplicateEntryResultContractOfSongMatchPropertyoTF1Br6_P : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.EntryRefWithCommonPropertiesContract EntryField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.SongMatchProperty MatchPropertyField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.EntryRefWithCommonPropertiesContract Entry {
-            get {
-                return this.EntryField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EntryField, value) != true)) {
-                    this.EntryField = value;
-                    this.RaisePropertyChanged("Entry");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.SongMatchProperty MatchProperty {
-            get {
-                return this.MatchPropertyField;
-            }
-            set {
-                if ((this.MatchPropertyField.Equals(value) != true)) {
-                    this.MatchPropertyField = value;
-                    this.RaisePropertyChanged("MatchProperty");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntryRefWithCommonPropertiesContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class EntryRefWithCommonPropertiesContract : MikuBot.VocaDBConnector.VocaDbServices.EntryRefWithNameContract {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ArtistStringField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EntryTypeNameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ArtistString {
-            get {
-                return this.ArtistStringField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ArtistStringField, value) != true)) {
-                    this.ArtistStringField = value;
-                    this.RaisePropertyChanged("ArtistString");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EntryTypeName {
-            get {
-                return this.EntryTypeNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EntryTypeNameField, value) != true)) {
-                    this.EntryTypeNameField = value;
-                    this.RaisePropertyChanged("EntryTypeName");
-                }
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SongMatchProperty", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Songs")]
-    public enum SongMatchProperty : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        PV = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Title = 1,
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntryRefContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.EntryRefWithNameContract))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.EntryRefWithCommonPropertiesContract))]
-    public partial class EntryRefContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class EntryThumbContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -6763,6 +6069,12 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int VersionField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -6800,87 +6112,28 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
             }
         }
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntryRefWithNameContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.EntryRefWithCommonPropertiesContract))]
-    public partial class EntryRefWithNameContract : MikuBot.VocaDBConnector.VocaDbServices.EntryRefContract {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.EntryNameContract NameField;
-        
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.EntryNameContract Name {
+        public string Mime {
             get {
-                return this.NameField;
+                return this.MimeField;
             }
             set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntryNameContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class EntryNameContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AdditionalNamesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DisplayNameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AdditionalNames {
-            get {
-                return this.AdditionalNamesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AdditionalNamesField, value) != true)) {
-                    this.AdditionalNamesField = value;
-                    this.RaisePropertyChanged("AdditionalNames");
+                if ((object.ReferenceEquals(this.MimeField, value) != true)) {
+                    this.MimeField = value;
+                    this.RaisePropertyChanged("Mime");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DisplayName {
+        public int Version {
             get {
-                return this.DisplayNameField;
+                return this.VersionField;
             }
             set {
-                if ((object.ReferenceEquals(this.DisplayNameField, value) != true)) {
-                    this.DisplayNameField = value;
-                    this.RaisePropertyChanged("DisplayName");
+                if ((this.VersionField.Equals(value) != true)) {
+                    this.VersionField = value;
+                    this.RaisePropertyChanged("Version");
                 }
             }
         }
@@ -6897,21 +6150,30 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PartialFindResultOfSongWithAlbumAndPVsContractoTF1Br6_P", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AlbumForUserContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
     [System.SerializableAttribute()]
-    public partial class PartialFindResultOfSongWithAlbumAndPVsContractoTF1Br6_P : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class AlbumForUserContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.SongWithAlbumAndPVsContract[] ItemsField;
+        private MikuBot.VocaDBConnector.VocaDbServices.AlbumContract AlbumField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TermField;
+        private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int TotalCountField;
+        private MikuBot.VocaDBConnector.VocaDbServices.MediaType MediaTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.PurchaseStatus PurchaseStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int RatingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.UserContract UserField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -6924,40 +6186,156 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.SongWithAlbumAndPVsContract[] Items {
+        public MikuBot.VocaDBConnector.VocaDbServices.AlbumContract Album {
             get {
-                return this.ItemsField;
+                return this.AlbumField;
             }
             set {
-                if ((object.ReferenceEquals(this.ItemsField, value) != true)) {
-                    this.ItemsField = value;
-                    this.RaisePropertyChanged("Items");
+                if ((object.ReferenceEquals(this.AlbumField, value) != true)) {
+                    this.AlbumField = value;
+                    this.RaisePropertyChanged("Album");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Term {
+        public int Id {
             get {
-                return this.TermField;
+                return this.IdField;
             }
             set {
-                if ((object.ReferenceEquals(this.TermField, value) != true)) {
-                    this.TermField = value;
-                    this.RaisePropertyChanged("Term");
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TotalCount {
+        public MikuBot.VocaDBConnector.VocaDbServices.MediaType MediaType {
             get {
-                return this.TotalCountField;
+                return this.MediaTypeField;
             }
             set {
-                if ((this.TotalCountField.Equals(value) != true)) {
-                    this.TotalCountField = value;
-                    this.RaisePropertyChanged("TotalCount");
+                if ((this.MediaTypeField.Equals(value) != true)) {
+                    this.MediaTypeField = value;
+                    this.RaisePropertyChanged("MediaType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.PurchaseStatus PurchaseStatus {
+            get {
+                return this.PurchaseStatusField;
+            }
+            set {
+                if ((this.PurchaseStatusField.Equals(value) != true)) {
+                    this.PurchaseStatusField = value;
+                    this.RaisePropertyChanged("PurchaseStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Rating {
+            get {
+                return this.RatingField;
+            }
+            set {
+                if ((this.RatingField.Equals(value) != true)) {
+                    this.RatingField = value;
+                    this.RaisePropertyChanged("Rating");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.UserContract User {
+            get {
+                return this.UserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserField, value) != true)) {
+                    this.UserField = value;
+                    this.RaisePropertyChanged("User");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AlbumReleaseContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class AlbumReleaseContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CatNumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.OptionalDateTimeContract ReleaseDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.ReleaseEventForApiContract ReleaseEventField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CatNum {
+            get {
+                return this.CatNumField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CatNumField, value) != true)) {
+                    this.CatNumField = value;
+                    this.RaisePropertyChanged("CatNum");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.OptionalDateTimeContract ReleaseDate {
+            get {
+                return this.ReleaseDateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ReleaseDateField, value) != true)) {
+                    this.ReleaseDateField = value;
+                    this.RaisePropertyChanged("ReleaseDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.ReleaseEventForApiContract ReleaseEvent {
+            get {
+                return this.ReleaseEventField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ReleaseEventField, value) != true)) {
+                    this.ReleaseEventField = value;
+                    this.RaisePropertyChanged("ReleaseEvent");
                 }
             }
         }
@@ -7339,6 +6717,407 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ArtistForAlbumContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class ArtistForAlbumContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.ArtistContract ArtistField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.ArtistCategories CategoriesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.ArtistRoles EffectiveRolesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsSupportField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.ArtistRoles RolesField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.ArtistContract Artist {
+            get {
+                return this.ArtistField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ArtistField, value) != true)) {
+                    this.ArtistField = value;
+                    this.RaisePropertyChanged("Artist");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.ArtistCategories Categories {
+            get {
+                return this.CategoriesField;
+            }
+            set {
+                if ((this.CategoriesField.Equals(value) != true)) {
+                    this.CategoriesField = value;
+                    this.RaisePropertyChanged("Categories");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.ArtistRoles EffectiveRoles {
+            get {
+                return this.EffectiveRolesField;
+            }
+            set {
+                if ((this.EffectiveRolesField.Equals(value) != true)) {
+                    this.EffectiveRolesField = value;
+                    this.RaisePropertyChanged("EffectiveRoles");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsSupport {
+            get {
+                return this.IsSupportField;
+            }
+            set {
+                if ((this.IsSupportField.Equals(value) != true)) {
+                    this.IsSupportField = value;
+                    this.RaisePropertyChanged("IsSupport");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.ArtistRoles Roles {
+            get {
+                return this.RolesField;
+            }
+            set {
+                if ((this.RolesField.Equals(value) != true)) {
+                    this.RolesField = value;
+                    this.RaisePropertyChanged("Roles");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AlbumDiscPropertiesContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class AlbumDiscPropertiesContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int DiscNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.DiscMediaType MediaTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int DiscNumber {
+            get {
+                return this.DiscNumberField;
+            }
+            set {
+                if ((this.DiscNumberField.Equals(value) != true)) {
+                    this.DiscNumberField = value;
+                    this.RaisePropertyChanged("DiscNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.DiscMediaType MediaType {
+            get {
+                return this.MediaTypeField;
+            }
+            set {
+                if ((this.MediaTypeField.Equals(value) != true)) {
+                    this.MediaTypeField = value;
+                    this.RaisePropertyChanged("MediaType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SongInAlbumContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class SongInAlbumContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int DiscNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<MikuBot.VocaDBConnector.VocaDbServices.SongVoteRating> RatingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.SongContract SongField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TrackNumberField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int DiscNumber {
+            get {
+                return this.DiscNumberField;
+            }
+            set {
+                if ((this.DiscNumberField.Equals(value) != true)) {
+                    this.DiscNumberField = value;
+                    this.RaisePropertyChanged("DiscNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<MikuBot.VocaDBConnector.VocaDbServices.SongVoteRating> Rating {
+            get {
+                return this.RatingField;
+            }
+            set {
+                if ((this.RatingField.Equals(value) != true)) {
+                    this.RatingField = value;
+                    this.RaisePropertyChanged("Rating");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.SongContract Song {
+            get {
+                return this.SongField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SongField, value) != true)) {
+                    this.SongField = value;
+                    this.RaisePropertyChanged("Song");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TrackNumber {
+            get {
+                return this.TrackNumberField;
+            }
+            set {
+                if ((this.TrackNumberField.Equals(value) != true)) {
+                    this.TrackNumberField = value;
+                    this.RaisePropertyChanged("TrackNumber");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MediaType", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users")]
+    public enum MediaType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PhysicalDisc = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DigitalDownload = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Other = 4,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PurchaseStatus", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users")]
+    public enum PurchaseStatus : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Nothing = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Wishlisted = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ordered = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Owned = 4,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DiscMediaType", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Albums")]
+    public enum DiscMediaType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Audio = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Video = 1,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArtistRelationsForApi", Namespace="http://vocaloid.eu/schemas/VocaDb")]
     [System.SerializableAttribute()]
     public partial class ArtistRelationsForApi : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -7348,6 +7127,9 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private MikuBot.VocaDBConnector.VocaDbServices.AlbumContract[] LatestAlbumsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.ReleaseEventForApiContract[] LatestEventsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private MikuBot.VocaDBConnector.VocaDbServices.SongForApiContract[] LatestSongsField;
@@ -7377,6 +7159,19 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
                 if ((object.ReferenceEquals(this.LatestAlbumsField, value) != true)) {
                     this.LatestAlbumsField = value;
                     this.RaisePropertyChanged("LatestAlbums");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public MikuBot.VocaDBConnector.VocaDbServices.ReleaseEventForApiContract[] LatestEvents {
+            get {
+                return this.LatestEventsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LatestEventsField, value) != true)) {
+                    this.LatestEventsField = value;
+                    this.RaisePropertyChanged("LatestEvents");
                 }
             }
         }
@@ -7513,6 +7308,1275 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SongContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.SongWithAlbumContract))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.SongWithAlbumAndPVsContract))]
+    public partial class SongContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AdditionalNamesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ArtistStringField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreateDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool DeletedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FavoritedTimesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LengthSecondsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NicoIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.PVServices PVServicesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> PublishDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int RatingScoreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.SongType SongTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.EntryStatus StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ThumbUrlField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int VersionField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AdditionalNames {
+            get {
+                return this.AdditionalNamesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AdditionalNamesField, value) != true)) {
+                    this.AdditionalNamesField = value;
+                    this.RaisePropertyChanged("AdditionalNames");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ArtistString {
+            get {
+                return this.ArtistStringField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ArtistStringField, value) != true)) {
+                    this.ArtistStringField = value;
+                    this.RaisePropertyChanged("ArtistString");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreateDate {
+            get {
+                return this.CreateDateField;
+            }
+            set {
+                if ((this.CreateDateField.Equals(value) != true)) {
+                    this.CreateDateField = value;
+                    this.RaisePropertyChanged("CreateDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Deleted {
+            get {
+                return this.DeletedField;
+            }
+            set {
+                if ((this.DeletedField.Equals(value) != true)) {
+                    this.DeletedField = value;
+                    this.RaisePropertyChanged("Deleted");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FavoritedTimes {
+            get {
+                return this.FavoritedTimesField;
+            }
+            set {
+                if ((this.FavoritedTimesField.Equals(value) != true)) {
+                    this.FavoritedTimesField = value;
+                    this.RaisePropertyChanged("FavoritedTimes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int LengthSeconds {
+            get {
+                return this.LengthSecondsField;
+            }
+            set {
+                if ((this.LengthSecondsField.Equals(value) != true)) {
+                    this.LengthSecondsField = value;
+                    this.RaisePropertyChanged("LengthSeconds");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NicoId {
+            get {
+                return this.NicoIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NicoIdField, value) != true)) {
+                    this.NicoIdField = value;
+                    this.RaisePropertyChanged("NicoId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.PVServices PVServices {
+            get {
+                return this.PVServicesField;
+            }
+            set {
+                if ((this.PVServicesField.Equals(value) != true)) {
+                    this.PVServicesField = value;
+                    this.RaisePropertyChanged("PVServices");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> PublishDate {
+            get {
+                return this.PublishDateField;
+            }
+            set {
+                if ((this.PublishDateField.Equals(value) != true)) {
+                    this.PublishDateField = value;
+                    this.RaisePropertyChanged("PublishDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int RatingScore {
+            get {
+                return this.RatingScoreField;
+            }
+            set {
+                if ((this.RatingScoreField.Equals(value) != true)) {
+                    this.RatingScoreField = value;
+                    this.RaisePropertyChanged("RatingScore");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.SongType SongType {
+            get {
+                return this.SongTypeField;
+            }
+            set {
+                if ((this.SongTypeField.Equals(value) != true)) {
+                    this.SongTypeField = value;
+                    this.RaisePropertyChanged("SongType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.EntryStatus Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ThumbUrl {
+            get {
+                return this.ThumbUrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ThumbUrlField, value) != true)) {
+                    this.ThumbUrlField = value;
+                    this.RaisePropertyChanged("ThumbUrl");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Version {
+            get {
+                return this.VersionField;
+            }
+            set {
+                if ((this.VersionField.Equals(value) != true)) {
+                    this.VersionField = value;
+                    this.RaisePropertyChanged("Version");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SongVoteRating", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Songs")]
+    public enum SongVoteRating : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Nothing = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Dislike = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Like = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Favorite = 5,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SongWithAlbumContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.SongWithAlbumAndPVsContract))]
+    public partial class SongWithAlbumContract : MikuBot.VocaDBConnector.VocaDbServices.SongContract {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.AlbumContract AlbumField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.AlbumContract Album {
+            get {
+                return this.AlbumField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AlbumField, value) != true)) {
+                    this.AlbumField = value;
+                    this.RaisePropertyChanged("Album");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SongWithAlbumAndPVsContract", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Songs")]
+    [System.SerializableAttribute()]
+    public partial class SongWithAlbumAndPVsContract : MikuBot.VocaDBConnector.VocaDbServices.SongWithAlbumContract {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.PVContract[] PVsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.PVContract[] PVs {
+            get {
+                return this.PVsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PVsField, value) != true)) {
+                    this.PVsField = value;
+                    this.RaisePropertyChanged("PVs");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PartialFindResultOfEntryForApiContractZKwwigZK", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class PartialFindResultOfEntryForApiContractZKwwigZK : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.EntryForApiContract[] ItemsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TermField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalCountField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.EntryForApiContract[] Items {
+            get {
+                return this.ItemsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ItemsField, value) != true)) {
+                    this.ItemsField = value;
+                    this.RaisePropertyChanged("Items");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Term {
+            get {
+                return this.TermField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TermField, value) != true)) {
+                    this.TermField = value;
+                    this.RaisePropertyChanged("Term");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalCount {
+            get {
+                return this.TotalCountField;
+            }
+            set {
+                if ((this.TotalCountField.Equals(value) != true)) {
+                    this.TotalCountField = value;
+                    this.RaisePropertyChanged("TotalCount");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntryForApiContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class EntryForApiContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> ActivityDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AdditionalNamesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ArtistStringField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<MikuBot.VocaDBConnector.VocaDbServices.ArtistType> ArtistTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreateDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DefaultNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.ContentLanguageSelection DefaultNameLanguageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<MikuBot.VocaDBConnector.VocaDbServices.DiscType> DiscTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.EntryType EntryTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<MikuBot.VocaDBConnector.VocaDbServices.EventCategory> EventCategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.EntryThumbForApiContract MainPictureField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.LocalizedStringContract[] NamesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.PVContract[] PVsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ReleaseEventSeriesNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<MikuBot.VocaDBConnector.VocaDbServices.SongListFeaturedCategory> SongListFeaturedCategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<MikuBot.VocaDBConnector.VocaDbServices.SongType> SongTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.EntryStatus StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TagCategoryNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.TagUsageForApiContract[] TagsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UrlSlugField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int VersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.ArchivedWebLinkContract[] WebLinksField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<System.DateTime> ActivityDate {
+            get {
+                return this.ActivityDateField;
+            }
+            set {
+                if ((this.ActivityDateField.Equals(value) != true)) {
+                    this.ActivityDateField = value;
+                    this.RaisePropertyChanged("ActivityDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string AdditionalNames {
+            get {
+                return this.AdditionalNamesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AdditionalNamesField, value) != true)) {
+                    this.AdditionalNamesField = value;
+                    this.RaisePropertyChanged("AdditionalNames");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string ArtistString {
+            get {
+                return this.ArtistStringField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ArtistStringField, value) != true)) {
+                    this.ArtistStringField = value;
+                    this.RaisePropertyChanged("ArtistString");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<MikuBot.VocaDBConnector.VocaDbServices.ArtistType> ArtistType {
+            get {
+                return this.ArtistTypeField;
+            }
+            set {
+                if ((this.ArtistTypeField.Equals(value) != true)) {
+                    this.ArtistTypeField = value;
+                    this.RaisePropertyChanged("ArtistType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreateDate {
+            get {
+                return this.CreateDateField;
+            }
+            set {
+                if ((this.CreateDateField.Equals(value) != true)) {
+                    this.CreateDateField = value;
+                    this.RaisePropertyChanged("CreateDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DefaultName {
+            get {
+                return this.DefaultNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DefaultNameField, value) != true)) {
+                    this.DefaultNameField = value;
+                    this.RaisePropertyChanged("DefaultName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.ContentLanguageSelection DefaultNameLanguage {
+            get {
+                return this.DefaultNameLanguageField;
+            }
+            set {
+                if ((this.DefaultNameLanguageField.Equals(value) != true)) {
+                    this.DefaultNameLanguageField = value;
+                    this.RaisePropertyChanged("DefaultNameLanguage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<MikuBot.VocaDBConnector.VocaDbServices.DiscType> DiscType {
+            get {
+                return this.DiscTypeField;
+            }
+            set {
+                if ((this.DiscTypeField.Equals(value) != true)) {
+                    this.DiscTypeField = value;
+                    this.RaisePropertyChanged("DiscType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.EntryType EntryType {
+            get {
+                return this.EntryTypeField;
+            }
+            set {
+                if ((this.EntryTypeField.Equals(value) != true)) {
+                    this.EntryTypeField = value;
+                    this.RaisePropertyChanged("EntryType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<MikuBot.VocaDBConnector.VocaDbServices.EventCategory> EventCategory {
+            get {
+                return this.EventCategoryField;
+            }
+            set {
+                if ((this.EventCategoryField.Equals(value) != true)) {
+                    this.EventCategoryField = value;
+                    this.RaisePropertyChanged("EventCategory");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public MikuBot.VocaDBConnector.VocaDbServices.EntryThumbForApiContract MainPicture {
+            get {
+                return this.MainPictureField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MainPictureField, value) != true)) {
+                    this.MainPictureField = value;
+                    this.RaisePropertyChanged("MainPicture");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public MikuBot.VocaDBConnector.VocaDbServices.LocalizedStringContract[] Names {
+            get {
+                return this.NamesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NamesField, value) != true)) {
+                    this.NamesField = value;
+                    this.RaisePropertyChanged("Names");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public MikuBot.VocaDBConnector.VocaDbServices.PVContract[] PVs {
+            get {
+                return this.PVsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PVsField, value) != true)) {
+                    this.PVsField = value;
+                    this.RaisePropertyChanged("PVs");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string ReleaseEventSeriesName {
+            get {
+                return this.ReleaseEventSeriesNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ReleaseEventSeriesNameField, value) != true)) {
+                    this.ReleaseEventSeriesNameField = value;
+                    this.RaisePropertyChanged("ReleaseEventSeriesName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<MikuBot.VocaDBConnector.VocaDbServices.SongListFeaturedCategory> SongListFeaturedCategory {
+            get {
+                return this.SongListFeaturedCategoryField;
+            }
+            set {
+                if ((this.SongListFeaturedCategoryField.Equals(value) != true)) {
+                    this.SongListFeaturedCategoryField = value;
+                    this.RaisePropertyChanged("SongListFeaturedCategory");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<MikuBot.VocaDBConnector.VocaDbServices.SongType> SongType {
+            get {
+                return this.SongTypeField;
+            }
+            set {
+                if ((this.SongTypeField.Equals(value) != true)) {
+                    this.SongTypeField = value;
+                    this.RaisePropertyChanged("SongType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.EntryStatus Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string TagCategoryName {
+            get {
+                return this.TagCategoryNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TagCategoryNameField, value) != true)) {
+                    this.TagCategoryNameField = value;
+                    this.RaisePropertyChanged("TagCategoryName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public MikuBot.VocaDBConnector.VocaDbServices.TagUsageForApiContract[] Tags {
+            get {
+                return this.TagsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TagsField, value) != true)) {
+                    this.TagsField = value;
+                    this.RaisePropertyChanged("Tags");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string UrlSlug {
+            get {
+                return this.UrlSlugField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UrlSlugField, value) != true)) {
+                    this.UrlSlugField = value;
+                    this.RaisePropertyChanged("UrlSlug");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Version {
+            get {
+                return this.VersionField;
+            }
+            set {
+                if ((this.VersionField.Equals(value) != true)) {
+                    this.VersionField = value;
+                    this.RaisePropertyChanged("Version");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public MikuBot.VocaDBConnector.VocaDbServices.ArchivedWebLinkContract[] WebLinks {
+            get {
+                return this.WebLinksField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.WebLinksField, value) != true)) {
+                    this.WebLinksField = value;
+                    this.RaisePropertyChanged("WebLinks");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ArchivedWebLinkContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class ArchivedWebLinkContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.WebLinkCategory CategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UrlField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.WebLinkCategory Category {
+            get {
+                return this.CategoryField;
+            }
+            set {
+                if ((this.CategoryField.Equals(value) != true)) {
+                    this.CategoryField = value;
+                    this.RaisePropertyChanged("Category");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Url {
+            get {
+                return this.UrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UrlField, value) != true)) {
+                    this.UrlField = value;
+                    this.RaisePropertyChanged("Url");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PartialFindResultOfArtistContractZKwwigZK", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class PartialFindResultOfArtistContractZKwwigZK : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.ArtistContract[] ItemsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TermField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalCountField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.ArtistContract[] Items {
+            get {
+                return this.ItemsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ItemsField, value) != true)) {
+                    this.ItemsField = value;
+                    this.RaisePropertyChanged("Items");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Term {
+            get {
+                return this.TermField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TermField, value) != true)) {
+                    this.TermField = value;
+                    this.RaisePropertyChanged("Term");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalCount {
+            get {
+                return this.TotalCountField;
+            }
+            set {
+                if ((this.TotalCountField.Equals(value) != true)) {
+                    this.TotalCountField = value;
+                    this.RaisePropertyChanged("TotalCount");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NewSongCheckResultContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class NewSongCheckResultContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.ArtistContract[] ArtistsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.DuplicateEntryResultContractOfSongMatchPropertyoTF1Br6_P[] MatchesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.SongType SongTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.ContentLanguageSelection TitleLanguageField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.ArtistContract[] Artists {
+            get {
+                return this.ArtistsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ArtistsField, value) != true)) {
+                    this.ArtistsField = value;
+                    this.RaisePropertyChanged("Artists");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.DuplicateEntryResultContractOfSongMatchPropertyoTF1Br6_P[] Matches {
+            get {
+                return this.MatchesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MatchesField, value) != true)) {
+                    this.MatchesField = value;
+                    this.RaisePropertyChanged("Matches");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.SongType SongType {
+            get {
+                return this.SongTypeField;
+            }
+            set {
+                if ((this.SongTypeField.Equals(value) != true)) {
+                    this.SongTypeField = value;
+                    this.RaisePropertyChanged("SongType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.ContentLanguageSelection TitleLanguage {
+            get {
+                return this.TitleLanguageField;
+            }
+            set {
+                if ((this.TitleLanguageField.Equals(value) != true)) {
+                    this.TitleLanguageField = value;
+                    this.RaisePropertyChanged("TitleLanguage");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DuplicateEntryResultContractOfSongMatchPropertyoTF1Br6_P", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class DuplicateEntryResultContractOfSongMatchPropertyoTF1Br6_P : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.EntryRefWithCommonPropertiesContract EntryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.SongMatchProperty MatchPropertyField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.EntryRefWithCommonPropertiesContract Entry {
+            get {
+                return this.EntryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EntryField, value) != true)) {
+                    this.EntryField = value;
+                    this.RaisePropertyChanged("Entry");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.SongMatchProperty MatchProperty {
+            get {
+                return this.MatchPropertyField;
+            }
+            set {
+                if ((this.MatchPropertyField.Equals(value) != true)) {
+                    this.MatchPropertyField = value;
+                    this.RaisePropertyChanged("MatchProperty");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SongMatchProperty", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Songs")]
+    public enum SongMatchProperty : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PV = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Title = 1,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PartialFindResultOfSongWithAlbumAndPVsContractoTF1Br6_P", Namespace="http://vocaloid.eu/schemas/VocaDb")]
+    [System.SerializableAttribute()]
+    public partial class PartialFindResultOfSongWithAlbumAndPVsContractoTF1Br6_P : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.SongWithAlbumAndPVsContract[] ItemsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TermField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalCountField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.SongWithAlbumAndPVsContract[] Items {
+            get {
+                return this.ItemsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ItemsField, value) != true)) {
+                    this.ItemsField = value;
+                    this.RaisePropertyChanged("Items");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Term {
+            get {
+                return this.TermField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TermField, value) != true)) {
+                    this.TermField = value;
+                    this.RaisePropertyChanged("Term");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalCount {
+            get {
+                return this.TotalCountField;
+            }
+            set {
+                if ((this.TotalCountField.Equals(value) != true)) {
+                    this.TotalCountField = value;
+                    this.RaisePropertyChanged("TotalCount");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SongDetailsContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
     [System.SerializableAttribute()]
     public partial class SongDetailsContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -7573,6 +8637,12 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private MikuBot.VocaDBConnector.VocaDbServices.SongForApiContract OriginalVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MikuBot.VocaDBConnector.VocaDbServices.ArtistForApiContract PersonalDescriptionAuthorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PersonalDescriptionTextField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private MikuBot.VocaDBConnector.VocaDbServices.SongListBaseContract[] PoolsField;
@@ -7849,6 +8919,32 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public MikuBot.VocaDBConnector.VocaDbServices.ArtistForApiContract PersonalDescriptionAuthor {
+            get {
+                return this.PersonalDescriptionAuthorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PersonalDescriptionAuthorField, value) != true)) {
+                    this.PersonalDescriptionAuthorField = value;
+                    this.RaisePropertyChanged("PersonalDescriptionAuthor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PersonalDescriptionText {
+            get {
+                return this.PersonalDescriptionTextField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PersonalDescriptionTextField, value) != true)) {
+                    this.PersonalDescriptionTextField = value;
+                    this.RaisePropertyChanged("PersonalDescriptionText");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public MikuBot.VocaDBConnector.VocaDbServices.SongListBaseContract[] Pools {
             get {
                 return this.PoolsField;
@@ -7974,313 +9070,6 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
                 if ((object.ReferenceEquals(this.pvsField, value) != true)) {
                     this.pvsField = value;
                     this.RaisePropertyChanged("pvs");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SongListBaseContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MikuBot.VocaDBConnector.VocaDbServices.SongListContract))]
-    public partial class SongListBaseContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.SongListFeaturedCategory FeaturedCategoryField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.SongListFeaturedCategory FeaturedCategory {
-            get {
-                return this.FeaturedCategoryField;
-            }
-            set {
-                if ((this.FeaturedCategoryField.Equals(value) != true)) {
-                    this.FeaturedCategoryField = value;
-                    this.RaisePropertyChanged("FeaturedCategory");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SongVoteRating", Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Songs")]
-    public enum SongVoteRating : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Nothing = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Dislike = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Like = 3,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Favorite = 5,
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SongListContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class SongListContract : MikuBot.VocaDBConnector.VocaDbServices.SongListBaseContract {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.UserWithEmailContract AuthorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool CanEditField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> EventDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.EntryStatus StatusField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.EntryThumbContract ThumbField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int VersionField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.UserWithEmailContract Author {
-            get {
-                return this.AuthorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AuthorField, value) != true)) {
-                    this.AuthorField = value;
-                    this.RaisePropertyChanged("Author");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool CanEdit {
-            get {
-                return this.CanEditField;
-            }
-            set {
-                if ((this.CanEditField.Equals(value) != true)) {
-                    this.CanEditField = value;
-                    this.RaisePropertyChanged("CanEdit");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> EventDate {
-            get {
-                return this.EventDateField;
-            }
-            set {
-                if ((this.EventDateField.Equals(value) != true)) {
-                    this.EventDateField = value;
-                    this.RaisePropertyChanged("EventDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.EntryStatus Status {
-            get {
-                return this.StatusField;
-            }
-            set {
-                if ((this.StatusField.Equals(value) != true)) {
-                    this.StatusField = value;
-                    this.RaisePropertyChanged("Status");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.EntryThumbContract Thumb {
-            get {
-                return this.ThumbField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ThumbField, value) != true)) {
-                    this.ThumbField = value;
-                    this.RaisePropertyChanged("Thumb");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Version {
-            get {
-                return this.VersionField;
-            }
-            set {
-                if ((this.VersionField.Equals(value) != true)) {
-                    this.VersionField = value;
-                    this.RaisePropertyChanged("Version");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntryThumbContract", Namespace="http://vocaloid.eu/schemas/VocaDb")]
-    [System.SerializableAttribute()]
-    public partial class EntryThumbContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MikuBot.VocaDBConnector.VocaDbServices.EntryType EntryTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MimeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int VersionField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MikuBot.VocaDBConnector.VocaDbServices.EntryType EntryType {
-            get {
-                return this.EntryTypeField;
-            }
-            set {
-                if ((this.EntryTypeField.Equals(value) != true)) {
-                    this.EntryTypeField = value;
-                    this.RaisePropertyChanged("EntryType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Mime {
-            get {
-                return this.MimeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MimeField, value) != true)) {
-                    this.MimeField = value;
-                    this.RaisePropertyChanged("Mime");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Version {
-            get {
-                return this.VersionField;
-            }
-            set {
-                if ((this.VersionField.Equals(value) != true)) {
-                    this.VersionField = value;
-                    this.RaisePropertyChanged("Version");
                 }
             }
         }
