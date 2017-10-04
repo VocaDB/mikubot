@@ -1191,7 +1191,10 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         Video = 32,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Other = 64,
+        Artbook = 64,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Other = 128,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5489,6 +5492,9 @@ namespace MikuBot.VocaDBConnector.VocaDbServices {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Band = 64,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Illustrator = 128,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
