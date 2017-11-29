@@ -10,11 +10,11 @@
 	
 	<ul class="pager">
 		@if (Model.Page > 0) {
-		<li>@Html.ActionLink("Previous page", "Links", new { id = Model.Channel, nick = Model.Nick, page = Model.Page })</li>
+		<li>@Html.ActionLink("Previous page", "Links", new { id = Model.Channel, nick = Model.Nick, page = Model.Page, entriesPerPage = Model.EntriesPerPage })</li>
 		} else {
 		<li class="disabled"><a href="#">Previous page</a></li>	
 		}
-		<li>@Html.ActionLink("Next page", "Links", new { id = Model.Channel, nick = Model.Nick, page = Model.Page + 2 })</li>
+		<li>@Html.ActionLink("Next page", "Links", new { id = Model.Channel, nick = Model.Nick, page = Model.Page + 2, entriesPerPage = Model.EntriesPerPage })</li>
 	</ul>	
 
 }
@@ -29,7 +29,7 @@
 			<form class="navbar-form form-inline pull-right">
 				<input type="text" maxlength="100" class="input-large" placeholder="Filter by user" value="@Model.Nick" name="Nick" />
 				<button type="submit" class="btn btn-primary">Apply</button>
-				<a class="btn" href="@Url.Action("Links", new { channel = Model.Channel })">Clear</a>
+				<a class="btn" href="@Url.Action("Links", new { channel = Model.Channel, entriesPerPage = Model.EntriesPerPage })">Clear</a>
 			</form>
 		</div>
 	</div>

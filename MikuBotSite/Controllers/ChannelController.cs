@@ -20,17 +20,15 @@ namespace MikuBot.Site.Controllers
         //
         // GET: /Link/
 
-        public ActionResult Links(string id, string nick, int? page, bool clearCache = false)
+        public ActionResult Links(string id, string nick, int? page, bool clearCache = false, int entriesPerPage = 200)
         {
 
 			if (clearCache)
 				ClearCache();
 
-			const int entriesPerPage = 200;
-
 			var pageIndex = (page - 1) ?? 0;
 			var links = Service.GetRecords(new IrcName("#" + id), nick, pageIndex * entriesPerPage, entriesPerPage);
-			var model = new ChannelLinks(id, nick, links, pageIndex);
+			var model = new ChannelLinks(id, nick, links, pageIndex, entriesPerPage);
 
             return View(model);
         }

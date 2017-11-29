@@ -4,16 +4,19 @@ namespace MikuBot.Site.Models.Channel {
 
 	public class ChannelLinks {
 
-		public ChannelLinks(string channel, string nick, LinkRecordContract[] links, int page) {
+		public ChannelLinks(string channel, string nick, LinkRecordContract[] links, int page, int entriesPerPage) {
 
 			Channel = channel;
 			Links = links;
 			Nick = nick;
 			Page = page;
+			EntriesPerPage = entriesPerPage;
 
 		}
 
 		public string Channel { get; set; }
+
+		public int EntriesPerPage { get; set; }
 
 		public LinkRecordContract[] Links { get; set; }
 
