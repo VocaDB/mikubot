@@ -51,8 +51,11 @@ namespace MikuBot.VocaDBConnector {
 
 		private QueryServiceClient CreateClient(ClientType clientType) {
 
-			var binding = new BasicHttpBinding(BasicHttpSecurityMode.None) { MaxReceivedMessageSize = 131072 };
-			var endPoint = new EndpointAddress(clientType == ClientType.VocaDb ? endPointAddressVocaDb : endPointAddressUtaiteDb);
+			var endpoint = clientType == ClientType.VocaDb ? endPointAddressVocaDb : endPointAddressUtaiteDb;
+			var isSsl = endpoint.StartsWith("https://", StringComparison.InvariantCultureIgnoreCase);
+
+			var binding = new BasicHttpBinding(isSsl ? BasicHttpSecurityMode.Transport : BasicHttpSecurityMode.None) { MaxReceivedMessageSize = 131072 };
+			var endPoint = new EndpointAddress(endpoint);
 
 			return new QueryServiceClient(binding, endPoint);
 			

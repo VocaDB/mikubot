@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MikuBotSite", "MikuBotSite.csproj", "{1805289A-DFEB-4F93-AD0B-B97F0A62E34E}"
 EndProject
@@ -16,6 +16,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VocaDBConnector", "..\VocaVoterConnector\VocaDBConnector.csproj", "{12D6A8AC-FE9B-4391-B60B-4730039FB7E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtraPlugins", "..\ExtraPlugins\ExtraPlugins.csproj", "{327B6B70-DD11-4054-AA14-4377439E6531}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{898AF295-61C2-4393-92B1-B5F7138C7F77}"
+	ProjectSection(SolutionItems) = preProject
+		..\MikuBot\appsettings.config = ..\MikuBot\appsettings.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -100,5 +105,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3661DD4-38EB-4CC9-A097-02C3F44A9ECE}
 	EndGlobalSection
 EndGlobal
