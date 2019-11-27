@@ -9,6 +9,7 @@ namespace MikuBot.Site.Helpers {
 	public static class PixivHelper {
 
 		private static readonly Regex[] regexes = { 
+			new Regex(@"www.pixiv.net/en/artworks/(\d+)"),
 			new Regex(@"www.pixiv.net/member_illust.php\?mode=medium\&illust_id=(\d+)"),
 			new Regex(@"www.pixiv.net/member_illust.php\?mode=big\&illust_id=(\d+)"),
 		};
@@ -43,7 +44,7 @@ namespace MikuBot.Site.Helpers {
 
 		public static string GetImageUrl(string id) {
 
-			var requestUrl = string.Format("http://www.pixiv.net/member_illust.php?mode=medium&illust_id={0}", id);
+			var requestUrl = string.Format("https://www.pixiv.net/en/artworks/{0}", id);
 			var request = (HttpWebRequest)WebRequest.Create(requestUrl);
 			request.UserAgent = "MikuBot";
 			var doc = new HtmlDocument();
