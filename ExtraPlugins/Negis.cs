@@ -2,10 +2,10 @@
 using MikuBot.Commands;
 using MikuBot.Modules;
 
-namespace MikuBot.ExtraPlugins {
-
-	public class Negis : MsgCommandModuleBase {
-
+namespace MikuBot.ExtraPlugins
+{
+	public class Negis : MsgCommandModuleBase
+	{
 		private readonly StringCollection responses = new StringCollection {
 			"mmm...negis...",
 			"mmm...negis...",
@@ -16,38 +16,38 @@ namespace MikuBot.ExtraPlugins {
 			"did you mention negis?",
 		};
 
-		public override int CooldownChannelMs {
+		public override int CooldownChannelMs
+		{
 			get { return 30000; }
 		}
 
-		public override string HelpText {
+		public override string HelpText
+		{
 			get { return "Negis!"; }
 		}
 
-		public override bool IsPassive {
+		public override bool IsPassive
+		{
 			get { return true; }
 		}
 
-		public override void HandleCommand(MsgCommand chat, IBotContext bot) {
-
+		public override void HandleCommand(MsgCommand chat, IBotContext bot)
+		{
 			var txt = chat.Text.ToLower();
 
-			if (txt.Contains("negis") && (!responses.Contains(txt) || chat.HighlightMe)) {
-
+			if (txt.Contains("negis") && (!responses.Contains(txt) || chat.HighlightMe))
+			{
 				if (!CheckCooldowns(chat, bot, false))
 					return;
 
 				var output = BotHelper.ChooseRandom(responses);
-				bot.Writer.Msg(chat.ChannelOrSenderNick, output);				
-
+				bot.Writer.Msg(chat.ChannelOrSenderNick, output);
 			}
-
 		}
 
-		public override string Name {
+		public override string Name
+		{
 			get { return "Negis"; }
 		}
-
 	}
-
 }

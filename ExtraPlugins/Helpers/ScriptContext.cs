@@ -4,9 +4,10 @@ using System.Collections.Specialized;
 using System.Reflection;
 using System.Text;
 
-namespace MikuBot.ExtraPlugins.Helpers {
-	public class ScriptContext {
-
+namespace MikuBot.ExtraPlugins.Helpers
+{
+	public class ScriptContext
+	{
 		private readonly StringCollection referencedAssemblies;
 		private readonly StringCollection usings;
 
@@ -14,7 +15,8 @@ namespace MikuBot.ExtraPlugins.Helpers {
 		/// Initializes a script context with default usings and referenced assemblies.
 		/// System namespace and system.dll assembly will be referenced.
 		/// </summary>
-		public ScriptContext() {
+		public ScriptContext()
+		{
 			referencedAssemblies = new StringCollection();
 			usings = new StringCollection();
 			AddReferencedAssembly("system.dll");
@@ -29,11 +31,10 @@ namespace MikuBot.ExtraPlugins.Helpers {
 		/// <param name="referencedAssemblies">List of referenced assemblies. Cannot be null.</param>
 		/// <param name="usings">List of using directives. Cannot be null.</param>
 		public ScriptContext(string[] referencedAssemblies, string[] usings)
-			: this() {
-
+			: this()
+		{
 			this.referencedAssemblies.AddRange(referencedAssemblies);
 			this.usings.AddRange(usings);
-
 		}
 
 		/// <summary>
@@ -42,49 +43,47 @@ namespace MikuBot.ExtraPlugins.Helpers {
 		/// </summary>
 		/// <param name="another">Source context. Cannot be null.</param>
 		public ScriptContext(ScriptContext another)
-			: this() {
-
+			: this()
+		{
 			CopyFrom(another);
-
 		}
 
-		public void AddExecutingAssembly() {
+		public void AddExecutingAssembly()
+		{
 			AddReferencedAssembly(Assembly.GetCallingAssembly().Location);
 		}
 
-		public void AddReferencedAssembly(string path) {
-
+		public void AddReferencedAssembly(string path)
+		{
 			if (string.IsNullOrEmpty(path))
 				throw new ArgumentException("Path cannot be null or empty", "path");
 
 			if (!referencedAssemblies.Contains(path))
 				referencedAssemblies.Add(path);
-
 		}
 
-		public void AddUsingDirective(string usingDirective) {
-
+		public void AddUsingDirective(string usingDirective)
+		{
 			if (string.IsNullOrEmpty(usingDirective))
 				throw new ArgumentException("Using-directive cannot be null or empty", "usingDirective");
 
 			if (!usings.Contains(usingDirective))
 				usings.Add(usingDirective);
-
 		}
 
-		public void CopyFrom(ScriptContext another) {
-
+		public void CopyFrom(ScriptContext another)
+		{
 			foreach (string assembly in another.referencedAssemblies)
 				AddReferencedAssembly(assembly);
 
 			foreach (string usingDirective in another.usings)
 				AddUsingDirective(usingDirective);
-
 		}
 
-		public CompilerParameters CreateCompilerParameters(string outputAssembly) {
-
-			var compilerParameters = new CompilerParameters {
+		public CompilerParameters CreateCompilerParameters(string outputAssembly)
+		{
+			var compilerParameters = new CompilerParameters
+			{
 				GenerateExecutable = false,
 				GenerateInMemory = true,
 				OutputAssembly = outputAssembly
@@ -98,17 +97,14 @@ namespace MikuBot.ExtraPlugins.Helpers {
 #endif
 
 			return compilerParameters;
-
 		}
 
-		public void AppendUsings(StringBuilder code) {
-
-			foreach (string usingDirective in usings) {
+		public void AppendUsings(StringBuilder code)
+		{
+			foreach (string usingDirective in usings)
+			{
 				code.AppendLine("using " + usingDirective + ";");
 			}
-
 		}
-
 	}
-
 }

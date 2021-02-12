@@ -9,11 +9,11 @@ using MikuBot.Modules;
 using System.Windows.Forms;
 using MikuBot.Security;
 
-namespace MikuBot {
-
-	public class Bot : IBotContext {
-
-		private static readonly ILog log = LogManager.GetLogger(typeof (Bot));
+namespace MikuBot
+{
+	public class Bot : IBotContext
+	{
+		private static readonly ILog log = LogManager.GetLogger(typeof(Bot));
 
 		private readonly Authenticator authenticator;
 		private readonly ChannelManager channelManager;
@@ -30,15 +30,17 @@ namespace MikuBot {
 		private readonly UserManager userManager;
 		private IrcWriter writer;
 
-		private void HandleCommand(IrcCommand cmd) {
-
-			if (cmd is PingCommand) {
+		private void HandleCommand(IrcCommand cmd)
+		{
+			if (cmd is PingCommand)
+			{
 				HandlePing((PingCommand)cmd);
 			}
 
 			var sender = cmd.Sender;
-			if (sender != null && sender.UserLevel < BotUserLevel.Manager && ignoredNickList.IsIgnored(sender.Host)) {
-				return;				
+			if (sender != null && sender.UserLevel < BotUserLevel.Manager && ignoredNickList.IsIgnored(sender.Host))
+			{
+				return;
 			}
 
 			if (cmd is NumericReply)
@@ -72,11 +74,10 @@ namespace MikuBot {
 
 			//var nicoParser = new NicoParser();
 			//nicoParser.HandleCommand(cmd, this);
-
 		}
 
-		private void HandleLine(string inputLine) {
-
+		private void HandleLine(string inputLine)
+		{
 			Console.WriteLine("<-" + inputLine);
 			//logWriter.WriteLine(inputLine, this);
 
@@ -85,108 +86,96 @@ namespace MikuBot {
 			var cmd = IrcCommand.Parse(inputLine, this);
 
 			HandleCommand(cmd);
-
 		}
 
-		private void HandleNumericReply(NumericReply cmd) {
-			
-			if (cmd.CommonReplyCode == ReplyCode.ERR_NICKNAMEINUSE && cmd.ParamCollection.ParamOrEmpty(0) == "*") {
+		private void HandleNumericReply(NumericReply cmd)
+		{
+			if (cmd.CommonReplyCode == ReplyCode.ERR_NICKNAMEINUSE && cmd.ParamCollection.ParamOrEmpty(0) == "*")
+			{
 				log.Warn("Nickname in use; trying another one");
 				nickManager.Next();
 				Thread.Sleep(3000);
 			}
 
-			if (cmd.CommonReplyCode == ReplyCode.RPL_ENDOFMOTD || cmd.CommonReplyCode == ReplyCode.ERR_NOMOTD) {
+			if (cmd.CommonReplyCode == ReplyCode.RPL_ENDOFMOTD || cmd.CommonReplyCode == ReplyCode.ERR_NOMOTD)
+			{
 				OnConnected();
 			}
 
 			OnNumericReplyMessage(cmd);
-
 		}
 
-		private void HandlePing(PingCommand cmd) {
-
+		private void HandlePing(PingCommand cmd)
+		{
 			writer.Send("PONG " + cmd.Origin);
-
 		}
 
-		private void Login() {
-
+		private void Login()
+		{
 			var nick = nickManager.Current.Name;
 
 			Writer.Nick(nick);
 			Writer.User(nick, nick);
-
 		}
 
-		private void OnConnected() {
-
+		private void OnConnected()
+		{
 			if (Connected != null)
 				Connected(this, EventArgs.Empty);
-
 		}
 
-		private void OnDisconnected() {
-
+		private void OnDisconnected()
+		{
 			if (Disconnected != null)
 				Disconnected(this, EventArgs.Empty);
-
 		}
 
-		private void OnInviteMessage(InviteCommand msg) {
-
+		private void OnInviteMessage(InviteCommand msg)
+		{
 			if (InviteMessage != null)
 				InviteMessage(this, IrcCommandEventArgsFactory.Create(msg));
-
 		}
 
-		private void OnJoinMessage(JoinCommand msg) {
-
+		private void OnJoinMessage(JoinCommand msg)
+		{
 			if (JoinMessage != null)
 				JoinMessage(this, IrcCommandEventArgsFactory.Create(msg));
-
 		}
 
-		private void OnKickMessage(KickCommand msg) {
-
+		private void OnKickMessage(KickCommand msg)
+		{
 			if (KickMessage != null)
 				KickMessage(this, IrcCommandEventArgsFactory.Create(msg));
-
 		}
 
-		private void OnKillMessage(KillMessage msg) {
-
+		private void OnKillMessage(KillMessage msg)
+		{
 			if (KillMessage != null)
 				KillMessage(this, IrcCommandEventArgsFactory.Create(msg));
-
 		}
 
-		private void OnNickMessage(NickMessage msg) {
-
+		private void OnNickMessage(NickMessage msg)
+		{
 			if (NickMessage != null)
 				NickMessage(this, IrcCommandEventArgsFactory.Create(msg));
-
 		}
 
-		private void OnNumericReplyMessage(NumericReply msg) {
-
+		private void OnNumericReplyMessage(NumericReply msg)
+		{
 			if (NumericReplyMessage != null)
 				NumericReplyMessage(this, IrcCommandEventArgsFactory.Create(msg));
-
 		}
 
-		private void OnPartMessage(PartMessage msg) {
-
+		private void OnPartMessage(PartMessage msg)
+		{
 			if (PartMessage != null)
 				PartMessage(this, IrcCommandEventArgsFactory.Create(msg));
-
 		}
 
-		private void OnQuitMessage(QuitMessage msg) {
-
+		private void OnQuitMessage(QuitMessage msg)
+		{
 			if (QuitMessage != null)
 				QuitMessage(this, IrcCommandEventArgsFactory.Create(msg));
-
 		}
 
 		/// <summary>
@@ -208,8 +197,8 @@ namespace MikuBot {
 		public event EventHandler<IrcCommandEventArgs<PartMessage>> PartMessage;
 		public event EventHandler<IrcCommandEventArgs<QuitMessage>> QuitMessage;
 
-		public Bot(Config config) {
-
+		public Bot(Config config)
+		{
 			ParamIs.NotNull(() => config);
 
 			startupTime = DateTime.Now;
@@ -221,124 +210,146 @@ namespace MikuBot {
 			channelManager = new ChannelManager(this, config.AutoJoinChannels);
 			moduleManager = new ModuleManager(this);
 			moduleManager.DisablePluginModules(config.DisableModules, true);
-
 		}
 
-		public IAuthenticator Authenticator {
+		public IAuthenticator Authenticator
+		{
 			get { return authenticator; }
 		}
 
-		public IChannelManager ChannelManager {
+		public IChannelManager ChannelManager
+		{
 			get { return channelManager; }
 		}
 
-		public Config Config {
+		public Config Config
+		{
 			get { return config; }
 		}
 
-		IConfig IBotContext.Config {
+		IConfig IBotContext.Config
+		{
 			get { return Config; }
 		}
 
-		object IBotContext.DbServices {
+		object IBotContext.DbServices
+		{
 			get { return DbServices; }
 		}
 
-		public DbServicesManager DbServices {
+		public DbServicesManager DbServices
+		{
 			get { return dbServices; }
 		}
 
-		public string HighlightShortcut {
-			get {
+		public string HighlightShortcut
+		{
+			get
+			{
 				return config.HighlightShortcut;
 			}
 		}
 
-		public IIgnoredNickList IgnoredNickList {
+		public IIgnoredNickList IgnoredNickList
+		{
 			get { return ignoredNickList; }
 		}
 
-		public bool IsConnected {
+		public bool IsConnected
+		{
 			get { return connected; }
 		}
 
-		public ModuleManager ModuleManager {
+		public ModuleManager ModuleManager
+		{
 			get { return moduleManager; }
 		}
 
-		IModuleManager IBotContext.ModuleManager {
+		IModuleManager IBotContext.ModuleManager
+		{
 			get { return ModuleManager; }
 		}
 
-		public INickManager NickManager {
+		public INickManager NickManager
+		{
 			get { return nickManager; }
 		}
 
-		public IrcName OwnNick { get { 
-			return nickManager.Current;
-		}}
+		public IrcName OwnNick
+		{
+			get
+			{
+				return nickManager.Current;
+			}
+		}
 
-		public DateTime StartupTime {
+		public DateTime StartupTime
+		{
 			get { return startupTime; }
 		}
 
-		public UserManager UserManager {
+		public UserManager UserManager
+		{
 			get { return userManager; }
 		}
 
-		public IrcWriter Writer {
+		public IrcWriter Writer
+		{
 			get { return writer; }
 		}
 
-		public void Reconnect() {
+		public void Reconnect()
+		{
 			log.Info("Reconnecting");
 			disconnect = true;
 		}
 
-		public void Quit() {
+		public void Quit()
+		{
 			log.Info("Quitting");
 			run = false;
 		}
 
-		private bool ReadLine(StreamReader reader) {
-
+		private bool ReadLine(StreamReader reader)
+		{
 			string inputLine = null;
 
-			try {
+			try
+			{
 				inputLine = reader.ReadLine();
-			} catch (IOException x) {
+			}
+			catch (IOException x)
+			{
 				log.Warn("Unable to read from stream; reconnecting", x);
 				Thread.Sleep(3000);
 				return false;
 			}
 
-			if (inputLine != null) {
-
+			if (inputLine != null)
+			{
 				HandleLine(inputLine);
 
 				lastMsgTime = DateTime.Now;
-
-			} else {
-				
-				if (lastMsgTime + config.PingTimeout < DateTime.Now) {
+			}
+			else
+			{
+				if (lastMsgTime + config.PingTimeout < DateTime.Now)
+				{
 					log.Warn("Ping timeout reached; reconnecting");
 					disconnect = true;
 				}
-
 			}
 
 			return true;
-
 		}
 
-		private void writer_SendText(string text) {
-
+		private void writer_SendText(string text)
+		{
 			moduleManager.OnMessageSent(text, this);
-
 		}
 
-		public void Run() {
-
+		public void Run()
+		{
 			//var linkFile = new LogFileLinkReader(DbPlugins.DbPluginsModule.Services, @"C:\Documents\mikuchan.log");
 			//linkFile.ReadLinks();
 
@@ -346,28 +357,33 @@ namespace MikuBot {
 
 			run = true;
 
-			if (Config.AutoLoadModules) {
+			if (Config.AutoLoadModules)
+			{
 				moduleManager.LoadModules(this, new LogReceiver(), Config.Modules);
 			}
 
-			while (run) {
-
+			while (run)
+			{
 				disconnect = false;
 				TcpClient client = null;
 
-				try {
-					try {
+				try
+				{
+					try
+					{
 						client = new TcpClient(config.Server, config.Port);
-					} catch (SocketException x) {
+					}
+					catch (SocketException x)
+					{
 						log.Error("Unable to create TCP client; retrying", x);
 						Thread.Sleep(3000);
 						continue;
 					}
-					
+
 					using (var stream = client.GetStream())
 					using (var reader = new StreamReader(stream))
-					using (var streamWriter = TextWriter.Synchronized(new StreamWriter(stream))) {
-
+					using (var streamWriter = TextWriter.Synchronized(new StreamWriter(stream)))
+					{
 						connected = true;
 						stream.ReadTimeout = (int)config.PingTimeout.TotalMilliseconds;
 						writer = new IrcWriter(streamWriter);
@@ -375,24 +391,19 @@ namespace MikuBot {
 
 						Login();
 
-						while (run && !disconnect && client.Connected && ReadLine(reader)) {}
-
+						while (run && !disconnect && client.Connected && ReadLine(reader)) { }
 					}
-
-				} finally {
-
+				}
+				finally
+				{
 					connected = false;
 
 					if (client != null)
 						client.Close();
 
 					OnDisconnected();
-
 				}
-				
 			}
-
 		}
-
 	}
 }

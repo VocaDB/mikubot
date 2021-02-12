@@ -7,15 +7,15 @@ using System.Web.Mvc;
 using System.Web.Mvc.Html;
 using MikuBot.DbModel.DataContracts;
 
-namespace MikuBot.Site.Helpers {
-
-	public static class LinkRecordHelper {
-
-		private static readonly string[] pictureExt = { ".jpg", ".jpeg", ".png", ".gif" };	
+namespace MikuBot.Site.Helpers
+{
+	public static class LinkRecordHelper
+	{
+		private static readonly string[] pictureExt = { ".jpg", ".jpeg", ".png", ".gif" };
 		private static readonly Regex tinypicRegex = new Regex(@"http://\w+\.tinypic\.com/\w+\.\w+");
 
-		public static string GetImageUrl(UrlHelper urlHelper, LinkRecordContract record) {
-
+		public static string GetImageUrl(UrlHelper urlHelper, LinkRecordContract record)
+		{
 			var pictureUrl = TrimPictureUrl(record.Url);
 
 			if (IsPictureUrl(pictureUrl))
@@ -54,37 +54,35 @@ namespace MikuBot.Site.Helpers {
 				return urlHelper.Action("Thumbnail", "Youtube", new { id = youtubeId });
 
 			return null;
-
 		}
 
-		public static MvcHtmlString GetParsedHtmlString(string line) {
-
+		public static MvcHtmlString GetParsedHtmlString(string line)
+		{
 			var encoded = HttpUtility.HtmlEncode(line).Replace("&amp;", "&");
 			var processed = WebHelper.ReplaceUrisWithLinks(encoded);
 
 			return new MvcHtmlString(processed);
-
 		}
 
-		private static string TrimPictureUrl(string url) {
-
+		private static string TrimPictureUrl(string url)
+		{
 			if (string.IsNullOrEmpty(url))
 				return url;
 
 			// Trim :large from end for Twitter
-			if (url.EndsWith(":large")) {
+			if (url.EndsWith(":large"))
+			{
 				return url.Substring(0, url.Length - 6);
 			}
 
 			return url;
-
 		}
 
-		public static bool IsPictureUrl(string url) {
-
+		public static bool IsPictureUrl(string url)
+		{
 			if (string.IsNullOrEmpty(url))
 				return false;
-	
+
 			if (pictureExt.Any(e => e.Equals(Path.GetExtension(url), StringComparison.InvariantCultureIgnoreCase)))
 				return true;
 
@@ -92,8 +90,6 @@ namespace MikuBot.Site.Helpers {
 				return true;
 
 			return false;
-
 		}
-
 	}
 }

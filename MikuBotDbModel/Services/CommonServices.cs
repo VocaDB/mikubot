@@ -6,14 +6,14 @@ using NHibernate;
 using NHibernate.Linq;
 using System.Collections.Generic;
 
-namespace MikuBot.DbModel.Services {
-
-	public class CommonServices : ServiceBase {
-
-		class LineEqualityComparer : IEqualityComparer<LinkRecord> {
-
-			public bool Equals(LinkRecord x, LinkRecord y) {
-
+namespace MikuBot.DbModel.Services
+{
+	public class CommonServices : ServiceBase
+	{
+		class LineEqualityComparer : IEqualityComparer<LinkRecord>
+		{
+			public bool Equals(LinkRecord x, LinkRecord y)
+			{
 				if (ReferenceEquals(x, y))
 					return true;
 
@@ -21,44 +21,39 @@ namespace MikuBot.DbModel.Services {
 					return false;
 
 				return x.Description.Equals(y.Description);
-
 			}
 
-			public int GetHashCode(LinkRecord obj) {
-
+			public int GetHashCode(LinkRecord obj)
+			{
 				return obj != null ? obj.Description.GetHashCode() : 0;
-
 			}
-
 		}
 
 		public CommonServices(ISessionFactory sessionFactory)
-			: base(sessionFactory) {}
+			: base(sessionFactory) { }
 
-		public LinkRecordContract FindLinkRecord(string url, IrcName channel) {
-
+		public LinkRecordContract FindLinkRecord(string url, IrcName channel)
+		{
 			var chanName = channel.LowercaseName;
 
-			return HandleQuery(session => {
-
+			return HandleQuery(session =>
+			{
 				var record = session
 					.Query<LinkRecord>()
 					.OrderBy(l => l.Date)
 					.FirstOrDefault(l => l.Channel == chanName && l.Url.Contains(url));
 
 				return (record != null ? new LinkRecordContract(record) : null);
-
 			});
-
 		}
 
-		public LinkRecordContract[] GetRecords(IrcName channel, string nick, int start, int maxCount) {
-
+		public LinkRecordContract[] GetRecords(IrcName channel, string nick, int start, int maxCount)
+		{
 			var chanName = channel.LowercaseName;
 			nick = nick ?? string.Empty;
 
-			return HandleQuery(session => {
-
+			return HandleQuery(session =>
+			{
 				LinkRecord rec = null;
 				var q = session.QueryOver(() => rec)
 					.Where(l => l.Channel == chanName && (nick == string.Empty || l.Nick == nick))
@@ -71,20 +66,18 @@ namespace MikuBot.DbModel.Services {
 					.Distinct(new LineEqualityComparer())
 					.Select(l => new LinkRecordContract(l))
 					.ToArray();
-
 			});
-
 		}
 
-		public LinkRecordContract[] RecordLinks(LinkRecordContract[] linkRecordContracts, IrcName channel) {
-
+		public LinkRecordContract[] RecordLinks(LinkRecordContract[] linkRecordContracts, IrcName channel)
+		{
 			ParamIs.NotNull(() => linkRecordContracts);
 
 			var recordUrls = linkRecordContracts.Select(l => l.Url).ToArray();
 			var chanName = channel.LowercaseName;
 
-			return HandleTransaction(session => {
-
+			return HandleTransaction(session =>
+			{
 				var existingRecords = session
 					.Query<LinkRecord>()
 					.Where(l => l.Channel == chanName && recordUrls.Contains(l.Url))
@@ -99,10 +92,7 @@ namespace MikuBot.DbModel.Services {
 					session.Save(newRecord);
 
 				return existingRecords.Select(r => new LinkRecordContract(r)).ToArray();
-
 			});
-
 		}
-
 	}
 }

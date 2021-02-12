@@ -4,22 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace MikuBot.LinkParsing {
-
-	public class RegexLinkMatcher {
-
+namespace MikuBot.LinkParsing
+{
+	public class RegexLinkMatcher
+	{
 		private readonly string baseUrl;
 		private readonly Regex regex;
 
-		public RegexLinkMatcher(string baseUrl, string regexStr) {
-				
+		public RegexLinkMatcher(string baseUrl, string regexStr)
+		{
 			regex = new Regex(regexStr, RegexOptions.IgnoreCase);
 			this.baseUrl = baseUrl;
-
 		}
 
-		public string GetId(string url) {
-
+		public string GetId(string url)
+		{
 			var match = regex.Match(url);
 
 			if (match.Groups.Count < 2)
@@ -27,24 +26,18 @@ namespace MikuBot.LinkParsing {
 
 			var group = match.Groups[1];
 			return group.Value;
-
 		}
 
-		public bool IsMatch(string url) {
-
+		public bool IsMatch(string url)
+		{
 			return regex.IsMatch(url);
-
 		}
 
-		public string MakeLink(string url) {
-
+		public string MakeLink(string url)
+		{
 			var id = GetId(url);
 
 			return string.Format(baseUrl, id);
-
 		}
-
-
 	}
-
 }

@@ -2,10 +2,10 @@
 using MikuBot.Modules;
 using MikuBot.Security;
 
-namespace MikuBot {
-
-	public interface IBotContext {
-
+namespace MikuBot
+{
+	public interface IBotContext
+	{
 		IAuthenticator Authenticator { get; }
 
 		IChannelManager ChannelManager { get; }
@@ -31,6 +31,5 @@ namespace MikuBot {
 		IrcWriter Writer { get; }
 
 		void Reconnect();
-
 	}
 }

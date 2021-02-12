@@ -8,37 +8,33 @@ using MikuBot.AdminModules.Helpers;
 using MikuBot.Commands;
 using MikuBot.Modules;
 
-namespace MikuBot.AdminModules {
-
-	public class PrintHelp : MsgCommandModuleBase {
-
-		private string FormatHelpText(string text) {
-
+namespace MikuBot.AdminModules
+{
+	public class PrintHelp : MsgCommandModuleBase
+	{
+		private string FormatHelpText(string text)
+		{
 			return HttpUtility.HtmlEncode(text.Replace(Formatting.Bold, ' ')).Replace("\n", "<br />");
-
 		}
 
-		private void Print(TextWriter writer, IEnumerable<IModule> modules) {
-
-			foreach (var module in modules.Where(m => m.MinUserLevel <= BotUserLevel.Identified).OrderBy(m => m.Name)) {
-				
+		private void Print(TextWriter writer, IEnumerable<IModule> modules)
+		{
+			foreach (var module in modules.Where(m => m.MinUserLevel <= BotUserLevel.Identified).OrderBy(m => m.Name))
+			{
 				writer.WriteLine(string.Format(
-					"<tr><td>{0}</td><td>{1}</td><td>{2}</td></tr>", 
+					"<tr><td>{0}</td><td>{1}</td><td>{2}</td></tr>",
 					module.Name, FormatHelpText(module.HelpText), module.MinUserLevel == BotUserLevel.Unidentified ? "No" : "Yes"));
-
 			}
-
 		}
 
-		private void PrintFooter(TextWriter output) {
-			
+		private void PrintFooter(TextWriter output)
+		{
 			output.WriteLine("</body>");
 			output.WriteLine("</html>");
-
 		}
 
-		private void PrintHeader(TextWriter output) {
-			
+		private void PrintHeader(TextWriter output)
+		{
 			output.WriteLine("<html>");
 			output.WriteLine("<head><title>MikuBot help</title></head>");
 			output.WriteLine("<body>");
@@ -57,44 +53,47 @@ namespace MikuBot.AdminModules {
 			output.WriteLine("<h2>Command listing</h2>");
 			output.WriteLine("<table border=\"0\">");
 			output.WriteLine("<tr><th>Module</th><th>Description</th><th>Requires registration</th></tr>");
-
 		}
 
-		private void PrintTitleRow(TextWriter writer, string title) {
-
+		private void PrintTitleRow(TextWriter writer, string title)
+		{
 			writer.WriteLine("<tr><td colspan=\"3\"><h3>" + title + "</h3></td></tr>");
-
 		}
 
-		public override int BotCommandParamCount {
+		public override int BotCommandParamCount
+		{
 			get { return 1; }
 		}
 
-		public override string CommandDescription {
+		public override string CommandDescription
+		{
 			get { return "Prints all help text to a HTML file."; }
 		}
 
-		public override string UsageHelp {
+		public override string UsageHelp
+		{
 			get { return "PrintHelp <outfile>"; }
 		}
 
-		public override BotUserLevel MinUserLevel {
+		public override BotUserLevel MinUserLevel
+		{
 			get { return BotUserLevel.Admin; }
 		}
 
-		public override string Name {
+		public override string Name
+		{
 			get { return "PrintHelp"; }
 		}
 
-		public override void HandleCommand(MsgCommand msg, IBotContext bot) {
-
+		public override void HandleCommand(MsgCommand msg, IBotContext bot)
+		{
 			if (!CheckCall(msg, bot))
 				return;
 
 			var outPath = msg.BotCommand.Params[0];
 
-			using (var writer = new StreamWriter(outPath)) {
-
+			using (var writer = new StreamWriter(outPath))
+			{
 				PrintHeader(writer);
 
 				var activeModules = bot.ModuleManager.BuiltinModules.Concat(bot.ModuleManager.MsgCommandModules.Where(m => !m.IsPassive));
@@ -110,14 +109,10 @@ namespace MikuBot.AdminModules {
 				Print(writer, passive);
 
 				PrintFooter(writer);
-
 			}
 
 			var receiver = msg.Reply(bot.Writer);
 			receiver.Msg("Help file written to " + outPath);
-
 		}
-
 	}
-
 }

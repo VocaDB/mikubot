@@ -1,19 +1,21 @@
-﻿namespace MikuBot.Commands {
-
+﻿namespace MikuBot.Commands
+{
 	/// <summary>
 	/// PING command
 	/// </summary>
-	public class PingCommand : IrcCommand {
-
+	public class PingCommand : IrcCommand
+	{
 		public PingCommand(string prefix, ParamCollection paramCollection)
-			: base(prefix, "PING", paramCollection) {
+			: base(prefix, "PING", paramCollection)
+		{
 		}
 
-		public string Origin {
-			get {
+		public string Origin
+		{
+			get
+			{
 				return ParamCollection.Trailing;
 			}
 		}
-
 	}
 }

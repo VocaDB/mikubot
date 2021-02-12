@@ -4,18 +4,18 @@ using System.Net;
 using System.Text.RegularExpressions;
 using HtmlAgilityPack;
 
-namespace MikuBot.Site.Helpers {
-
-	public static class PixivHelper {
-
-		private static readonly Regex[] regexes = { 
+namespace MikuBot.Site.Helpers
+{
+	public static class PixivHelper
+	{
+		private static readonly Regex[] regexes = {
 			new Regex(@"www.pixiv.net/en/artworks/(\d+)"),
 			new Regex(@"www.pixiv.net/member_illust.php\?mode=medium\&illust_id=(\d+)"),
 			new Regex(@"www.pixiv.net/member_illust.php\?mode=big\&illust_id=(\d+)"),
 		};
 
-		public static string GetIdFromUrl(string url) {
-
+		public static string GetIdFromUrl(string url)
+		{
 			var matcher = regexes.FirstOrDefault(r => r.IsMatch(url));
 
 			if (matcher == null)
@@ -24,56 +24,60 @@ namespace MikuBot.Site.Helpers {
 			var match = matcher.Match(url);
 
 			return match.Groups[1].Value;
-
 		}
 
-		public static string GetImageUrlFromLink(string linkUrl) {
-
+		public static string GetImageUrlFromLink(string linkUrl)
+		{
 			var id = GetIdFromUrl(linkUrl);
 
 			if (string.IsNullOrEmpty(id))
 				return string.Empty;
 
 			return GetImageUrl(id);
-
 		}
 
-		public static string GetImageUrlEmbed(string id) {
+		public static string GetImageUrlEmbed(string id)
+		{
 			return string.Format("http://embed.pixiv.net/decorate.php?illust_id={0}", id);
 		}
 
-		public static string GetImageUrl(string id) {
-
+		public static string GetImageUrl(string id)
+		{
 			var requestUrl = string.Format("https://www.pixiv.net/en/artworks/{0}", id);
 			var request = (HttpWebRequest)WebRequest.Create(requestUrl);
 			request.UserAgent = "MikuBot";
 			var doc = new HtmlDocument();
 
-			try {
+			try
+			{
 				using (var response = request.GetResponse())
-				using (var stream = response.GetResponseStream()) {
-					try {
+				using (var stream = response.GetResponseStream())
+				{
+					try
+					{
 						doc.Load(stream);
-					} catch (ArgumentException) {
+					}
+					catch (ArgumentException)
+					{
 						return string.Empty;
-					}					
+					}
 				}
-			} catch (WebException) {
+			}
+			catch (WebException)
+			{
 				return string.Empty;
 			}
 
 			var res = doc.DocumentNode.SelectSingleNode("//meta[@property='og:image']");
 
-			if (res == null || res.Attributes["content"] == null) {
+			if (res == null || res.Attributes["content"] == null)
+			{
 				return string.Empty;
 			}
 
 			var att = res.Attributes["content"];
 
 			return att.Value;
-
 		}
-
 	}
-
 }

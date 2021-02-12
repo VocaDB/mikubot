@@ -7,11 +7,10 @@ using MikuBot.Helpers;
 using MikuBot.Modules;
 using Rss;
 
-namespace MikuBot.ExtraPlugins {
-
+namespace MikuBot.ExtraPlugins
+{
 	/*
 	public class MikuchanRSS : MsgCommandModuleBase {
-
 		public override string Name {
 			get { return "MikuRSS"; }
 		}
@@ -37,7 +36,6 @@ namespace MikuBot.ExtraPlugins {
 		}
 
 		public override void HandleCommand(MsgCommand msg, IBotContext bot) {
-
 			if (!CheckCall(msg, bot))
 				return;
 
@@ -62,7 +60,6 @@ namespace MikuBot.ExtraPlugins {
 			reply.Msg(string.Format("Displaying {0} item(s) out of {1} for feed {2} ({3})", itemCount, channel.Items.Count, channel.Title, feed.Url));
 
 			foreach (var item in channel.Items.Cast<RssItem>().Take(maxEntryCount)) {
-
 				var stripped = HtmlEntity.DeEntitize(item.Description);
 				stripped = HtmlUtils.StripHTML(stripped);
 
@@ -77,10 +74,7 @@ namespace MikuBot.ExtraPlugins {
 					stripped = stripped.Substring(0, 160) + "...";
 
 				reply.Msg(string.Format("{0}: {1}", item.Link, stripped));
-
 			}
-
 		}
-
 	}*/
 }

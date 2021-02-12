@@ -7,17 +7,19 @@ using System.Xml.Linq;
 using log4net;
 using MikuBot.Commands;
 
-namespace MikuBot.ExtraPlugins.Helpers {
-
-	public class UserActivityMonitor {
-
-		public class UserActivityEntry {
-
-			public UserActivityEntry(string messageName) {
+namespace MikuBot.ExtraPlugins.Helpers
+{
+	public class UserActivityMonitor
+	{
+		public class UserActivityEntry
+		{
+			public UserActivityEntry(string messageName)
+			{
 				Update(messageName);
 			}
 
-			public UserActivityEntry(string messageType, DateTime time, DateTime? privMsgTime) {
+			public UserActivityEntry(string messageType, DateTime time, DateTime? privMsgTime)
+			{
 				MessageType = messageType;
 				Time = time;
 				PrivMsgTime = privMsgTime;
@@ -29,8 +31,8 @@ namespace MikuBot.ExtraPlugins.Helpers {
 
 			public DateTime Time { get; private set; }
 
-			public void Update(string messageName) {
-				
+			public void Update(string messageName)
+			{
 				ParamIs.NotNull(() => messageName);
 
 				if (messageName.Equals(MsgCommand.MessageName, StringComparison.InvariantCultureIgnoreCase))
@@ -38,77 +40,80 @@ namespace MikuBot.ExtraPlugins.Helpers {
 
 				MessageType = messageName;
 				Time = DateTime.Now;
-
 			}
-
 		}
 
-		class ChannelEntry {
-
+		class ChannelEntry
+		{
 			private readonly Dictionary<IrcName, UserActivityEntry> nickTimes = new Dictionary<IrcName, UserActivityEntry>();
 
-			public ChannelEntry(IrcName name, IrcName nick, string messageType) {
+			public ChannelEntry(IrcName name, IrcName nick, string messageType)
+			{
 				Name = name;
 				Update(nick, messageType);
 			}
 
-			public ChannelEntry(IrcName name, Dictionary<IrcName, UserActivityEntry> nickTimes) {
+			public ChannelEntry(IrcName name, Dictionary<IrcName, UserActivityEntry> nickTimes)
+			{
 				Name = name;
 				this.nickTimes = nickTimes;
 			}
 
 			public IrcName Name { get; private set; }
 
-			public IEnumerable<KeyValuePair<IrcName, UserActivityEntry>> NickTimes {
+			public IEnumerable<KeyValuePair<IrcName, UserActivityEntry>> NickTimes
+			{
 				get { return nickTimes; }
 			}
 
-			public UserActivityEntry Find(IrcName nick) {
-
+			public UserActivityEntry Find(IrcName nick)
+			{
 				UserActivityEntry date;
 
 				if (!nickTimes.TryGetValue(nick, out date))
 					return null;
 				else
 					return date;
-
 			}
 
-			public void Update(IrcName nick, string messageType) {
-
-				if (nickTimes.ContainsKey(nick)) {
+			public void Update(IrcName nick, string messageType)
+			{
+				if (nickTimes.ContainsKey(nick))
+				{
 					nickTimes[nick].Update(messageType);
-				} else {
+				}
+				else
+				{
 					var entry = new UserActivityEntry(messageType);
 					nickTimes.Add(nick, entry);
 				}
-
 			}
-
 		}
 
 		private static readonly ILog log = LogManager.GetLogger(typeof(UserActivityMonitor));
 		private Dictionary<IrcName, ChannelEntry> channelEntries = new Dictionary<IrcName, ChannelEntry>();
 
-		public UserActivityEntry Find(IrcName channel, IrcName nick) {
-
+		public UserActivityEntry Find(IrcName channel, IrcName nick)
+		{
 			ChannelEntry entry;
 
 			if (channelEntries.TryGetValue(channel, out entry))
 				return entry.Find(nick);
 			else
 				return null;
-
 		}
 
-		public void Restore(Stream input) {
-			
+		public void Restore(Stream input)
+		{
 			channelEntries.Clear();
 
 			XDocument doc;
-			try {
+			try
+			{
 				doc = XDocument.Load(input);
-			} catch (XmlException x) {
+			}
+			catch (XmlException x)
+			{
 				log.Warn("Unable to load user activity data", x);
 				channelEntries = new Dictionary<IrcName, ChannelEntry>();
 				return;
@@ -116,8 +121,8 @@ namespace MikuBot.ExtraPlugins.Helpers {
 
 			var root = doc.Element("userActivity");
 
-			channelEntries = root.Elements("channelEntry").Select(e =>				
-				new ChannelEntry(new IrcName(e.Attribute("name").Value), 
+			channelEntries = root.Elements("channelEntry").Select(e =>
+				new ChannelEntry(new IrcName(e.Attribute("name").Value),
 					e.Elements("nickTime").ToDictionary(n =>
 						new IrcName(n.Attribute("name").Value),
 						n => new UserActivityEntry(
@@ -125,11 +130,10 @@ namespace MikuBot.ExtraPlugins.Helpers {
 							DateTime.Parse(n.Attribute("time").Value),
 							BotHelper.ParseDateTimeOrNull(BotHelper.AttributeValueOrEmpty(n, "privMsgTime"))))))
 				.Where(c => c.Name.IsChannel).ToDictionary(c => c.Name, c => c);
-
 		}
 
-		public void Save(Stream output) {
-
+		public void Save(Stream output)
+		{
 			var tree = new XDocument(
 				new XElement("userActivity", channelEntries.Select(c =>
 					new XElement("channelEntry",
@@ -145,20 +149,16 @@ namespace MikuBot.ExtraPlugins.Helpers {
 			);
 
 			tree.Save(output);
-
 		}
 
-		public void Update(IrcName channel, IrcName nick, string messageType) {
-
+		public void Update(IrcName channel, IrcName nick, string messageType)
+		{
 			ChannelEntry entry;
 
 			if (channelEntries.TryGetValue(channel, out entry))
 				entry.Update(nick, messageType);
 			else
 				channelEntries.Add(channel, new ChannelEntry(channel, nick, messageType));
-
 		}
-
 	}
-
 }

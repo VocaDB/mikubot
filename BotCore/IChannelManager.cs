@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 
-namespace MikuBot {
-
-	public interface IChannelManager {
-
+namespace MikuBot
+{
+	public interface IChannelManager
+	{
 		IEnumerable<IrcName> Channels { get; }
 
 		void Autojoin();
@@ -15,7 +15,5 @@ namespace MikuBot {
 		void JoinAll(IEnumerable<IrcName> channels);
 
 		void Part(IrcName channel);
-
 	}
-
 }

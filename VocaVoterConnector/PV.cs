@@ -1,26 +1,30 @@
 ﻿using MikuBot.Commands;
 using MikuBot.Modules;
 
-namespace MikuBot.VocaDBConnector {
-
-	public class PV : MsgCommandModuleBase {
-
-		public override string HelpText {
-			get {
+namespace MikuBot.VocaDBConnector
+{
+	public class PV : MsgCommandModuleBase
+	{
+		public override string HelpText
+		{
+			get
+			{
 				return "Calls PVVocaDBAdvertiser manually if automated link parsing is disabled.";
 			}
 		}
 
-		public override bool IsPassive {
+		public override bool IsPassive
+		{
 			get { return false; }
 		}
 
-		public override string Name {
+		public override string Name
+		{
 			get { return "PV"; }
 		}
 
-		public override void HandleCommand(MsgCommand cmd, IBotContext bot) {
-
+		public override void HandleCommand(MsgCommand cmd, IBotContext bot)
+		{
 			if (!CheckCall(cmd, bot))
 				return;
 
@@ -30,8 +34,6 @@ namespace MikuBot.VocaDBConnector {
 				return;
 
 			bot.ModuleManager.CallModule(bot, module);
-
 		}
-
 	}
 }

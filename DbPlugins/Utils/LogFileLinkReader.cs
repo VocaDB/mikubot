@@ -5,15 +5,15 @@ using System.Text.RegularExpressions;
 using MikuBot.DbModel.DataContracts;
 using MikuBot.DbModel.Services;
 
-namespace MikuBot.DbPlugins.Utils {
-
-	public class LogFileLinkReader {
-
+namespace MikuBot.DbPlugins.Utils
+{
+	public class LogFileLinkReader
+	{
 		private readonly string logFilePath;
 		private readonly CommonServices services;
 
-		private void ReadLine(string line) {
-
+		private void ReadLine(string line)
+		{
 			var nickRegex = new Regex(@"\<[a-zA-Z]+\>");
 			var nickMatch = nickRegex.Match(line);
 
@@ -39,28 +39,26 @@ namespace MikuBot.DbPlugins.Utils {
 			var channel = new IrcName("#mikuchan");
 			var contracts = uris.Select(u => new LinkRecordContract(u, nick, channel, text)).ToArray();
 
-			services.RecordLinks(contracts, channel);			
-
+			services.RecordLinks(contracts, channel);
 		}
 
-		public LogFileLinkReader(CommonServices services, string logFilePath) {
+		public LogFileLinkReader(CommonServices services, string logFilePath)
+		{
 			this.services = services;
 			this.logFilePath = logFilePath;
 		}
 
-		public void ReadLinks() {
-			
-			using (var reader = new StreamReader(logFilePath)) {
-
+		public void ReadLinks()
+		{
+			using (var reader = new StreamReader(logFilePath))
+			{
 				string line;
 
-				while ((line = reader.ReadLine()) != null) {
+				while ((line = reader.ReadLine()) != null)
+				{
 					ReadLine(line);
 				}
-
 			}
-
 		}
-
 	}
 }

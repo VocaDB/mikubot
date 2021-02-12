@@ -4,12 +4,10 @@ using MikuBot.ExtraPlugins.Helpers;
 using MikuBot.Helpers;
 using MikuBot.Modules;
 
-namespace MikuBot.ExtraPlugins {
-
+namespace MikuBot.ExtraPlugins
+{
 	/*public class YoutubeSearch : MsgCommandModuleBase {
-
 		private void Search(Receiver receiver, string queryString) {
-
 			var request = YoutubeUtils.YouTubeRequest;
 			var query = new YouTubeQuery(YouTubeQuery.DefaultVideoUri);
 			query.OrderBy = "relevance";
@@ -26,11 +24,9 @@ namespace MikuBot.ExtraPlugins {
 			var first = videoFeed.Entries.First();
 
 			receiver.Msg(string.Format("Youtube: http://youtu.be/{0} - {1}", first.VideoId, YoutubeUtils.Format(first)));
-
 		}
 
 		public override void HandleCommand(MsgCommand cmd, IBotContext bot) {
-
 			if (!CheckCall(cmd, bot))
 				return;
 
@@ -39,7 +35,6 @@ namespace MikuBot.ExtraPlugins {
 			var receiver = new Receiver(bot.Writer, cmd.ChannelOrSenderNick);
 			Task.Factory.StartNew(() => Search(receiver, query))
 				.ContinueWith(TaskHelper.HandleTaskException, TaskContinuationOptions.OnlyOnFaulted);
-
 		}
 
 		public override int CooldownChannelMs {
@@ -66,5 +61,4 @@ namespace MikuBot.ExtraPlugins {
 			get { return "yt <search query>"; }
 		}
 	}*/
-
 }

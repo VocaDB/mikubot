@@ -3,15 +3,16 @@ using MikuBot.Commands;
 using MikuBot.ExtraPlugins.Helpers;
 using MikuBot.Modules;
 
-namespace MikuBot.ExtraPlugins {
-
-	public class Seen : MsgCommandModuleBase {
-
+namespace MikuBot.ExtraPlugins
+{
+	public class Seen : MsgCommandModuleBase
+	{
 		private UserActivityMonitor userActivityMonitor;
 
-		private string VerbName(string messageType) {
-			
-			switch (messageType.ToUpperInvariant()) {
+		private string VerbName(string messageType)
+		{
+			switch (messageType.ToUpperInvariant())
+			{
 				case JoinCommand.MessageName:
 					return "joined";
 				case PartMessage.MessageName:
@@ -23,39 +24,46 @@ namespace MikuBot.ExtraPlugins {
 				default:
 					return "was last active";
 			}
-
 		}
 
-		public override int BotCommandParamCount {
+		public override int BotCommandParamCount
+		{
 			get { return 1; }
 		}
 
-		public override int CooldownChannelMs {
+		public override int CooldownChannelMs
+		{
 			get { return 1000; }
 		}
 
-		public override int CooldownUserMs {
+		public override int CooldownUserMs
+		{
 			get { return 10000; }
 		}
 
-		public override string CommandDescription {
-			get {
+		public override string CommandDescription
+		{
+			get
+			{
 				return "Checks when an user was last active. Depends on UserActivityRecording module.";
 			}
 		}
 
-		public override string Name {
+		public override string Name
+		{
 			get { return "Seen"; }
 		}
 
-		public override string UsageHelp {
-			get {
+		public override string UsageHelp
+		{
+			get
+			{
 				return "seen <username> [<channel>]";
 			}
 		}
 
-		public override void HandleCommand(MsgCommand msg, IBotContext bot) {
-
+		public override void HandleCommand(MsgCommand msg, IBotContext bot)
+		{
 			if (!CheckCall(msg, bot))
 				return;
 
@@ -63,12 +71,14 @@ namespace MikuBot.ExtraPlugins {
 			var channel = (msg.BotCommand.Params.HasParam(1) ? new IrcName(msg.BotCommand.Params[1]) : msg.ChannelOrSenderNick);
 			var receiver = msg.Reply(bot.Writer);
 
-			if (msg.Sender.Nick == nick) {
+			if (msg.Sender.Nick == nick)
+			{
 				receiver.Msg("Why are you asking about yourself?");
 				return;
 			}
 
-			if (bot.OwnNick == nick) {
+			if (bot.OwnNick == nick)
+			{
 				receiver.Msg("Yes, I'm right here.");
 				return;
 			}
@@ -77,29 +87,28 @@ namespace MikuBot.ExtraPlugins {
 
 			if (entry == null)
 				receiver.Msg("Don't know when '" + nick + "' was last active.");
-			else {
+			else
+			{
 				var ago = DateTime.Now - entry.Time;
 				if (entry.PrivMsgTime == null || entry.MessageType.Equals(MsgCommand.MessageName, StringComparison.InvariantCultureIgnoreCase))
 					receiver.Msg(string.Format("{0} {1} {2} ago.", nick, VerbName(entry.MessageType), BotHelper.FormatTimeSpan(ago)));
-				else {
+				else
+				{
 					var msgAgo = DateTime.Now - entry.PrivMsgTime;
-					receiver.Msg(string.Format("{0} messaged {1} ago and {2} {3} ago.", nick, 
+					receiver.Msg(string.Format("{0} messaged {1} ago and {2} {3} ago.", nick,
 						BotHelper.FormatTimeSpan(msgAgo.Value),
-						VerbName(entry.MessageType), 
-						BotHelper.FormatTimeSpan(ago)));					
+						VerbName(entry.MessageType),
+						BotHelper.FormatTimeSpan(ago)));
 				}
 			}
-
 		}
 
-		public override void OnLoaded(IBotContext bot, IModuleFile moduleFile) {
-		
+		public override void OnLoaded(IBotContext bot, IModuleFile moduleFile)
+		{
 			ParamIs.NotNull(() => moduleFile);
 
 			var extraPluginsModuleFile = (ExtraPluginsModuleFile)moduleFile;
 			userActivityMonitor = extraPluginsModuleFile.UserActivityMonitor;
-
 		}
-
 	}
 }

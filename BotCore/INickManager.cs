@@ -1,7 +1,7 @@
-﻿namespace MikuBot {
-
-	public interface INickManager {
-
+﻿namespace MikuBot
+{
+	public interface INickManager
+	{
 		IrcName Current { get; }
 
 		bool CurrentIsPrimary { get; }
@@ -11,7 +11,5 @@
 		IrcName Next();
 
 		void Set(IrcName nick);
-
 	}
-
 }

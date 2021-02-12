@@ -3,40 +3,45 @@ using MikuBot.Commands;
 using MikuBot.ExtraPlugins.Helpers;
 using MikuBot.Modules;
 
-namespace MikuBot.ExtraPlugins {
-
-	public class Gimme : MsgCommandModuleBase {
-
-		private class Rule {
-
+namespace MikuBot.ExtraPlugins
+{
+	public class Gimme : MsgCommandModuleBase
+	{
+		private class Rule
+		{
 			private readonly string action;
 			private readonly bool tsun;
 			private readonly string word;
 
-			public Rule(string word, string action, bool tsun = true) {
+			public Rule(string word, string action, bool tsun = true)
+			{
 				this.word = word;
 				this.action = action;
 				this.tsun = tsun;
 			}
 
-			public string Action {
+			public string Action
+			{
 				get { return action; }
 			}
 
-			public bool Ignore {
-				get { 
-					return string.IsNullOrEmpty(Action); 
+			public bool Ignore
+			{
+				get
+				{
+					return string.IsNullOrEmpty(Action);
 				}
 			}
 
-			public bool Tsun {
+			public bool Tsun
+			{
 				get { return tsun; }
 			}
 
-			public string Word {
+			public string Word
+			{
 				get { return word; }
 			}
-
 		}
 
 		private readonly Rule[] rules = new[] {
@@ -48,32 +53,38 @@ namespace MikuBot.ExtraPlugins {
 			new Rule("head on a plate", null)
 		};
 
-		public override int BotCommandParamCount {
+		public override int BotCommandParamCount
+		{
 			get { return 1; }
 		}
 
-		public override int CooldownChannelMs {
+		public override int CooldownChannelMs
+		{
 			get { return 5000; }
 		}
 
-		public override int CooldownUserMs {
+		public override int CooldownUserMs
+		{
 			get { return 60000; }
 		}
 
-		public override string CommandDescription {
+		public override string CommandDescription
+		{
 			get { return "Shares a delicious negi with the user."; }
 		}
 
-		public override string Name {
+		public override string Name
+		{
 			get { return "Gimme"; }
 		}
 
-		public override string UsageHelp {
+		public override string UsageHelp
+		{
 			get { return "gimme negi"; }
 		}
 
-		public override void HandleCommand(MsgCommand chat, IBotContext bot) {
-
+		public override void HandleCommand(MsgCommand chat, IBotContext bot)
+		{
 			if (!CheckCall(chat, bot))
 				return;
 
@@ -82,8 +93,8 @@ namespace MikuBot.ExtraPlugins {
 
 			var rule = rules.FirstOrDefault(r => par.Equals(r.Word));
 
-			if (rule != null) {
-
+			if (rule != null)
+			{
 				if (rule.Ignore)
 					return;
 
@@ -91,19 +102,15 @@ namespace MikuBot.ExtraPlugins {
 
 				if (rule.Tsun)
 					Tsundere.Tsun(reply);
-
-			} else {
-
+			}
+			else
+			{
 				//if (BotHelper.CheckAuthenticated(chat, bot, BotUserLevel.Identified)) {
-
-					var commandWord = chat.BotCommand.CommandString;
-					reply.Action(string.Format("gives {0} {1}", chat.Sender.Nick, commandWord));
+				var commandWord = chat.BotCommand.CommandString;
+				reply.Action(string.Format("gives {0} {1}", chat.Sender.Nick, commandWord));
 
 				//}
-
 			}
-
 		}
-
 	}
 }

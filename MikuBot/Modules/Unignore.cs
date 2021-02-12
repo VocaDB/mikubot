@@ -1,16 +1,17 @@
 ﻿using System;
 using MikuBot.Commands;
 
-namespace MikuBot.Modules {
-
-	public class Unignore : BuiltinModule {
-
-		public override string HelpText {
+namespace MikuBot.Modules
+{
+	public class Unignore : BuiltinModule
+	{
+		public override string HelpText
+		{
 			get { return "Makes the bot unignore an user."; }
 		}
 
-		public override void HandleCommand(MsgCommand cmd, Bot bot) {
-
+		public override void HandleCommand(MsgCommand cmd, Bot bot)
+		{
 			if (!cmd.BotCommand.Is(Name) || !cmd.BotCommand.Params.HasParam(0))
 				return;
 
@@ -30,17 +31,16 @@ namespace MikuBot.Modules {
 				receiver.Msg("User '" + hostName + "' is now unignored.");
 			else
 				receiver.Msg("User '" + hostName + "' was not ignored.");
-
-
 		}
 
-		public override BotUserLevel MinUserLevel {
+		public override BotUserLevel MinUserLevel
+		{
 			get { return BotUserLevel.Manager; }
 		}
 
-		public override string Name {
+		public override string Name
+		{
 			get { return "UnIgnore"; }
 		}
-
 	}
 }

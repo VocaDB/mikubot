@@ -5,23 +5,23 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 
-namespace MikuBot.Services {
-
+namespace MikuBot.Services
+{
 	[ServiceContract]
-	public class AdminService {
-
-		private Bot Bot {
-			get {
+	public class AdminService
+	{
+		private Bot Bot
+		{
+			get
+			{
 				return Program.Bot;
 			}
 		}
 
 		[OperationContract]
-		public void Reconnect() {
-
+		public void Reconnect()
+		{
 			Bot.Reconnect();
-
 		}
-
 	}
 }

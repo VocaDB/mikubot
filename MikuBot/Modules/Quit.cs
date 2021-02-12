@@ -1,11 +1,11 @@
 ﻿using MikuBot.Commands;
 
-namespace MikuBot.Modules {
-
-	public class Quit : BuiltinModule {
-
-		public override void HandleCommand(MsgCommand cmd, Bot bot) {
-
+namespace MikuBot.Modules
+{
+	public class Quit : BuiltinModule
+	{
+		public override void HandleCommand(MsgCommand cmd, Bot bot)
+		{
 			if (!cmd.BotCommand.Is(Name))
 				return;
 
@@ -13,21 +13,21 @@ namespace MikuBot.Modules {
 				return;
 
 			bot.Quit();
-
 		}
 
-		public override string HelpText {
+		public override string HelpText
+		{
 			get { return "Shuts down the bot"; }
 		}
 
-		public override BotUserLevel MinUserLevel {
+		public override BotUserLevel MinUserLevel
+		{
 			get { return BotUserLevel.Admin; }
 		}
 
-		public override string Name {
+		public override string Name
+		{
 			get { return "Quit"; }
 		}
-
 	}
-
 }

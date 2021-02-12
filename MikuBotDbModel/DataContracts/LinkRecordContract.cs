@@ -1,17 +1,18 @@
 ﻿using System;
 using MikuBot.DbModel.Model;
 
-namespace MikuBot.DbModel.DataContracts {
-
-	public class LinkRecordContract {
-
-		public LinkRecordContract() {
+namespace MikuBot.DbModel.DataContracts
+{
+	public class LinkRecordContract
+	{
+		public LinkRecordContract()
+		{
 			Title = string.Empty;
 		}
 
 		public LinkRecordContract(LinkRecord linkRecord)
-			: this() {
-			
+			: this()
+		{
 			ParamIs.NotNull(() => linkRecord);
 
 			Channel = new IrcName(linkRecord.Channel);
@@ -20,12 +21,11 @@ namespace MikuBot.DbModel.DataContracts {
 			Nick = new IrcName(linkRecord.Nick);
 			Title = linkRecord.Title;
 			Url = linkRecord.Url;
-
 		}
 
 		public LinkRecordContract(string url, IrcName nick, IrcName channel, string line)
-			: this() {
-
+			: this()
+		{
 			ParamIs.NotNullOrEmpty(() => url);
 
 			Nick = nick;
@@ -34,7 +34,6 @@ namespace MikuBot.DbModel.DataContracts {
 
 			Date = DateTime.Now;
 			Description = line;
-
 		}
 
 		public IrcName Channel { get; set; }
@@ -48,7 +47,5 @@ namespace MikuBot.DbModel.DataContracts {
 		public string Title { get; set; }
 
 		public string Url { get; set; }
-
 	}
-
 }

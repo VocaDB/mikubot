@@ -12,19 +12,15 @@ using MikuBot.ExtraPlugins.Helpers;
 using System.Threading.Tasks;
 using MikuBot.Helpers;
 
-namespace MikuBot.ExtraPlugins {
-
+namespace MikuBot.ExtraPlugins
+{
 	/*
 	public class MikuDBChecker : GenericModuleBase {
-
 		private class MikuDbAlbum {
-
 			public MikuDbAlbum(string name, string postLink, string dlLink) {
-
 				Name = name;
 				DlLink = dlLink;
 				PostLink = postLink;
-
 			}
 
 			public string DlLink { get; private set; }
@@ -32,7 +28,6 @@ namespace MikuBot.ExtraPlugins {
 			public string Name { get; private set; }
 
 			public string PostLink { get; private set; }
-
 		}
 
 		private const string channelToPost = "#mikuchan";
@@ -45,7 +40,6 @@ namespace MikuBot.ExtraPlugins {
 
 
 		private void Check(Receiver receiver) {
-
 			var request = WebRequest.Create(urlToCheck);
 			request.Timeout = 5000;
 			WebResponse response;
@@ -69,26 +63,20 @@ namespace MikuBot.ExtraPlugins {
 			}
 
 			if (albums.Any()) {
-
 				var newAlbums = albums.Where(a => !checkedAlbums.Contains(a.Name)).ToArray();
 
 				foreach (var album in newAlbums) {
-
 					checkedAlbums.Add(album.Name);
 
 					if (receiver != null)
 						receiver.Msg(string.Format("New album on MikuDB: {0}{1}{0} - {2} - {3}", Formatting.Bold, album.Name, album.PostLink, album.DlLink));
-
 				}
-
 			}
 
 			lastCheck = DateTime.Now;
-
 		}
 
 		private MikuDbAlbum[] GetAlbums(Stream htmlStream, string encStr) {
-
 			var encoding = Helpers.ParseHelper.GetEncoding(encStr);
 
 			var doc = new HtmlDocument();
@@ -101,7 +89,6 @@ namespace MikuBot.ExtraPlugins {
 				return albums.ToArray();
 
 			foreach (var post in posts) {
-
 				var postTitleElem = post.SelectSingleNode("div[@class = 'posttop']/h2[@class = 'posttitle']");
 
 				if (postTitleElem == null)
@@ -135,11 +122,9 @@ namespace MikuBot.ExtraPlugins {
 					url = links.First().Attributes["href"].Value;
 
 				albums.Add(new MikuDbAlbum(postTitle, postUrl, url));
-
 			}
 
 			return albums.ToArray();
-
 		}
 
 		public override string HelpText {
@@ -147,15 +132,12 @@ namespace MikuBot.ExtraPlugins {
 		}
 
 		public override void HandleCommand(IrcCommand command, IBotContext bot) {
-
 			bool check = false;
 
 			if (command is MsgCommand) {
-
 				var msg = (MsgCommand)command;
 
 				if (msg.BotCommand.Is(Name) && command.Sender.UserLevel >= BotUserLevel.Manager) {
-
 					if (msg.BotCommand.Params.ParamOrEmpty(0) == "del" && msg.BotCommand.Params.HasParam(1)) {
 						var cmdReader = new CmdReader(msg.BotCommand.CommandString);
 						cmdReader.ReadNext();
@@ -166,33 +148,25 @@ namespace MikuBot.ExtraPlugins {
 							priv.Msg("Deleted " + entryName);
 						else
 							priv.Msg("Not found: " + entryName);
-
 					} else {
 						check = true;
 					}
-
 				}
-
 			}
 
 			if (DateTime.Now - lastCheck > checkFreq)
 				check = true;
 
 			if (check) {
-
 				var receiver = new Receiver(bot.Writer, new IrcName(channelToPost));
 
 				Task.Factory.StartNew(() => Check(receiver))	// Async version
 					.ContinueWith(TaskHelper.HandleTaskException, TaskContinuationOptions.OnlyOnFaulted);
-
 			}
-
 		}
 
 		public override void OnLoaded(IBotContext bot, IModuleFile moduleFile) {
-
 			Check(null);
-
 		}
 
 		public override BotUserLevel MinUserLevel {
@@ -208,7 +182,5 @@ namespace MikuBot.ExtraPlugins {
 		public override string Name {
 			get { return "MikuDBChecker"; }
 		}
-
 	}*/
-
 }

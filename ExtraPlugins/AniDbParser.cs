@@ -9,46 +9,51 @@ using MikuBot.Helpers;
 using MikuBot.Modules;
 using ParseHelper = MikuBot.ExtraPlugins.Helpers.ParseHelper;
 
-namespace MikuBot.ExtraPlugins {
+namespace MikuBot.ExtraPlugins
+{
+	public class AniDbParser : MsgCommandModuleBase
+	{
+		private readonly ILog log = LogManager.GetLogger(typeof(AniDbParser));
 
-	public class AniDbParser : MsgCommandModuleBase {
-
-		private readonly ILog log = LogManager.GetLogger(typeof (AniDbParser));
-
-		private void GetPageContent(Receiver receiver, string url) {
-
+		private void GetPageContent(Receiver receiver, string url)
+		{
 			string videoTitle = null;
 			var request = WebRequest.Create(url);
 			//request.Headers.Add("accept-encoding", Encoding.UTF8.HeaderName);
 			WebResponse response;
 
-			try {
+			try
+			{
 				response = request.GetResponse();
-			} catch (WebException x) {
+			}
+			catch (WebException x)
+			{
 				receiver.Msg("AniDB (error): " + x.Message);
 				return;
 			}
 
 			var enc = response.Headers[HttpResponseHeader.ContentEncoding];
 
-			try {
-				using (var stream = response.GetResponseStream()) {
+			try
+			{
+				using (var stream = response.GetResponseStream())
+				{
 					videoTitle = GetVideoTitle(ParseHelper.GetStream(stream, enc), enc);
 				}
-			} finally {
+			}
+			finally
+			{
 				response.Close();
 			}
 
-			if (!string.IsNullOrEmpty(videoTitle)) {
-
+			if (!string.IsNullOrEmpty(videoTitle))
+			{
 				receiver.Msg("AniDB: " + videoTitle);
-
 			}
-
 		}
 
-		private string GetVideoTitle(Stream htmlStream, string encStr) {
-
+		private string GetVideoTitle(Stream htmlStream, string encStr)
+		{
 			var encoding = ParseHelper.GetEncoding(encStr);
 
 			var doc = new HtmlDocument();
@@ -64,23 +69,25 @@ namespace MikuBot.ExtraPlugins {
 			//log.Debug("titleText:");
 
 			return (titleText != null ? HtmlEntity.DeEntitize(titleText) : null);
-
 		}
 
-		public override string HelpText {
+		public override string HelpText
+		{
 			get { return "Parses AniDB.net links"; }
 		}
 
-		public override bool IsPassive {
+		public override bool IsPassive
+		{
 			get { return true; }
 		}
 
-		public override string Name {
+		public override string Name
+		{
 			get { return "AniDB"; }
 		}
 
-		public override void HandleCommand(MsgCommand cmd, IBotContext bot) {
-
+		public override void HandleCommand(MsgCommand cmd, IBotContext bot)
+		{
 			const string aniDbLink = "http://anidb.net/perl-bin/animedb.pl";
 
 			var text = cmd.Text.ToLowerInvariant();
@@ -88,7 +95,7 @@ namespace MikuBot.ExtraPlugins {
 			if (!text.Contains(aniDbLink))
 				return;
 
-			var idRegex = new Regex(@"[a-z0-9\-\.\:\/\%\?\&\=\+]+");	// Valid URL
+			var idRegex = new Regex(@"[a-z0-9\-\.\:\/\%\?\&\=\+]+");    // Valid URL
 			var linkPos = text.IndexOf(aniDbLink);
 			var urlMatch = idRegex.Match(cmd.Text, linkPos);
 
@@ -102,11 +109,8 @@ namespace MikuBot.ExtraPlugins {
 
 			//GetPageContent(receiver, url);							// Synchronized version
 
-			Task.Factory.StartNew(() => GetPageContent(receiver, url))	// Async version
-				.ContinueWith(TaskHelper.HandleTaskException, TaskContinuationOptions.OnlyOnFaulted);	
-
+			Task.Factory.StartNew(() => GetPageContent(receiver, url))  // Async version
+				.ContinueWith(TaskHelper.HandleTaskException, TaskContinuationOptions.OnlyOnFaulted);
 		}
-
 	}
-
 }

@@ -7,24 +7,19 @@ using System.Threading.Tasks;
 using MikuBot.Commands;
 using MikuBot.Modules;
 
-namespace MikuBot.ExtraPlugins {
-
-	public class Responses : MsgCommandModuleBase {
-
+namespace MikuBot.ExtraPlugins
+{
+	public class Responses : MsgCommandModuleBase
+	{
 		public override string Name => "Responses";
 
-		public override void HandleCommand(MsgCommand cmd, IBotContext bot) {
-
+		public override void HandleCommand(MsgCommand cmd, IBotContext bot)
+		{
 			var match = Regex.Match(cmd.Text, @"^(\w+)\s+" + bot.OwnNick + "$", RegexOptions.IgnoreCase);
 
-			if (match.Success) {
-
-				
-
+			if (match.Success)
+			{
 			}
-				
 		}
-
 	}
-
 }

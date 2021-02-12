@@ -4,14 +4,14 @@ using MikuBot.Modules;
 using MikuBot.VocaDBConnector.Helpers;
 using MikuBot.VocaDBConnector.VocaDbServices;
 
-namespace MikuBot.VocaDBConnector {
-
-	public class SongSearch : MsgCommandModuleBase {
-
+namespace MikuBot.VocaDBConnector
+{
+	public class SongSearch : MsgCommandModuleBase
+	{
 		private VocaVoterConnectorFile connectorFile;
 
-		public override void HandleCommand(MsgCommand cmd, IBotContext bot) {
-
+		public override void HandleCommand(MsgCommand cmd, IBotContext bot)
+		{
 			if (!CheckCall(cmd, bot))
 				return;
 
@@ -22,7 +22,8 @@ namespace MikuBot.VocaDBConnector {
 			// Enable advanced parser with "!"
 			var songs = connectorFile.CallClient(client => client.FindSongs("!" + query, 5, matchMode));
 
-			if (!songs.Items.Any()) {
+			if (!songs.Items.Any())
+			{
 				reply.Msg("No results");
 				return;
 			}
@@ -31,42 +32,45 @@ namespace MikuBot.VocaDBConnector {
 
 			var config = connectorFile.Config;
 
-			foreach (var song in songs.Items) {
-				reply.Msg(EntryFormattingHelper.FormatSongWithUrl(song, config));				
+			foreach (var song in songs.Items)
+			{
+				reply.Msg(EntryFormattingHelper.FormatSongWithUrl(song, config));
 			}
-
 		}
 
-		public override void OnLoaded(IBotContext bot, IModuleFile moduleFile) {
-
+		public override void OnLoaded(IBotContext bot, IModuleFile moduleFile)
+		{
 			connectorFile = (VocaVoterConnectorFile)moduleFile;
-
 		}
 
-		public override int BotCommandParamCount {
+		public override int BotCommandParamCount
+		{
 			get { return 1; }
 		}
 
-		public override string CommandDescription {
+		public override string CommandDescription
+		{
 			get { return "Searches songs by name from VocaDB"; }
 		}
 
-		public override int CooldownChannelMs {
+		public override int CooldownChannelMs
+		{
 			get { return 1000; }
 		}
 
-		public override int CooldownUserMs {
+		public override int CooldownUserMs
+		{
 			get { return 10000; }
 		}
 
-		public override string Name {
+		public override string Name
+		{
 			get { return "Songsearch"; }
 		}
 
-		public override string UsageHelp {
+		public override string UsageHelp
+		{
 			get { return "songsearch <term>"; }
 		}
-
 	}
-
 }

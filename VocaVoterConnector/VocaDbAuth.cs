@@ -2,43 +2,48 @@
 using MikuBot.Modules;
 using MikuBot.VocaDBConnector.VocaDbServices;
 
-namespace MikuBot.VocaDBConnector {
-
-	public class VocaDbAuth : MsgCommandModuleBase {
-
+namespace MikuBot.VocaDBConnector
+{
+	public class VocaDbAuth : MsgCommandModuleBase
+	{
 		private VocaVoterConnectorFile connectorFile;
 
-		private BotUserLevel GetBotUserLevel(UserContract user) {
-
+		private BotUserLevel GetBotUserLevel(UserContract user)
+		{
 			if (user.GroupId == UserGroupId.Moderator || user.GroupId == UserGroupId.Admin)
 				return BotUserLevel.Manager;
 			else
 				return BotUserLevel.Identified;
-
 		}
 
-		public override string CommandDescription {
+		public override string CommandDescription
+		{
 			get { return "Authenticates users based on VocaDb access key. To authenticate, you need to supply your VocaDb username and Access key (not password!). Send this in PM!"; }
 		}
 
-		public override string Name {
+		public override string Name
+		{
 			get { return "VocaDbAuth"; }
 		}
 
-		public override int BotCommandParamCount {
-			get {
+		public override int BotCommandParamCount
+		{
+			get
+			{
 				return 2;
 			}
 		}
 
-		public override string UsageHelp {
-			get {
+		public override string UsageHelp
+		{
+			get
+			{
 				return "vocadbauth <VocaDB username> <VocaDB access key>";
 			}
 		}
 
-		public override void HandleCommand(MsgCommand command, IBotContext bot) {
-
+		public override void HandleCommand(MsgCommand command, IBotContext bot)
+		{
 			if (!command.BotCommand.Is(Name, BotCommandMethod.Private))
 				return;
 
@@ -51,22 +56,19 @@ namespace MikuBot.VocaDBConnector {
 
 			var result = connectorFile.CallClient(client => client.GetUser(name, key));
 
-			if (result == null) {
+			if (result == null)
+			{
 				reply.Msg("Key not recognized");
 				return;
 			}
 
 			reply.Msg("You have been authenticated");
 			bot.Authenticator.Authenticate(command.SenderHost, key, GetBotUserLevel(result));
-
 		}
 
-		public override void OnLoaded(IBotContext bot, IModuleFile moduleFile) {
-
+		public override void OnLoaded(IBotContext bot, IModuleFile moduleFile)
+		{
 			connectorFile = (VocaVoterConnectorFile)moduleFile;
-
 		}
-
 	}
-
 }

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 
-namespace MikuBot.Security {
-
-	public interface IAuthenticator {
-
+namespace MikuBot.Security
+{
+	public interface IAuthenticator
+	{
 		bool Authenticate(Hostmask client, string key);
 
 		void Authenticate(Hostmask client, string key, BotUserLevel userLevel);
@@ -17,7 +17,5 @@ namespace MikuBot.Security {
 		bool KeyMatch(string key);
 
 		bool Unauthenticate(Hostmask client);
-
 	}
-
 }

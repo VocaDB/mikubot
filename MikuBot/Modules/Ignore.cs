@@ -1,16 +1,17 @@
 ﻿using System;
 using MikuBot.Commands;
 
-namespace MikuBot.Modules {
-
-	public class Ignore : BuiltinModule {
-
-		public override string HelpText {
+namespace MikuBot.Modules
+{
+	public class Ignore : BuiltinModule
+	{
+		public override string HelpText
+		{
 			get { return "Makes the bot ignore an user."; }
 		}
 
-		public override void HandleCommand(MsgCommand cmd, Bot bot) {
-
+		public override void HandleCommand(MsgCommand cmd, Bot bot)
+		{
 			if (!cmd.BotCommand.Is(Name) || !cmd.BotCommand.Params.HasParam(0))
 				return;
 
@@ -24,7 +25,8 @@ namespace MikuBot.Modules {
 
 			DateTime? until = null;
 
-			if (cmd.BotCommand.Params.HasParam(1)) {
+			if (cmd.BotCommand.Params.HasParam(1))
+			{
 				TimeSpan span;
 				TimeSpan.TryParse(cmd.BotCommand.Params[1], out span);
 				until = DateTime.Now + span;
@@ -37,17 +39,16 @@ namespace MikuBot.Modules {
 				receiver.Msg("User '" + hostName + "' is now ignored.");
 			else
 				receiver.Msg("User '" + hostName + "' is now ignored until " + until + ".");
-
 		}
 
-		public override BotUserLevel MinUserLevel {
+		public override BotUserLevel MinUserLevel
+		{
 			get { return BotUserLevel.Manager; }
 		}
 
-		public override string Name {
+		public override string Name
+		{
 			get { return "Ignore"; }
 		}
-
 	}
-
 }

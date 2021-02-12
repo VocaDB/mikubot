@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 
-namespace MikuBot.Modules {
-
-	public interface IModuleManager {
-
+namespace MikuBot.Modules
+{
+	public interface IModuleManager
+	{
 		IEnumerable<IModule> AllModules { get; }
 
 		IEnumerable<IModule> BuiltinModules { get; }
@@ -40,7 +40,5 @@ namespace MikuBot.Modules {
 		/// <param name="module">Module to be checked. Cannot be null.</param>
 		/// <returns>True if the module is enabled. Otherwise false.</returns>
 		bool IsModuleEnabled(IModule module);
-
 	}
-
 }

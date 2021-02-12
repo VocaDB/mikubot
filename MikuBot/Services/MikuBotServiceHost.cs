@@ -2,30 +2,26 @@
 using System.ServiceModel;
 using System.Threading.Tasks;
 
-namespace MikuBot.Services {
-
-	public class MikuBotServiceHost : IDisposable {
-
+namespace MikuBot.Services
+{
+	public class MikuBotServiceHost : IDisposable
+	{
 		private ServiceHost adminServiceHost;
 
-		private void Init() {
-
+		private void Init()
+		{
 			adminServiceHost = new ServiceHost(typeof(AdminService));
 			adminServiceHost.Open();
-
 		}
 
-		public MikuBotServiceHost() {
-			
+		public MikuBotServiceHost()
+		{
 			new TaskFactory().StartNew(Init);
-			
 		}
 
-		public void Dispose() {
-			
+		public void Dispose()
+		{
 			adminServiceHost.Close();
-
 		}
-
 	}
 }

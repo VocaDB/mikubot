@@ -6,20 +6,22 @@ using FluentNHibernate.Cfg.Db;
 using log4net;
 using NHibernate;
 
-namespace MikuBot.DbModel.Services {
-
-	public static class DatabaseConfiguration {
-
+namespace MikuBot.DbModel.Services
+{
+	public static class DatabaseConfiguration
+	{
 		private static readonly ILog log = LogManager.GetLogger(typeof(DatabaseConfiguration));
 
-		private static string ConnectionStringName {
-			get {
+		private static string ConnectionStringName
+		{
+			get
+			{
 				return ConfigurationManager.AppSettings["ConnectionStringName"] ?? "Jupiter";
 			}
 		}
 
-		public static ISessionFactory BuildSessionFactory() {
-
+		public static ISessionFactory BuildSessionFactory()
+		{
 			var config = Fluently.Configure()
 				.Database(
 					MsSqlConfiguration.MsSql2008
@@ -33,17 +35,20 @@ namespace MikuBot.DbModel.Services {
 				)
 				.Mappings(m => m.FluentMappings.AddFromAssembly(Assembly.GetExecutingAssembly()).Conventions.AddAssembly(Assembly.GetExecutingAssembly()));
 
-			try {
+			try
+			{
 				return config.BuildSessionFactory();
-			} catch (ArgumentException x) {
-				log.Error("Error while building session factory", x);
-				throw;
-			} catch (FluentConfigurationException x) {
+			}
+			catch (ArgumentException x)
+			{
 				log.Error("Error while building session factory", x);
 				throw;
 			}
-
+			catch (FluentConfigurationException x)
+			{
+				log.Error("Error while building session factory", x);
+				throw;
+			}
 		}
-
 	}
 }

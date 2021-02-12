@@ -5,17 +5,17 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MikuBot.Site.Helpers {
-
-	public class VocaDbHelper {
-
+namespace MikuBot.Site.Helpers
+{
+	public class VocaDbHelper
+	{
 		private static readonly Regex[] linkMatchers = new[] {
 			new Regex(@"vocadb.net/(Song)/Details/(\w+)"),
 			new Regex(@"vocadb.net/(S)/(\w+)"),
 		};
 
-		public static string GetVocaDbPreviewUrl(UrlHelper urlHelper, string linkUrl) {
-
+		public static string GetVocaDbPreviewUrl(UrlHelper urlHelper, string linkUrl)
+		{
 			var matcher = linkMatchers.FirstOrDefault(m => m.IsMatch(linkUrl));
 
 			if (matcher == null)
@@ -28,15 +28,13 @@ namespace MikuBot.Site.Helpers {
 			if (grp == "s")
 				grp = "song";
 
-			switch (grp) {
+			switch (grp)
+			{
 				case "song":
 					return urlHelper.Action("PreviewSong", "VocaDb", new { id });
 			}
 
 			return null;
-
 		}
-
 	}
-
 }

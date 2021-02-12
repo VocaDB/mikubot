@@ -1,10 +1,10 @@
-﻿namespace MikuBot.Modules {
-
+﻿namespace MikuBot.Modules
+{
 	/// <summary>
 	/// Base interface for modules.
 	/// </summary>
-	public interface IModule {
-
+	public interface IModule
+	{
 		string HelpText { get; }
 
 		/// <summary>
@@ -31,7 +31,5 @@
 		/// <param name="bot">Bot. Cannot be null.</param>
 		/// <param name="moduleFile">Module file. Can be null if there is no module file object.</param>
 		void OnLoaded(IBotContext bot, IModuleFile moduleFile);
-
 	}
-
 }

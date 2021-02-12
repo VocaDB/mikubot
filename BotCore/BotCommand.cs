@@ -1,26 +1,26 @@
 ﻿using System;
 using MikuBot.Commands;
 
-namespace MikuBot {
-
-	public class BotCommand {
-
-		public BotCommand(MsgCommand cmd, IBotContext bot) {
-
+namespace MikuBot
+{
+	public class BotCommand
+	{
+		public BotCommand(MsgCommand cmd, IBotContext bot)
+		{
 			CmdReader cmdReader = null;
 			Command = CommandString = string.Empty;
 
-			if (cmd.Receiver.Equals(bot.OwnNick)) {
-
-				Method = BotCommandMethod.Private;				
+			if (cmd.Receiver.Equals(bot.OwnNick))
+			{
+				Method = BotCommandMethod.Private;
 
 				cmdReader = new CmdReader(cmd.Text);
 				var cmdStringReader = new CmdReader(cmd.Text);
 				cmdStringReader.ReadNext();
 				CommandString = cmdStringReader.ReadToEnd();
-
-			} else if (cmd.Text.ToLowerInvariant().StartsWith(bot.OwnNick.LowercaseName + ":")) {
-
+			}
+			else if (cmd.Text.ToLowerInvariant().StartsWith(bot.OwnNick.LowercaseName + ":"))
+			{
 				Method = BotCommandMethod.Highlight;
 
 				int highlightPos = cmd.Text.IndexOf(':');
@@ -29,29 +29,26 @@ namespace MikuBot {
 				var cmdStringReader = new CmdReader(cmd.Text, highlightPos + 1);
 				cmdStringReader.ReadNext();
 				CommandString = cmdStringReader.ReadToEnd();
-			
-			} else if (!string.IsNullOrEmpty(bot.HighlightShortcut) && cmd.Text.StartsWith(bot.HighlightShortcut)) {
-
+			}
+			else if (!string.IsNullOrEmpty(bot.HighlightShortcut) && cmd.Text.StartsWith(bot.HighlightShortcut))
+			{
 				Method = BotCommandMethod.Highlight;
 
 				cmdReader = new CmdReader(cmd.Text, bot.HighlightShortcut.Length);
 				var cmdStringReader = new CmdReader(cmd.Text, bot.HighlightShortcut.Length);
 				cmdStringReader.ReadNext();
 				CommandString = cmdStringReader.ReadToEnd();
-
 			}
 
-			if (cmdReader != null) {
-
+			if (cmdReader != null)
+			{
 				Command = cmdReader.ReadNext();
 				Params = new ParamCollection(cmdReader);
-				
-			} else {
-
-				Params = new ParamCollection();
-
 			}
-
+			else
+			{
+				Params = new ParamCollection();
+			}
 		}
 
 		/// <summary>
@@ -74,18 +71,19 @@ namespace MikuBot {
 		/// </summary>
 		public string CommandString { get; private set; }
 
-		public bool Is(string cmdString) {
+		public bool Is(string cmdString)
+		{
 			return (Command.Equals(cmdString, StringComparison.InvariantCultureIgnoreCase));
 		}
 
-		public bool Is(string cmdString, BotCommandMethod method) {
+		public bool Is(string cmdString, BotCommandMethod method)
+		{
 			return (Is(cmdString) && Method == method);
 		}
-
 	}
-	
-	public enum BotCommandMethod {
-		
+
+	public enum BotCommandMethod
+	{
 		/// <summary>
 		/// No bot command.
 		/// </summary>
@@ -100,7 +98,5 @@ namespace MikuBot {
 		/// Highlight.
 		/// </summary>
 		Highlight
-
 	}
-
 }

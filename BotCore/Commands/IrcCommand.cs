@@ -1,25 +1,25 @@
 ﻿using MikuBot.Commands.Numeric;
 
-namespace MikuBot.Commands {
-
+namespace MikuBot.Commands
+{
 	/// <summary>
 	/// Base class for IRC commands
 	/// </summary>
-	public class IrcCommand {
-
-		private static NumericReply CreateNumericReply(string prefix, string command, ParamCollection paramCollection, int replyCode) {
-			
-			switch (replyCode) {
+	public class IrcCommand
+	{
+		private static NumericReply CreateNumericReply(string prefix, string command, ParamCollection paramCollection, int replyCode)
+		{
+			switch (replyCode)
+			{
 				case (int)ReplyCode.RPL_WHOREPLY:
 					return new WhoReply(prefix, command, paramCollection);
 				default:
 					return new NumericReply(prefix, command, paramCollection, replyCode);
 			}
-
 		}
 
-		public static IrcCommand Parse(string cmd, IBotContext bot) {
-
+		public static IrcCommand Parse(string cmd, IBotContext bot)
+		{
 			if (string.IsNullOrEmpty(cmd))
 				return null;
 
@@ -34,7 +34,8 @@ namespace MikuBot.Commands {
 
 			var paramCollection = new ParamCollection(cmdReader);
 
-			switch (command) {
+			switch (command)
+			{
 				case "INVITE":
 					return new InviteCommand(prefix, paramCollection, bot);
 				case "JOIN":
@@ -60,28 +61,29 @@ namespace MikuBot.Commands {
 					else
 						return new IrcCommand(prefix, command, paramCollection);
 			}
-
 		}
 
-		private IrcCommand() {
+		private IrcCommand()
+		{
 			Command = Prefix = string.Empty;
 		}
 
 		public IrcCommand(string prefix, string command, ParamCollection paramCollection)
-			: this() {
-
+			: this()
+		{
 			Prefix = prefix ?? Prefix;
 			Command = command;
 			ParamCollection = paramCollection;
-
 		}
 
 		/// <summary>
 		/// If this message was sent on a channel, name of that channel, or if the message was sent to this bot directly, the name of the sender.
 		/// This name can be used for replying to the sender.
 		/// </summary>
-		public virtual IrcName ChannelOrSenderNick {
-			get {
+		public virtual IrcName ChannelOrSenderNick
+		{
+			get
+			{
 				return (Sender != null ? Sender.Nick : IrcName.Empty);
 			}
 		}
@@ -98,12 +100,12 @@ namespace MikuBot.Commands {
 		/// <summary>
 		/// Sender of the message, if known. Can be null.
 		/// </summary>
-		public virtual UserData Sender {
-			get {
+		public virtual UserData Sender
+		{
+			get
+			{
 				return null;
 			}
 		}
-
 	}
-
 }

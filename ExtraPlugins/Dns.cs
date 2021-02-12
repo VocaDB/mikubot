@@ -7,28 +7,32 @@ using System.Text;
 using MikuBot.Commands;
 using MikuBot.Modules;
 
-namespace MikuBot.ExtraPlugins {
-
-	public class DnsResolve : MsgCommandModuleBase {
-
-		public override int BotCommandParamCount {
+namespace MikuBot.ExtraPlugins
+{
+	public class DnsResolve : MsgCommandModuleBase
+	{
+		public override int BotCommandParamCount
+		{
 			get { return 1; }
 		}
 
-		public override string CommandDescription {
+		public override string CommandDescription
+		{
 			get { return "Resolves DNS address"; }
 		}
 
-		public override string Name {
+		public override string Name
+		{
 			get { return "Dns"; }
 		}
 
-		public override string UsageHelp {
+		public override string UsageHelp
+		{
 			get { return "dns <url>"; }
 		}
 
-		public override void HandleCommand(MsgCommand chat, IBotContext bot) {
-
+		public override void HandleCommand(MsgCommand chat, IBotContext bot)
+		{
 			if (!CheckCall(chat, bot))
 				return;
 
@@ -36,34 +40,40 @@ namespace MikuBot.ExtraPlugins {
 			var param = chat.BotCommand.Params[0];
 			string host;
 
-			try {
+			try
+			{
 				var u = new Uri(param);
 				host = u.DnsSafeHost;
-			} catch (UriFormatException) {
+			}
+			catch (UriFormatException)
+			{
 				host = param;
 			}
 			IPAddress[] addresses;
 
-			try {
+			try
+			{
 				addresses = Dns.GetHostAddresses(host);
-			} catch (ArgumentException x) {
+			}
+			catch (ArgumentException x)
+			{
 				reply.Msg("DNS (error): " + x.Message);
 				return;
-			} catch (SocketException x) {
+			}
+			catch (SocketException x)
+			{
 				reply.Msg("DNS (error): " + x.Message);
 				return;
 			}
 
-			if (!addresses.Any()) {
+			if (!addresses.Any())
+			{
 				reply.Msg("DNS: Nothing found.");
 				return;
 			}
 
 			var addressStr = addresses.Select(a => a.ToString());
 			reply.Msg("Addresses for " + host + ": " + string.Join(", ", addressStr));
-
 		}
-
 	}
-
 }

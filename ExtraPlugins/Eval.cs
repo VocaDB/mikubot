@@ -8,16 +8,17 @@ using Microsoft.CSharp;
 using MikuBot.Commands;
 using MikuBot.Modules;
 
-namespace MikuBot.ExtraPlugins {
-
-	public class Eval : MsgCommandModuleBase {
-
-		public override int BotCommandParamCount {
+namespace MikuBot.ExtraPlugins
+{
+	public class Eval : MsgCommandModuleBase
+	{
+		public override int BotCommandParamCount
+		{
 			get { return 1; }
 		}
 
-		public override void HandleCommand(MsgCommand cmd, IBotContext bot) {
-
+		public override void HandleCommand(MsgCommand cmd, IBotContext bot)
+		{
 			if (!CheckCall(cmd, bot))
 				return;
 
@@ -35,36 +36,39 @@ namespace MikuBot.ExtraPlugins {
 
 			var result = compiler.CompileAssemblyFromSource(par, script);
 
-			if (result.Errors.HasErrors) {
+			if (result.Errors.HasErrors)
+			{
 				reply.Msg("Error: " + result.Errors[0].ErrorText);
 				return;
 			}
 
 			var compiled = result.CompiledAssembly;
-
 		}
 
-		public override string CommandDescription {
+		public override string CommandDescription
+		{
 			get { return "Executes a line of C# code."; }
 		}
 
-		public override InitialModuleStatus InitialStatus {
+		public override InitialModuleStatus InitialStatus
+		{
 			// TODO: remove when finished
 			get { return InitialModuleStatus.NotLoaded; }
 		}
 
-		public override string UsageHelp {
+		public override string UsageHelp
+		{
 			get { return "eval <code>"; }
 		}
 
-		public override BotUserLevel MinUserLevel {
+		public override BotUserLevel MinUserLevel
+		{
 			get { return BotUserLevel.Admin; }
 		}
 
-		public override string Name {
+		public override string Name
+		{
 			get { return "Eval"; }
 		}
-
 	}
-
 }

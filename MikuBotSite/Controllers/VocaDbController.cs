@@ -1,17 +1,18 @@
 ﻿using System.Net;
 using System.Web.Mvc;
 
-namespace MikuBot.Site.Controllers {
-
-	public class VocaDbController : Controller {
-
+namespace MikuBot.Site.Controllers
+{
+	public class VocaDbController : Controller
+	{
 		private const string vocaDbPath = "http://vocadb.net";
 
-		public ActionResult PreviewSong(int id) {
-
+		public ActionResult PreviewSong(int id)
+		{
 			string thumbUrl;
 
-			using (var request = new WebClient()) {
+			using (var request = new WebClient())
+			{
 				thumbUrl = request.DownloadString(string.Format("{0}/Song/ThumbUrl/{1}", vocaDbPath, id));
 			}
 
@@ -19,8 +20,6 @@ namespace MikuBot.Site.Controllers {
 				return Redirect(thumbUrl);
 
 			return Content("");
-
 		}
-
 	}
 }

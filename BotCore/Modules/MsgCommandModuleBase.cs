@@ -1,41 +1,47 @@
 ﻿using MikuBot.Commands;
 
-namespace MikuBot.Modules {
-
-	public abstract class MsgCommandModuleBase : ModuleBase, IMsgCommandModule {
-
+namespace MikuBot.Modules
+{
+	public abstract class MsgCommandModuleBase : ModuleBase, IMsgCommandModule
+	{
 		private CooldownTimer channelCooldown;
 		private CooldownTimer userCooldown;
 
-		protected MsgCommandModuleBase() {
-
+		protected MsgCommandModuleBase()
+		{
 			channelCooldown = new CooldownTimer();
 			userCooldown = new CooldownTimer();
-
 		}
 
-		private string UsageText {
+		private string UsageText
+		{
 			get { return Formatting.Bold + "Usage: " + Formatting.Bold + UsageHelp; }
 		}
 
-		public virtual int BotCommandParamCount {
+		public virtual int BotCommandParamCount
+		{
 			get { return 0; }
 		}
 
-		public virtual int CooldownChannelMs {
+		public virtual int CooldownChannelMs
+		{
 			get { return 0; }
 		}
 
-		public virtual int CooldownUserMs {
+		public virtual int CooldownUserMs
+		{
 			get { return 0; }
 		}
 
-		public virtual string CommandDescription {
+		public virtual string CommandDescription
+		{
 			get { return string.Empty; }
 		}
 
-		public override string HelpText {
-			get {
+		public override string HelpText
+		{
+			get
+			{
 				return
 					(!string.IsNullOrEmpty(CommandDescription) ? CommandDescription : string.Empty)
 					+ (!string.IsNullOrEmpty(UsageHelp) && !string.IsNullOrEmpty(CommandDescription) ? "\n" : string.Empty)
@@ -43,45 +49,45 @@ namespace MikuBot.Modules {
 			}
 		}
 
-		public virtual bool IsPassive {
+		public virtual bool IsPassive
+		{
 			get { return false; }
 		}
 
-		public virtual string UsageHelp {
+		public virtual string UsageHelp
+		{
 			get { return string.Empty; }
 		}
 
 		public abstract void HandleCommand(MsgCommand cmd, IBotContext bot);
 
-		protected virtual bool CheckCall(MsgCommand command, IBotContext bot) {
-
+		protected virtual bool CheckCall(MsgCommand command, IBotContext bot)
+		{
 			if (!command.BotCommand.Is(Name))
 				return false;
 
 			if (!CheckAccess(command, bot))
 				return false;
 
-			if (command.BotCommand.Params.Count < BotCommandParamCount) {
-
-				bot.Writer.Msg(command.ChannelOrSenderNick, string.Format("The minimum number of parameters for '{0}' is {1}.", 
+			if (command.BotCommand.Params.Count < BotCommandParamCount)
+			{
+				bot.Writer.Msg(command.ChannelOrSenderNick, string.Format("The minimum number of parameters for '{0}' is {1}.",
 					Name, BotCommandParamCount));
 
 				if (!string.IsNullOrEmpty(UsageHelp))
 					bot.Writer.Msg(command.ChannelOrSenderNick, UsageText);
 
 				return false;
-
 			}
 
 			if (!CheckCooldowns(command, bot, true))
 				return false;
 
 			return true;
-
 		}
 
-		protected bool CheckCooldowns(MsgCommand command, IBotContext bot, bool warn) {
-
+		protected bool CheckCooldowns(MsgCommand command, IBotContext bot, bool warn)
+		{
 			if (!userCooldown.CheckAccess(command.Sender.Nick, command.Sender.Nick, bot, CooldownUserMs, warn))
 				return false;
 
@@ -89,16 +95,12 @@ namespace MikuBot.Modules {
 				return false;
 
 			return true;
-
 		}
 
-		public void ClearCooldown(MsgCommand command) {
-			
+		public void ClearCooldown(MsgCommand command)
+		{
 			userCooldown.Clear(command.Sender.Nick);
 			channelCooldown.Clear(command.ChannelOrSenderNick);
-
 		}
-
 	}
-
 }

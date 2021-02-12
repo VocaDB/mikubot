@@ -2,14 +2,14 @@
 using MikuBot.Commands;
 using MikuBot.VocaDBConnector.Helpers;
 
-namespace MikuBot.VocaDBConnector {
-
-	public class TagDetails : MsgCommandModuleBase {
-
+namespace MikuBot.VocaDBConnector
+{
+	public class TagDetails : MsgCommandModuleBase
+	{
 		private VocaVoterConnectorFile connectorFile;
 
-		public override void HandleCommand(MsgCommand cmd, IBotContext bot) {
-
+		public override void HandleCommand(MsgCommand cmd, IBotContext bot)
+		{
 			if (!CheckCall(cmd, bot))
 				return;
 
@@ -18,41 +18,44 @@ namespace MikuBot.VocaDBConnector {
 
 			var tag = connectorFile.CallClient(client => client.GetTagByName(query));
 
-			if (tag == null) {
+			if (tag == null)
+			{
 				receiver.Msg("No results.");
 				return;
 			}
 
 			receiver.Msg(EntryFormattingHelper.FormatTagWithUrl(tag, connectorFile.Config));
-
 		}
 
-		public override string Name {
+		public override string Name
+		{
 			get { return "Tag"; }
 		}
 
-		public override string CommandDescription {
-			get {
+		public override string CommandDescription
+		{
+			get
+			{
 				return "Displays details for a single tag matching a query.";
 			}
 		}
 
-		public override string UsageHelp {
-			get {
+		public override string UsageHelp
+		{
+			get
+			{
 				return "tag <query>";
 			}
 		}
 
-		public override int BotCommandParamCount {
+		public override int BotCommandParamCount
+		{
 			get { return 1; }
 		}
 
-		public override void OnLoaded(IBotContext bot, IModuleFile moduleFile) {
-
+		public override void OnLoaded(IBotContext bot, IModuleFile moduleFile)
+		{
 			connectorFile = (VocaVoterConnectorFile)moduleFile;
-
 		}
-
 	}
-
 }

@@ -1,7 +1,7 @@
-﻿namespace MikuBot.Modules {
-
-	public interface IModuleFile {
-
+﻿namespace MikuBot.Modules
+{
+	public interface IModuleFile
+	{
 		/// <summary>
 		/// Called when the module file loading has started, before any modules have been loaded.
 		/// </summary>
@@ -20,7 +20,5 @@
 		/// <param name="module">Module which was loaded. Cannot be null.</param>
 		/// <param name="bot">Bot. Cannot be null.</param>
 		void OnModuleLoaded(IModule module, IBotContext bot);
-
 	}
-
 }

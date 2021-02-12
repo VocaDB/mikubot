@@ -2,10 +2,10 @@
 using System.Text.RegularExpressions;
 using MikuBot.VocaDBConnector.VocaDbServices;
 
-namespace MikuBot.VocaDBConnector.Helpers {
-
-	public class VideoService {
-
+namespace MikuBot.VocaDBConnector.Helpers
+{
+	public class VideoService
+	{
 		public static readonly VideoService[] Services = new[] {
 			new VideoService(PVService.Youtube, new[] {
 				new Regex(@"youtube.com/watch?\S*v=(\S{11})"),
@@ -24,28 +24,25 @@ namespace MikuBot.VocaDBConnector.Helpers {
 
 		private readonly Regex[] linkMatchers;
 
-		public VideoService(PVService service, Regex[] linkMatchers) {
-
+		public VideoService(PVService service, Regex[] linkMatchers)
+		{
 			Service = service;
 			this.linkMatchers = linkMatchers;
-
 		}
 
 		public PVService Service { get; set; }
 
-		public string GetId(string url) {
-
+		public string GetId(string url)
+		{
 			var matcher = linkMatchers.FirstOrDefault(m => m.IsMatch(url));
 			var match = matcher.Match(url);
 
 			return match.Groups[1].Value;
-
 		}
 
-		public bool IsMatch(string url) {
+		public bool IsMatch(string url)
+		{
 			return linkMatchers.Any(m => m.IsMatch(url));
 		}
-
 	}
-
 }

@@ -1,7 +1,7 @@
-﻿namespace MikuBot {
-
-	public interface IConfig {
-
+﻿namespace MikuBot
+{
+	public interface IConfig
+	{
 		double CooldownMultiplier { get; }
 
 		string DanbooruPassHash { get; }
@@ -24,7 +24,5 @@
 
 		// TODO: certain properties (like nickserv pass) should be protected
 		string GetString(string name);
-
 	}
-
 }

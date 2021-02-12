@@ -3,14 +3,14 @@ using MikuBot.Modules;
 using MikuBot.VocaDBConnector.Helpers;
 using MikuBot.VocaDBConnector.VocaDbServices;
 
-namespace MikuBot.VocaDBConnector {
-
-	public class ArtistDetails : MsgCommandModuleBase {
-
+namespace MikuBot.VocaDBConnector
+{
+	public class ArtistDetails : MsgCommandModuleBase
+	{
 		private VocaVoterConnectorFile connectorFile;
 
-		public override void HandleCommand(MsgCommand cmd, IBotContext bot) {
-
+		public override void HandleCommand(MsgCommand cmd, IBotContext bot)
+		{
 			if (!CheckCall(cmd, bot))
 				return;
 
@@ -19,55 +19,63 @@ namespace MikuBot.VocaDBConnector {
 
 			ArtistDetailsContract artist;
 			int artistId;
-			if (int.TryParse(query, out artistId)) {
+			if (int.TryParse(query, out artistId))
+			{
 				artist = connectorFile.CallClient(client => client.GetArtistById(artistId));
-			} else {
+			}
+			else
+			{
 				artist = connectorFile.CallClient(client => client.GetArtistDetails(query));
 			}
 
-			if (artist == null) {
+			if (artist == null)
+			{
 				receiver.Msg("No results.");
 				return;
 			}
 
 			receiver.Msg(EntryFormattingHelper.FormatArtistWithUrl(artist, connectorFile.Config));
-
 		}
 
-		public override string Name {
+		public override string Name
+		{
 			get { return "Artist"; }
 		}
 
-		public override int BotCommandParamCount {
+		public override int BotCommandParamCount
+		{
 			get { return 1; }
 		}
 
-		public override string CommandDescription {
-			get {
+		public override string CommandDescription
+		{
+			get
+			{
 				return "Displays details for a single artist matching a query.";
 			}
 		}
 
-		public override int CooldownChannelMs {
+		public override int CooldownChannelMs
+		{
 			get { return 1000; }
 		}
 
-		public override int CooldownUserMs {
+		public override int CooldownUserMs
+		{
 			get { return 5000; }
 		}
 
-		public override string UsageHelp {
-			get {
+		public override string UsageHelp
+		{
+			get
+			{
 				return "artist <query>";
 			}
 		}
 
-		public override void OnLoaded(IBotContext bot, IModuleFile moduleFile) {
-
+		public override void OnLoaded(IBotContext bot, IModuleFile moduleFile)
+		{
 			connectorFile = (VocaVoterConnectorFile)moduleFile;
-
 		}
-
 	}
-
 }
