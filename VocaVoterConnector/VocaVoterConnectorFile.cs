@@ -9,56 +9,44 @@ namespace MikuBot.VocaDBConnector
 {
 	public class VocaVoterConnectorFile : ModuleFileBase
 	{
-		private VocaDbConfig config;
+		public VocaDbConfig Config { get; private set; }
 		private string endPointAddressUtaiteDb;
 		private string endPointAddressVocaDb;
 
 		public void CallClient(ClientType clientType, Action<QueryServiceClient> clientFunc)
 		{
-			using (var client = CreateClient(clientType))
-			{
-				clientFunc(client);
-			}
+			using var client = CreateClient(clientType);
+			clientFunc(client);
 		}
 
 		public T CallClient<T>(ClientType clientType, Func<QueryServiceClient, T> clientFunc)
 		{
-			using (var client = CreateClient(clientType))
-			{
-				return clientFunc(client);
-			}
+			using var client = CreateClient(clientType);
+			return clientFunc(client);
 		}
 
 		public async Task<T> CallClientAsync<T>(ClientType clientType, Func<QueryServiceClient, Task<T>> clientFunc)
 		{
-			using (var client = CreateClient(clientType))
-			{
-				return await clientFunc(client);
-			}
+			using var client = CreateClient(clientType);
+			return await clientFunc(client);
 		}
 
 		public void CallClient(Action<QueryServiceClient> clientFunc)
 		{
-			using (var client = CreateClient(ClientType.VocaDb))
-			{
-				clientFunc(client);
-			}
+			using var client = CreateClient(ClientType.VocaDb);
+			clientFunc(client);
 		}
 
 		public T CallClient<T>(Func<QueryServiceClient, T> clientFunc)
 		{
-			using (var client = CreateClient(ClientType.VocaDb))
-			{
-				return clientFunc(client);
-			}
+			using var client = CreateClient(ClientType.VocaDb);
+			return clientFunc(client);
 		}
 
 		public async Task<T> CallClientAsync<T>(Func<QueryServiceClient, Task<T>> clientFunc, ClientType clientType = ClientType.VocaDb)
 		{
-			using (var client = CreateClient(clientType))
-			{
-				return await clientFunc(client);
-			}
+			using var client = CreateClient(clientType);
+			return await clientFunc(client);
 		}
 
 		private QueryServiceClient CreateClient(ClientType clientType)
@@ -74,14 +62,9 @@ namespace MikuBot.VocaDBConnector
 
 		public override void OnLoading(IBotContext bot)
 		{
-			config = new VocaDbConfig(bot.Config);
+			Config = new VocaDbConfig(bot.Config);
 			endPointAddressUtaiteDb = bot.Config.GetString("UtaiteDbQueryServiceEndPoint");
 			endPointAddressVocaDb = bot.Config.GetString("VocaDbQueryServiceEndPoint");
-		}
-
-		public VocaDbConfig Config
-		{
-			get { return config; }
 		}
 	}
 
