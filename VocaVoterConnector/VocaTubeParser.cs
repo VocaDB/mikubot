@@ -72,8 +72,7 @@ namespace MikuBot.VocaDBConnector
 			}
 
 			var durationStr = response.Headers["X-Content-Duration"];
-			int durationSec;
-			int.TryParse(durationStr, out durationSec);
+			int.TryParse(durationStr, out var durationSec);
 
 			if (durationSec > 0)
 			{

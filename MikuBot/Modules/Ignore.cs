@@ -27,8 +27,7 @@ namespace MikuBot.Modules
 
 			if (cmd.BotCommand.Params.HasParam(1))
 			{
-				TimeSpan span;
-				TimeSpan.TryParse(cmd.BotCommand.Params[1], out span);
+				TimeSpan.TryParse(cmd.BotCommand.Params[1], out var span);
 				until = DateTime.Now + span;
 			}
 

@@ -20,8 +20,7 @@ namespace MikuBot.VocaDBConnector
 
 			SongDetailsContract song;
 
-			int songId;
-			if (int.TryParse(query, out songId))
+			if (int.TryParse(query, out var songId))
 			{
 				song = connectorFile.CallClient(client => client.GetSongById(songId, ContentLanguagePreference.English));
 			}

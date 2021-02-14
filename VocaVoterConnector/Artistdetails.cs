@@ -18,8 +18,7 @@ namespace MikuBot.VocaDBConnector
 			var receiver = new Receiver(bot.Writer, cmd.ChannelOrSenderNick);
 
 			ArtistDetailsContract artist;
-			int artistId;
-			if (int.TryParse(query, out artistId))
+			if (int.TryParse(query, out var artistId))
 			{
 				artist = connectorFile.CallClient(client => client.GetArtistById(artistId));
 			}

@@ -15,8 +15,7 @@ namespace MikuBot.ExtraPlugins
 			if (!col.HasParam(index))
 				return def;
 
-			int val;
-			if (int.TryParse(col[index], out val))
+			if (int.TryParse(col[index], out var val))
 				return val;
 			else
 				return def;

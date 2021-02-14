@@ -22,11 +22,9 @@ namespace MikuBot.DbPlugins.Utils
 
 			var nick = new IrcName(nickMatch.Value.Substring(1, nickMatch.Length - 2));
 
-			DateTime date;
-
 			var dateStr = line.Substring(0, nickMatch.Index - 1);
 
-			if (!DateTime.TryParse(dateStr, out date))
+			if (!DateTime.TryParse(dateStr, out var date))
 				date = DateTime.Now;
 
 			var text = line.Substring(nickMatch.Index + nickMatch.Length + 1).Trim();
