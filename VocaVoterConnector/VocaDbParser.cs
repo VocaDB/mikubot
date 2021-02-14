@@ -1,12 +1,12 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using MikuBot.Commands;
 using MikuBot.Helpers;
 using MikuBot.Modules;
 using MikuBot.VocaDBConnector.Helpers;
-using MikuBot.VocaDBConnector.VocaDbServices;
+using VocaDb.Model.Domain.Globalization;
+using VocaDb.Model.Domain.Songs;
 
 namespace MikuBot.VocaDBConnector
 {

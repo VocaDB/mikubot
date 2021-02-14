@@ -1,9 +1,12 @@
 ﻿using System;
-using System.Linq;
-using MikuBot.VocaDBConnector.VocaDbServices;
 using System.Text;
 using MikuBot.Helpers;
 using MikuBot.VocaVoterConnector;
+using VocaDb.Model.DataContracts.Albums;
+using VocaDb.Model.DataContracts.Api;
+using VocaDb.Model.DataContracts.Artists;
+using VocaDb.Model.DataContracts.Songs;
+using VocaDb.Model.DataContracts.Tags;
 
 namespace MikuBot.VocaDBConnector.Helpers
 {

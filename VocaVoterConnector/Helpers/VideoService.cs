@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Text.RegularExpressions;
-using MikuBot.VocaDBConnector.VocaDbServices;
+using VocaDb.Model.Domain.PVs;
 
 namespace MikuBot.VocaDBConnector.Helpers
 {
