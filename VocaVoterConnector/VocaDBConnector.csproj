@@ -43,6 +43,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
@@ -59,12 +60,17 @@
     <Compile Include="ArtistSearch.cs" />
     <Compile Include="DataContracts\AlbumContract.cs" />
     <Compile Include="DataContracts\AlbumDetailsContract.cs" />
+    <Compile Include="DataContracts\AlbumForApiContract.cs" />
+    <Compile Include="DataContracts\AlbumOptionalFields.cs" />
     <Compile Include="DataContracts\AlbumSortRule.cs" />
     <Compile Include="DataContracts\ArtistContract.cs" />
     <Compile Include="DataContracts\ArtistDetailsContract.cs" />
+    <Compile Include="DataContracts\ArtistForApiContract.cs" />
+    <Compile Include="DataContracts\ArtistOptionalFields.cs" />
     <Compile Include="DataContracts\ArtistType.cs" />
     <Compile Include="DataContracts\ContentLanguagePreference.cs" />
     <Compile Include="DataContracts\EntryForApiContract.cs" />
+    <Compile Include="DataContracts\EntryOptionalFields.cs" />
     <Compile Include="DataContracts\LyricsForSongContract.cs" />
     <Compile Include="DataContracts\NameMatchMode.cs" />
     <Compile Include="DataContracts\OptionalDateTimeContract.cs" />
@@ -72,14 +78,17 @@
     <Compile Include="DataContracts\PVService.cs" />
     <Compile Include="DataContracts\SongContract.cs" />
     <Compile Include="DataContracts\SongDetailsContract.cs" />
+    <Compile Include="DataContracts\SongForApiContract.cs" />
     <Compile Include="DataContracts\SongListBaseContract.cs" />
     <Compile Include="DataContracts\SongListContract.cs" />
     <Compile Include="DataContracts\SongListFeaturedCategory.cs" />
+    <Compile Include="DataContracts\SongOptionalFields.cs" />
     <Compile Include="DataContracts\SongType.cs" />
     <Compile Include="DataContracts\SongWithAlbumAndPVsContract.cs" />
     <Compile Include="DataContracts\SongWithAlbumContract.cs" />
     <Compile Include="DataContracts\TagBaseContract.cs" />
     <Compile Include="DataContracts\TagContract.cs" />
+    <Compile Include="DataContracts\TagForApiContract.cs" />
     <Compile Include="DataContracts\UserBaseContract.cs" />
     <Compile Include="DataContracts\UserContract.cs" />
     <Compile Include="DataContracts\UserForApiContract.cs" />
@@ -96,6 +105,7 @@
     <Compile Include="SongSearch.cs" />
     <Compile Include="SongDetails.cs" />
     <Compile Include="TagDetails.cs" />
+    <Compile Include="TagOptionalFields.cs" />
     <Compile Include="VocaDbAuth.cs" />
     <Compile Include="VocaDbClient.cs" />
     <Compile Include="VocaDBConfig.cs" />
