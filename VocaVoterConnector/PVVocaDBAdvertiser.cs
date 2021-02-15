@@ -3,7 +3,8 @@ using System.Threading.Tasks;
 using MikuBot.Commands;
 using MikuBot.Modules;
 using MikuBot.VocaDBConnector.Helpers;
-using MikuBot.VocaDBConnector.VocaDbServices;
+using VocaDb.Model.DataContracts.Songs;
+using VocaDb.Model.Domain.PVs;
 
 namespace MikuBot.VocaDBConnector
 {

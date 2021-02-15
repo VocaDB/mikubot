@@ -1,6 +1,7 @@
 ﻿using MikuBot.Commands;
 using MikuBot.Modules;
-using MikuBot.VocaDBConnector.VocaDbServices;
+using VocaDb.Model.DataContracts.Users;
+using VocaDb.Model.Domain.Users;
 
 namespace MikuBot.VocaDBConnector
 {

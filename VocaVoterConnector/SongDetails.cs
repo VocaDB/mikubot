@@ -1,7 +1,9 @@
 ﻿using MikuBot.Commands;
 using MikuBot.Modules;
 using MikuBot.VocaDBConnector.Helpers;
-using MikuBot.VocaDBConnector.VocaDbServices;
+using VocaDb.Model.DataContracts.Songs;
+using VocaDb.Model.Domain.Globalization;
+using VocaDb.Model.Service;
 
 namespace MikuBot.VocaDBConnector
 {

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.ServiceModel;
 using System.Threading.Tasks;
 using MikuBot.Modules;
-using MikuBot.VocaDBConnector.VocaDbServices;
 using MikuBot.VocaVoterConnector;
 
 namespace MikuBot.VocaDBConnector
@@ -10,61 +8,57 @@ namespace MikuBot.VocaDBConnector
 	public class VocaVoterConnectorFile : ModuleFileBase
 	{
 		public VocaDbConfig Config { get; private set; }
-		private string endPointAddressUtaiteDb;
-		private string endPointAddressVocaDb;
 
-		public void CallClient(ClientType clientType, Action<QueryServiceClient> clientFunc)
+		public void CallClient(ClientType clientType, Action<VocaDbClient> clientFunc)
 		{
 			using var client = CreateClient(clientType);
 			clientFunc(client);
 		}
 
-		public T CallClient<T>(ClientType clientType, Func<QueryServiceClient, T> clientFunc)
+		public T CallClient<T>(ClientType clientType, Func<VocaDbClient, T> clientFunc)
 		{
 			using var client = CreateClient(clientType);
 			return clientFunc(client);
 		}
 
-		public async Task<T> CallClientAsync<T>(ClientType clientType, Func<QueryServiceClient, Task<T>> clientFunc)
+		public async Task<T> CallClientAsync<T>(ClientType clientType, Func<VocaDbClient, Task<T>> clientFunc)
 		{
 			using var client = CreateClient(clientType);
 			return await clientFunc(client);
 		}
 
-		public void CallClient(Action<QueryServiceClient> clientFunc)
+		public void CallClient(Action<VocaDbClient> clientFunc)
 		{
 			using var client = CreateClient(ClientType.VocaDb);
 			clientFunc(client);
 		}
 
-		public T CallClient<T>(Func<QueryServiceClient, T> clientFunc)
+		public T CallClient<T>(Func<VocaDbClient, T> clientFunc)
 		{
 			using var client = CreateClient(ClientType.VocaDb);
 			return clientFunc(client);
 		}
 
-		public async Task<T> CallClientAsync<T>(Func<QueryServiceClient, Task<T>> clientFunc, ClientType clientType = ClientType.VocaDb)
+		public async Task<T> CallClientAsync<T>(Func<VocaDbClient, Task<T>> clientFunc, ClientType clientType = ClientType.VocaDb)
 		{
 			using var client = CreateClient(clientType);
 			return await clientFunc(client);
 		}
 
-		private QueryServiceClient CreateClient(ClientType clientType)
+		private VocaDbClient CreateClient(ClientType clientType)
 		{
-			var endpoint = clientType == ClientType.VocaDb ? endPointAddressVocaDb : endPointAddressUtaiteDb;
-			var isSsl = endpoint.StartsWith("https://", StringComparison.InvariantCultureIgnoreCase);
-
-			var binding = new BasicHttpBinding(isSsl ? BasicHttpSecurityMode.Transport : BasicHttpSecurityMode.None) { MaxReceivedMessageSize = 131072 };
-			var endPoint = new EndpointAddress(endpoint);
-
-			return new QueryServiceClient(binding, endPoint);
+			var endpoint = clientType switch
+			{
+				ClientType.VocaDb => Config.VocaDBUrl,
+				ClientType.UtaiteDb => Config.UtaiteDBUrl,
+				_ => throw new ArgumentException(),
+			} + "api";
+			return new VocaDbClient(endpoint);
 		}
 
 		public override void OnLoading(IBotContext bot)
 		{
 			Config = new VocaDbConfig(bot.Config);
-			endPointAddressUtaiteDb = bot.Config.GetString("UtaiteDbQueryServiceEndPoint");
-			endPointAddressVocaDb = bot.Config.GetString("VocaDbQueryServiceEndPoint");
 		}
 	}
 

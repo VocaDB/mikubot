@@ -1,5 +1,5 @@
 ﻿using System;
-using MikuBot.VocaDBConnector.VocaDbServices;
+using VocaDb.Model.Service;
 
 namespace MikuBot.VocaDBConnector.Helpers
 {

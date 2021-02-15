@@ -3,7 +3,7 @@ using MikuBot.Commands;
 using MikuBot.Modules;
 using MikuBot.VocaDBConnector;
 using MikuBot.VocaDBConnector.Helpers;
-using MikuBot.VocaDBConnector.VocaDbServices;
+using VocaDb.Model.Domain.Globalization;
 
 namespace MikuBot.VocaVoterConnector
 {
