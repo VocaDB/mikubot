@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MikuBot.VocaDBConnector</RootNamespace>
     <AssemblyName>MikuBot.VocaDBConnector</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>

@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MikuBot.ExtraPlugins</RootNamespace>
     <AssemblyName>MikuBot.ExtraPlugins</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
