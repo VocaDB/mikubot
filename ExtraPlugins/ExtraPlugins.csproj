@@ -177,7 +177,7 @@
       <Version>2.2.22</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
-      <Version>6.0.4</Version>
+      <Version>13.0.1</Version>
     </PackageReference>
     <PackageReference Include="PiaproClient">
       <Version>1.1.2</Version>
